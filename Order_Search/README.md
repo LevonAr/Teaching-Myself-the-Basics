@@ -7,7 +7,7 @@ My main goal with writing this program was to deepen my understanding of recursi
 
 This program was designed to provide me with an 'n' amount of pseudorandom integers to work with. The usage of this file is as follows:
 
-## spawn n [s]
+**spawn n [s]**
 
 Where n is the number of integers we want "spawned", and s is an optional seed. 
 Without the seed, the program generates a new set of pseudorandom integers every time you use it. However, the seed allows for the same set of pseudorandom integers to be replicated. For instance, the command:  ./spawn 40 [2] will generate the same set of 40 numbers every time it is used. 

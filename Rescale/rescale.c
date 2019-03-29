@@ -110,17 +110,17 @@ int main(int argc, char *argv[])
         bi.biHeight = originalHeight;
 
 
-        // iterate over infile's scanlines
+        // iterates over infile's scanlines
         for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
         {
             int per_pixel_height = round((i+1)*base_pixel_ratio) - round(i*base_pixel_ratio);
 
             for(int m=0; m<per_pixel_height;m++)
             {
-            // iterate over pixels in scanline
+            // iterate's over pixels in scanline
                 for (int j = 0; j < bi.biWidth; j++)
                 {
-                    // temporary storage
+                    // temporary storage for a pixel
                     RGBTRIPLE triple;
 
                     // read RGB triple from infile

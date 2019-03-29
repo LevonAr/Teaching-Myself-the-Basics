@@ -20,7 +20,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    // defines n as a number
+    // defines 'n' as a number
     int n = atoi(argv[1]);
 
     // checks whether optional seed is used
@@ -33,7 +33,7 @@ int main(int argc, string argv[])
         srand48((long) time(NULL));
     }
 
-    // prints all the pseudorandom numbers
+    // prints out all the pseudorandom numbers
     for (int i = 0; i < n; i++)
     {
         printf("%i\n", (int) (drand48() * LIMIT));

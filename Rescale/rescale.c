@@ -20,15 +20,15 @@ int main(int argc, char *argv[])
     double ratio;
 
     ratio = atof(argv[1]);
-
-    // remember filenames
-
-
+    
+    //check whether ratio is valid
     if (ratio<= 0.0 || ratio >100.0)
     {
         fprintf(stderr, "ratio is invalid");
         return 2;
     }
+    
+    // names of files
     char *infile = argv[2];
     char *outfile = argv[3];
 
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
         return 5;
     }
 
-
+    // if file size is being increased this is the path it will take
     if(ratio>=1)
     {
         int originalPadding = (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;

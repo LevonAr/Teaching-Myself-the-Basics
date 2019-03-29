@@ -123,9 +123,8 @@ int main(int argc, char *argv[])
                     // temporary storage for a pixel
                     RGBTRIPLE triple;
 
-                    // read RGB triple from infile
+                    // read RGB triple(each pixel) from infile
                     fread(&triple, sizeof(RGBTRIPLE), 1, inptr);
-                    // write RGB triple to outfile
 
                     int per_pixel_width = round((j+1)*base_pixel_ratio) - round(j*base_pixel_ratio);
 

@@ -133,6 +133,8 @@ int main(int argc, char *argv[])
                         fwrite(&triple, sizeof(RGBTRIPLE), 1, outptr);
                     }
                 }
+                
+                //adds padding to outfile after each (horizontal) row of pixels
 
                 for (int k = 0; k < newPadding; k++)
                     {

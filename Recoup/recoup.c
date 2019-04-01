@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
 
     int raw_block_counter = 0;
 
+    int *raw_block_counterPtr = &raw_block_counter;
+
     int JPEG_counter = 0;
 
     int *JPEG_counterPtr = &JPEG_counter;
@@ -40,10 +42,10 @@ int main(int argc, char *argv[])
         {
             JPEG_array[JPEG_counter] = raw_block_counter;
 
-            JPEG_counter++;
+            *JPEG_counterPtr = JPEG_counter+1;
         }
 
-        raw_block_counter++;
+        *raw_block_counterPtr = raw_block_counter+1;
 
         if(JPEG_counter == 50)
         {
@@ -51,7 +53,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    while(1<0)
+    while(1>0)
     {
         block last_JPEG_check;
 
@@ -59,12 +61,12 @@ int main(int argc, char *argv[])
 
         if( last_JPEG_check.first_bytes == 0x000000)
         {
-            JPEG_array[JPEG_counter] = last_JPEG_counter;
+            JPEG_array[JPEG_counter] = raw_block_counter;
 
             break;
         }
 
-        last_JPEG_counter ++;
+        *raw_block_counterPtr = raw_block_counter+1;
     }
 
     /*for(int i=0; i<50; i++)
@@ -82,7 +84,7 @@ int main(int argc, char *argv[])
 
         output_file_name = malloc(10*sizeof(char));
 
-        sprintf(output_file_name, "JPEG%i.jpg", i+1);
+        sprintf(output_file_name, "JPEG%i.JPEG", i+1);
 
         int range = JPEG_array[i+1] - JPEG_array[i];
 
@@ -99,25 +101,6 @@ int main(int argc, char *argv[])
         fwrite(JPEG, range*sizeof(block), 1, out_filePtr);
 
     }
-
-    int last_JPEG_counter = 0;
-
-    while(1<0)
-    {
-        block last_JPEG_check;
-
-        fread(&last_JPEG_check, sizeof(block), 1, in_filePtr);
-
-        if( last_JPEG_check.first_bytes == 0x000000)
-        {
-            JPEG_array[i] = last_JPEG_counter;
-
-            break;
-        }
-
-        last_JPEG_counter ++;
-    }
-
     /*char *output_file_name;
 
     output_file_name = malloc(10*sizeof(char));
@@ -144,3 +127,49 @@ int main(int argc, char *argv[])
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //char *output_file = "image20.jpeg";
+
+    //FILE *out_filePtr = fopen(output_file, "w");
+
+    /*for(int i=0; i<1000; i++)
+    {
+
+        block dog;
+
+        fread(&dog,sizeof(block),1,in_filePtr);
+
+        if(dog.first_bytes == 0xffd8ff)
+        {
+            fwrite(&dog, sizeof(block),1,out_filePtr);
+            exit(0);
+        }
+    }*/
+
+    /*nib dog;
+
+    dog.nibble1 = 0xe;
+
+    block cat;
+
+    cat.fourth_byte.nibble1 = 0x0;
+
+    cat.fourth_byte.nibble2 = 0x0;
+
+    printf("%c", cat.fourth_byte.nibble1);*/
+
+
+

@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    // set input file pointer to the file name written by user
     char *input_file = argv[1];
 
     FILE *in_filePtr = fopen(input_file,"r");
@@ -22,6 +23,9 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Could not open %s.\n", input_file);
         return 2;
     }
+    
+    // Run through the raw file data to check how many JPEGs there are.
+    // This is done by checking for the JPEG signature which is the first three and a half bytes being 0xffd8ffe
 
     bloc end;
 

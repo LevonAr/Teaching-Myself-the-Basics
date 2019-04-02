@@ -146,17 +146,5 @@ int main(int argc, char *argv[])
         }
     }*/
 
-    /*nib dog;
-
-    dog.nibble1 = 0xe;
-
-    block cat;
-
-    cat.fourth_byte.nibble1 = 0x0;
-
-    cat.fourth_byte.nibble2 = 0x0;
-
-    printf("%c", cat.fourth_byte.nibble1);*/
-
 
 

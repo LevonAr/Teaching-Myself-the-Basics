@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
@@ -21,8 +22,14 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Could not open %s.\n", input_file);
         return 2;
     }
+    
+    fseek(in_filePtr,0,SEEK_END);
 
-    int JPEG_array[51];
+    int end_of_file_in_bytes = ftell(in_filePtr);
+
+    int last_block = end_of_file_in_bytes/512;
+
+    int JPEG_array[];
 
     int raw_block_counter = 0;
 
@@ -53,14 +60,6 @@ int main(int argc, char *argv[])
         }
     }
 
-    fseek(in_filePtr,0,SEEK_END);
-
-    int end_of_file_in_bytes = ftell(in_filePtr);
-
-    int end_of_file = end_of_file_in_bytes/512;
-
-    JPEG_array[JPEG_counter] = end_of_file;
-
     fseek(in_filePtr, 0, SEEK_SET);
 
     int i;
@@ -81,13 +80,21 @@ int main(int argc, char *argv[])
 
         fread(JPEG, range*sizeof(block), 1, in_filePtr);
 
-        FILE *out_filePtr;
-
-        out_filePtr = fopen(output_file_name, "w");
+        FILE *out_filePtr = fopen(output_file_name, "w");
 
         fwrite(JPEG, range*sizeof(block), 1, out_filePtr);
 
+        free(output_file_name);
+
+        free(JPEG);
+
+        fclose(out_filePtr);
+
     }
+
+    fclose(in_filePtr);
+
+    return 0;
     /*char *output_file_name;
 
     output_file_name = malloc(10*sizeof(char));
@@ -114,37 +121,5 @@ int main(int argc, char *argv[])
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //char *output_file = "image20.jpeg";
-
-    //FILE *out_filePtr = fopen(output_file, "w");
-
-    /*for(int i=0; i<1000; i++)
-    {
-
-        block dog;
-
-        fread(&dog,sizeof(block),1,in_filePtr);
-
-        if(dog.first_bytes == 0xffd8ff)
-        {
-            fwrite(&dog, sizeof(block),1,out_filePtr);
-            exit(0);
-        }
-    }*/
-
 
 

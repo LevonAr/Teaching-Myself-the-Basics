@@ -49,30 +49,17 @@ int main(int argc, char *argv[])
 
         if(JPEG_counter == 50)
         {
-            break;
+             break;
         }
     }
 
-    while(1>0)
-    {
-        block last_JPEG_check;
+    fseek(in_filePtr,0,SEEK_END);
 
-        fread(&last_JPEG_check, sizeof(block), 1, in_filePtr);
+    int end_of_file_in_bytes = ftell(in_filePtr);
 
-        if( last_JPEG_check.first_bytes == 0x000000)
-        {
-            JPEG_array[JPEG_counter] = raw_block_counter;
+    int end_of_file = end_of_file_in_bytes/512;
 
-            break;
-        }
-
-        *raw_block_counterPtr = raw_block_counter+1;
-    }
-
-    /*for(int i=0; i<50; i++)
-    {
-        printf("%i\n", JPEG_array[i]);
-    }*/
+    JPEG_array[JPEG_counter] = end_of_file;
 
     fseek(in_filePtr, 0, SEEK_SET);
 
@@ -84,7 +71,7 @@ int main(int argc, char *argv[])
 
         output_file_name = malloc(10*sizeof(char));
 
-        sprintf(output_file_name, "JPEG%i.JPEG", i+1);
+        sprintf(output_file_name, "0%i.jpg", i+1);
 
         int range = JPEG_array[i+1] - JPEG_array[i];
 

@@ -2,11 +2,6 @@
 
 typedef uint8_t  BYTE;
 
-typedef struct
-{
-   unsigned int nibble1 : 4;
-   unsigned int nibble2 : 4;
-} nib;
 
 typedef struct
 {

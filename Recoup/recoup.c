@@ -95,28 +95,6 @@ int main(int argc, char *argv[])
     fclose(in_filePtr);
 
     return 0;
-    /*char *output_file_name;
-
-    output_file_name = malloc(10*sizeof(char));
-
-    sprintf(output_file_name, "JPEG%i.JPEG", i+1);
-
-    JPEG_array[i+1] =
-
-    int range = JPEG_array[i+1] - JPEG_array[i];
-
-    char *JPEG = malloc(range*sizeof(block));
-
-    fseek(in_filePtr, JPEG_array[i]*sizeof(block), SEEK_SET);
-
-    fread(JPEG, range*sizeof(block), 1, in_filePtr);
-
-    FILE *out_filePtr;
-
-    out_filePtr = fopen(output_file_name, "w");
-
-    fwrite(JPEG, range*sizeof(block), 1, out_filePtr);*/
-
 
 
 

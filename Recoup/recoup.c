@@ -22,14 +22,28 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Could not open %s.\n", input_file);
         return 2;
     }
-    
-    fseek(in_filePtr,0,SEEK_END);
 
-    int end_of_file_in_bytes = ftell(in_filePtr);
+    bloc end;
 
-    int last_block = end_of_file_in_bytes/512;
+    int array_size_counter = 0;
 
-    int JPEG_array[];
+    int *array_size_counterPtr = &array_size_counter;
+
+    while (feof(in_filePtr) == 0)
+    {
+        bloc check;
+
+        fread(&check,sizeof(bloc),1,in_filePtr);
+
+        if(check.first_bytes == 0xffd8ff)
+        {
+            *array_size_counterPtr = array_size_counter+1;
+        }
+
+    }
+
+
+    int JPEG_array[array_size_counter+1];
 
     int raw_block_counter = 0;
 
@@ -39,11 +53,13 @@ int main(int argc, char *argv[])
 
     int *JPEG_counterPtr = &JPEG_counter;
 
+    fseek(in_filePtr, 0, SEEK_SET);
+
     while (1>0)
     {
-        block check;
+        bloc check;
 
-        fread(&check,sizeof(block),1,in_filePtr);
+        fread(&check,sizeof(bloc),1,in_filePtr);
 
         if(check.first_bytes == 0xffd8ff)
         {
@@ -54,35 +70,43 @@ int main(int argc, char *argv[])
 
         *raw_block_counterPtr = raw_block_counter+1;
 
-        if(JPEG_counter == 50)
+        if(JPEG_counter == array_size_counter)
         {
              break;
         }
     }
 
+    fseek(in_filePtr,0,SEEK_END);
+
+    int end_of_file_in_bytes = ftell(in_filePtr);
+
+    int last_block = end_of_file_in_bytes/512;
+
+    JPEG_array[JPEG_counter] = last_block;
+
     fseek(in_filePtr, 0, SEEK_SET);
 
     int i;
 
-    for(i=0; i<50; i++)
+    for(i=0; i<array_size_counter; i++)
     {
         char *output_file_name;
 
         output_file_name = malloc(10*sizeof(char));
 
-        sprintf(output_file_name, "0%i.jpg", i+1);
+        sprintf(output_file_name, "%03d.jpg", i);
 
         int range = JPEG_array[i+1] - JPEG_array[i];
 
-        char *JPEG = malloc(range*sizeof(block));
+        char *JPEG = malloc(range*sizeof(bloc));
 
-        fseek(in_filePtr, JPEG_array[i]*sizeof(block), SEEK_SET);
+        fseek(in_filePtr, JPEG_array[i]*sizeof(bloc), SEEK_SET);
 
-        fread(JPEG, range*sizeof(block), 1, in_filePtr);
+        fread(JPEG, range*sizeof(bloc), 1, in_filePtr);
 
         FILE *out_filePtr = fopen(output_file_name, "w");
 
-        fwrite(JPEG, range*sizeof(block), 1, out_filePtr);
+        fwrite(JPEG, range*sizeof(bloc), 1, out_filePtr);
 
         free(output_file_name);
 
@@ -95,9 +119,6 @@ int main(int argc, char *argv[])
     fclose(in_filePtr);
 
     return 0;
-
-
-
 }
 
 

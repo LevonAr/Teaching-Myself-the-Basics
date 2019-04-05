@@ -112,10 +112,6 @@ int main(int argc, char *argv[])
 
         fwrite(JPEG, range*sizeof(bloc), 1, out_filePtr);
 
-        free(output_file_name);
-
-        free(JPEG);
-
         fclose(out_filePtr);
 
     }

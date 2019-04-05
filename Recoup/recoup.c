@@ -111,6 +111,10 @@ int main(int argc, char *argv[])
         FILE *out_filePtr = fopen(output_file_name, "w");
 
         fwrite(JPEG, range*sizeof(bloc), 1, out_filePtr);
+        
+        free(output_file_name);
+
+        free(JPEG);
 
         fclose(out_filePtr);
 

@@ -21,7 +21,14 @@ bool load(const char *dictionary)
     
     // make it more accessible  ?maybe a trie? for check later on so our times are good
     
+    //which of the following will be faster?
+    
+    
     fread
+        
+    fscan 
+        
+    fgetc
     
     
     

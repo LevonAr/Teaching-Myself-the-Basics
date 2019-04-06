@@ -25,6 +25,16 @@ bool load(const char *dictionary)
     
     //maybe if we do a for loop that looks for white space thus not using any extra memory, then we can test which one is the fastest down the line.
     
+    // read something about fgetc exiting when encounters new line, could be useful look into that
+    
+    int index = 0
+    
+    for (int c = fgetc(file); c != EOF; c = fgetc(file))
+    {
+        
+        
+        
+    }
     
     fread
         

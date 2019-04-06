@@ -23,12 +23,16 @@ bool load(const char *dictionary)
     
     //which of the following will be faster?
     
+    //maybe if we do a for loop that looks for white space thus not using any extra memory, then we can test which one is the fastest down the line.
+    
     
     fread
         
-    fscan 
+    scanf
         
     fgetc
+        
+    
     
     
     

@@ -74,3 +74,17 @@ bool unload(void)
     // TODO
     return false;
 }
+
+void store(char word[], int len)
+{
+    char* storage = malloc(sizeof(char)*len);
+
+    for(int i=0; i<=len; i++)
+    {
+        storage[i] = word[i];
+
+    }
+
+    printf("%s", storage);
+}
+

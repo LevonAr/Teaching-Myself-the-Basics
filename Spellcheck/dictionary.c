@@ -34,7 +34,7 @@ bool load(const char *dictionary)
         {
             dict_word[index]= '\0';
 
-            printf("%s", dict_word);
+            store(dict_word, index);
 
             index = 0;
         }
@@ -45,6 +45,7 @@ bool load(const char *dictionary)
 
             index++;
         }
+
 
 
 

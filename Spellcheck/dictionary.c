@@ -27,20 +27,30 @@ bool load(const char *dictionary)
     
     // read something about fgetc exiting when encounters new line, could be useful look into that
     
-    int index = 0
+    int index i = 0;
+
     
     for (int c = fgetc(file); c != EOF; c = fgetc(file))
     {
+
+        if( c== '\n')
+        {
+            *terminal_holder = malloc(sizeof(char)*i+2);
+            
+            
+            
+            index = 0
+        }
+        
+        else 
+        {
+            index++;
+        }
         
         
         
     }
     
-    fread
-        
-    scanf
-        
-    fgetc
         
     
     

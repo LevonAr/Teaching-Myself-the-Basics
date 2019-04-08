@@ -1,13 +1,23 @@
 // Implements a dictionary's functionality
 
 #include <stdbool.h>
-
+#include <ctype.h>
+#include <stdio.h>
+#include <sys/resource.h>
+#include <sys/time.h>
 #include "dictionary.h"
+#include <stdlib.h>
+
+
+void store(char word[], int len);
 
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-
+    if (word)
+    {
+        true;
+    }
     // TODO
     return false;
 }
@@ -16,17 +26,16 @@ bool check(const char *word)
 bool load(const char *dictionary)
 {
     FILE *load_file = fopen(dictionary, "r");
-    
+
     //lets figure out the fastes way to store each word in the least of memory
-    
+
     // make it more accessible  ?maybe a trie? for check later on so our times are good
-    
-    //which of the following will be faster?
-    
-    //maybe if we do a for loop that looks for white space thus not using any extra memory, then we can test which one is the fastest down the line.
-    
-    // read something about fgetc exiting when encounters new line, could be useful look into that
-    
+
+
+    int index = 0;
+
+    char dict_word[LENGTH + 1];
+
     for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
     {
 
@@ -48,17 +57,12 @@ bool load(const char *dictionary)
 
 
 
-
     }
 
-    
-        
-    
-    
-    
-    
-    
-    
+
+
+
+
     return false;
 }
 
@@ -88,4 +92,3 @@ void store(char word[], int len)
 
     printf("%s", storage);
 }
-

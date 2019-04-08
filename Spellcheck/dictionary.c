@@ -80,6 +80,8 @@ bool unload(void)
     return false;
 }
 
+
+// it is printing everything except the last word in the dictionary, must be a bug in the loop somewhere
 void store(char word[], int len)
 {
     char* storage = malloc(sizeof(char)*len);

@@ -58,6 +58,9 @@ bool load(const char *dictionary)
 
 
     }
+    
+    // at this point I'm starting to realize that the only way to do this right is to obtain an in depth understanding of 
+    // hashing (hashtables, hash functions), so off we go to scour the web and find out just what we are gonna end up using
 
 
 

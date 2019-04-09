@@ -1,195 +1,133 @@
-// Implements a spell-checker
+// Implements a dictionary's functionality
 
+#include <stdbool.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <sys/resource.h>
 #include <sys/time.h>
-
 #include "dictionary.h"
+#include <stdlib.h>
 
-// Undefine any definitions
-#undef calculate
-#undef getrusage
 
-// Default dictionary
-#define DICTIONARY "dictionaries/large"
 
-// Prototype
-double calculate(const struct rusage *b, const struct rusage *a);
+unsigned int PJWHash(const char* str, unsigned int length);
 
-int main(int argc, char *argv[])
+void store(char word[], int len);
+
+// Returns true if word is in dictionary else false
+bool check(const char *word)
 {
-    // Check for correct number of args
-    if (argc != 2 && argc != 3)
+    if (word)
     {
-        printf("Usage: speller [dictionary] text\n");
-        return 1;
+        true;
     }
+    // TODO
+    return false;
+}
 
-    // Structures for timing data
-    struct rusage before, after;
+// Loads dictionary into memory, returning true if successful else false
+bool load(const char *dictionary)
+{
+    FILE *load_file = fopen(dictionary, "r");
 
-    // Benchmarks
-    double time_load = 0.0, time_check = 0.0, time_size = 0.0, time_unload = 0.0;
+    //lets figure out the fastes way to store each word in the least of memory
 
-    // Determine dictionary to use
-    char *dictionary = (argc == 3) ? argv[1] : DICTIONARY;
+    // make it more accessible  ?maybe a trie? for check later on so our times are good
 
-    // Load dictionary
-    getrusage(RUSAGE_SELF, &before);
-    bool loaded = load(dictionary);
-    getrusage(RUSAGE_SELF, &after);
 
-    // Exit if dictionary not loaded
-    if (!loaded)
+    int index = 0;
+
+    char dict_word[LENGTH + 1];
+
+    for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
     {
-        printf("Could not load %s.\n", dictionary);
-        return 1;
-    }
 
-    // Calculate time to load dictionary
-    time_load = calculate(&before, &after);
-
-    // Try to open text
-    char *text = (argc == 3) ? argv[2] : argv[1];
-    FILE *file = fopen(text, "r");
-    if (file == NULL)
-    {
-        printf("Could not open %s.\n", text);
-        unload();
-        return 1;
-    }
-
-    // Prepare to report misspellings
-    printf("\nMISSPELLED WORDS\n\n");
-
-    // Prepare to spell-check
-    int index = 0, misspellings = 0, words = 0;
-    char word[LENGTH + 1];
-
-    // Spell-check each word in text
-    for (int c = fgetc(file); c != EOF; c = fgetc(file))
-    {
-        // Allow only alphabetical characters and apostrophes
-        if (isalpha(c) || (c == '\'' && index > 0))
+        if( c== '\n')
         {
-            // Append character to word
-            word[index] = c;
+            dict_word[index]= '\0';
+
+            store(dict_word, index);
+
+            index = 0;
+        }
+
+        else
+        {
+            dict_word[index]= c;
+
             index++;
-
-            // Ignore alphabetical strings too long to be words
-            if (index > LENGTH)
-            {
-                // Consume remainder of alphabetical string
-                while ((c = fgetc(file)) != EOF && isalpha(c));
-
-                // Prepare for new word
-                index = 0;
-            }
         }
 
-        // Ignore words with numbers (like MS Word can)
-        else if (isdigit(c))
-        {
-            // Consume remainder of alphanumeric string
-            while ((c = fgetc(file)) != EOF && isalnum(c));
 
-            // Prepare for new word
-            index = 0;
-        }
 
-        // We must have found a whole word
-        else if (index > 0)
-        {
-            // Terminate current word
-            word[index] = '\0';
-
-            // Update counter
-            words++;
-
-            // Check word's spelling
-            getrusage(RUSAGE_SELF, &before);
-            bool misspelled = !check(word);
-            getrusage(RUSAGE_SELF, &after);
-
-            // Update benchmark
-            time_check += calculate(&before, &after);
-
-            // Print word if misspelled
-            if (misspelled)
-            {
-                printf("%s\n", word);
-                misspellings++;
-            }
-
-            // Prepare for next word
-            index = 0;
-        }
     }
 
-    // Check whether there was an error
-    if (ferror(file))
-    {
-        fclose(file);
-        printf("Error reading %s.\n", text);
-        unload();
-        return 1;
-    }
 
-    // Close text
-    fclose(file);
 
-    // Determine dictionary's size
-    getrusage(RUSAGE_SELF, &before);
-    unsigned int n = size();
-    getrusage(RUSAGE_SELF, &after);
 
-    // Calculate time to determine dictionary's size
-    time_size = calculate(&before, &after);
 
-    // Unload dictionary
-    getrusage(RUSAGE_SELF, &before);
-    bool unloaded = unload();
-    getrusage(RUSAGE_SELF, &after);
+    return false;
+}
 
-    // Abort if dictionary not unloaded
-    if (!unloaded)
-    {
-        printf("Could not unload %s.\n", dictionary);
-        return 1;
-    }
-
-    // Calculate time to unload dictionary
-    time_unload = calculate(&before, &after);
-
-    // Report benchmarks
-    printf("\nWORDS MISSPELLED:     %d\n", misspellings);
-    printf("WORDS IN DICTIONARY:  %d\n", n);
-    printf("WORDS IN TEXT:        %d\n", words);
-    printf("TIME IN load:         %.2f\n", time_load);
-    printf("TIME IN check:        %.2f\n", time_check);
-    printf("TIME IN size:         %.2f\n", time_size);
-    printf("TIME IN unload:       %.2f\n", time_unload);
-    printf("TIME IN TOTAL:        %.2f\n\n",
-           time_load + time_check + time_size + time_unload);
-
-    // Success
+// Returns number of words in dictionary if loaded else 0 if not yet loaded
+unsigned int size(void)
+{
+    // TODO
     return 0;
 }
 
-// Returns number of seconds between b and a
-double calculate(const struct rusage *b, const struct rusage *a)
+// Unloads dictionary from memory, returning true if successful else false
+bool unload(void)
 {
-    if (b == NULL || a == NULL)
+    // TODO
+    return false;
+}
+
+void store(char word[], int len)
+{
+    char* storage = malloc(sizeof(char)*len);
+
+    int index = PJWHash(storage, len);
+
+
+
+
+
+
+
+
+
+    /*for(int i=0; i<=len; i++)
     {
-        return 0.0;
+        storage[i] = word[i];
+
     }
-    else
-    {
-        return ((((a->ru_utime.tv_sec * 1000000 + a->ru_utime.tv_usec) -
-                  (b->ru_utime.tv_sec * 1000000 + b->ru_utime.tv_usec)) +
-                 ((a->ru_stime.tv_sec * 1000000 + a->ru_stime.tv_usec) -
-                  (b->ru_stime.tv_sec * 1000000 + b->ru_stime.tv_usec)))
-                / 1000000.0);
-    }
+
+    printf("%s", storage);*/
+}
+
+
+// hash function by Peter J. Weinberger
+unsigned int PJWHash(const char* str, unsigned int length)
+{
+   const unsigned int BitsInUnsignedInt = (unsigned int)(sizeof(unsigned int) * 8);
+   const unsigned int ThreeQuarters     = (unsigned int)((BitsInUnsignedInt  * 3) / 4);
+   const unsigned int OneEighth         = (unsigned int)(BitsInUnsignedInt / 8);
+   const unsigned int HighBits          =
+                      (unsigned int)(0xFFFFFFFF) << (BitsInUnsignedInt - OneEighth);
+   unsigned int hash = 0;
+   unsigned int test = 0;
+   unsigned int i    = 0;
+
+   for (i = 0; i < length; ++str, ++i)
+   {
+      hash = (hash << OneEighth) + (*str);
+
+      if ((test = hash & HighBits) != 0)
+      {
+         hash = (( hash ^ (test >> ThreeQuarters)) & (~HighBits));
+      }
+   }
+
+   return hash;
 }

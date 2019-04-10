@@ -8,6 +8,8 @@
 #include "dictionary.h"
 #include <stdlib.h>
 
+int dict_size;
+
 
 
 unsigned int PJWHash(const char* str, unsigned int length);
@@ -34,6 +36,22 @@ bool load(const char *dictionary)
 
     // make it more accessible  ?maybe a trie? for check later on so our times are good
 
+    int new_line_counter = 1;
+
+    for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
+    {
+        if( c== '\n')
+        {
+            new_line_counter++;
+        }
+    }
+
+    int *dict_size_Ptr = &dict_size;
+
+    *dict_size_Ptr = new_line_counter;
+
+
+    fseek(load_file, 0, SEEK_SET);
 
     int index = 0;
 
@@ -66,13 +84,13 @@ bool load(const char *dictionary)
 
 
 
-    return false;
+    return true;
 }
 
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    // TODO
+    printf("IAMHERE%i", dict_size);
     return 0;
 }
 
@@ -87,21 +105,34 @@ void store(char word[], int len)
 {
     char* storage = malloc(sizeof(char)*len);
 
-    int index = PJWHash(storage, len);
+    // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
+    int hash_table_size = dict_size * 1.4286;
 
-
-
-
-
-
-
-
-
-    /*for(int i=0; i<=len; i++)
+    for(int i=0; i<=len; i++)
     {
         storage[i] = word[i];
 
     }
+
+    int pre_index = PJWHash(storage, len);
+
+    int index = pre_index % hash_table_size;
+
+
+
+
+
+    printf("%i%s\n", index, storage);
+
+
+
+
+
+
+
+
+
+    /*
 
     printf("%s", storage);*/
 }

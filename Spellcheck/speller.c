@@ -35,8 +35,8 @@ bool check(const char *word)
     int hash_table_size = dict_size * 1.4286;
 
     int check_index = pre_check_index % hash_table_size;
-    
-    
+
+
 
 
 
@@ -81,8 +81,9 @@ bool load(const char *dictionary)
 
     Hashtable* HT_Ptr = &HT;
 
-    HT_Ptr->size = 10;
+    HT_Ptr->size = hash_table_size;
 
+    HT_Ptr->words = calloc(hash_table_size,sizeof(char)*46);
 
     fseek(load_file, 0, SEEK_SET);
 
@@ -103,7 +104,7 @@ bool load(const char *dictionary)
 
             int hash_index = pre_hash_index % hash_table_size;
 
-            //hash_table[hash_index] = new_word;
+            HT_Ptr->words[hash_index] = new_word;
 
             index = 0;
         }

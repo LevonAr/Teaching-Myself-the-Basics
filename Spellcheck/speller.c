@@ -14,11 +14,23 @@ int dict_size;
 
 unsigned int PJWHash(const char* str, unsigned int length);
 
-void store(char word[], int len);
+char* trim(char word[], int len);
 
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
+    int pre_check_index = PJWHash(word,strlen(word));
+    
+    int hash_table_size = dict_size * 1.4286;
+    
+    int check_index = pre_check_index % hash_table_size;
+    
+    
+    
+    
+    
+    
+    
     if (word)
     {
         true;
@@ -50,6 +62,11 @@ bool load(const char *dictionary)
 
     *dict_size_Ptr = new_line_counter;
 
+    // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
+    int hash_table_size = dict_size * 1.4286;
+
+    char* hash_table[hash_table_size];
+
 
     fseek(load_file, 0, SEEK_SET);
 
@@ -64,7 +81,13 @@ bool load(const char *dictionary)
         {
             dict_word[index]= '\0';
 
-            store(dict_word, index);
+            char* new_word = trim(dict_word, index);
+
+            int pre_hash_index = PJWHash(new_word, index);
+
+            int hash_index = pre_hash_index % hash_table_size;
+
+            hash_table[hash_index] = new_word;
 
             index = 0;
         }
@@ -76,13 +99,7 @@ bool load(const char *dictionary)
             index++;
         }
 
-
-
     }
-
-
-
-
 
     return true;
 }
@@ -90,8 +107,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    printf("IAMHERE%i", dict_size);
-    return 0;
+    return dict_size;
 }
 
 // Unloads dictionary from memory, returning true if successful else false
@@ -101,12 +117,9 @@ bool unload(void)
     return false;
 }
 
-void store(char word[], int len)
+char* trim(char word[], int len)
 {
     char* storage = malloc(sizeof(char)*len);
-
-    // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
-    int hash_table_size = dict_size * 1.4286;
 
     for(int i=0; i<=len; i++)
     {
@@ -114,23 +127,14 @@ void store(char word[], int len)
 
     }
 
-    int pre_index = PJWHash(storage, len);
+    return storage;
+
+
+    /*int pre_index = PJWHash(storage, len);
 
     int index = pre_index % hash_table_size;
 
-
-
-
-
-    printf("%i%s\n", index, storage);
-
-
-
-
-
-
-
-
+    printf("%i%s\n", index, storage);*/
 
     /*
 

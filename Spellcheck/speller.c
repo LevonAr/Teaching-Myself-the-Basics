@@ -38,9 +38,19 @@ bool check(const char *word)
 
     Hashtable* HT_Ptr = &HT;
 
-    if(strcmp(HT_Ptr->words[check_index], word)==0)
+    if(HT_Ptr->words[check_index])
     {
-        return true;
+
+        if(strcmp(HT_Ptr->words[check_index], word)==0)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+
     }
 
     else
@@ -66,6 +76,7 @@ bool load(const char *dictionary)
         {
             new_line_counter++;
         }
+
     }
 
     int *dict_size_Ptr = &dict_size;
@@ -87,6 +98,13 @@ bool load(const char *dictionary)
 
     char dict_word[LENGTH + 1];
 
+    int last_word_counter = 0;
+
+    //last word index
+    int lw_index = 0;
+
+    char last_word[LENGTH + 1];
+
     for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
     {
 
@@ -103,6 +121,15 @@ bool load(const char *dictionary)
             HT_Ptr->words[hash_index] = new_word;
 
             index = 0;
+
+            last_word_counter ++;
+        }
+
+        else if(last_word_counter == dict_size -1)
+        {
+            last_word[lw_index] = c;
+
+            lw_index++;
         }
 
         else
@@ -113,6 +140,18 @@ bool load(const char *dictionary)
         }
 
     }
+
+    last_word[lw_index] = '\0';
+
+    char* new_word = trim(last_word, index);
+
+    int pre_hash_index = PJWHash(new_word, index);
+
+    int hash_index = pre_hash_index % hash_table_size;
+
+    HT_Ptr->words[hash_index] = new_word;
+
+
 
     return true;
 }
@@ -127,7 +166,7 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    return false;
+    return true;
 }
 
 char* trim(char word[], int len)

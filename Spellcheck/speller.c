@@ -30,6 +30,8 @@ char* trim(char word[], int len);
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
+    
+    // BRain fart   I forget that the program has to also return true even if words are capitalized  aka case unsensitive
     int pre_check_index = PJWHash(word,strlen(word));
 
     int hash_table_size = dict_size * 1.4286;

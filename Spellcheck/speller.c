@@ -7,8 +7,19 @@
 #include <sys/time.h>
 #include "dictionary.h"
 #include <stdlib.h>
+#include <string.h>
+
+typedef struct
+{
+    int size;
+
+    char** words;
+} Hashtable;
 
 int dict_size;
+
+Hashtable HT;
+
 
 
 
@@ -20,17 +31,20 @@ char* trim(char word[], int len);
 bool check(const char *word)
 {
     int pre_check_index = PJWHash(word,strlen(word));
-    
+
     int hash_table_size = dict_size * 1.4286;
-    
+
     int check_index = pre_check_index % hash_table_size;
     
     
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
     if (word)
     {
         true;
@@ -65,7 +79,9 @@ bool load(const char *dictionary)
     // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
     int hash_table_size = dict_size * 1.4286;
 
-    char* hash_table[hash_table_size];
+    Hashtable* HT_Ptr = &HT;
+
+    HT_Ptr->size = 10;
 
 
     fseek(load_file, 0, SEEK_SET);
@@ -87,7 +103,7 @@ bool load(const char *dictionary)
 
             int hash_index = pre_hash_index % hash_table_size;
 
-            hash_table[hash_index] = new_word;
+            //hash_table[hash_index] = new_word;
 
             index = 0;
         }

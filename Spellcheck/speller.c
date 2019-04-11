@@ -30,7 +30,19 @@ char* trim(char word[], int len);
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    int pre_check_index = PJWHash(word,strlen(word));
+    //turn all words into lowercase because directions specify check to be case insensitive and all words in dictionary are required to be lowercase
+    char* lowercase_word = malloc((strlen(word)+1)*sizeof(char)) ;
+
+    int i;
+
+    for(i=0; i<strlen(word); i++)
+    {
+        lowercase_word[i] = tolower(word[i]);
+    }
+
+    lowercase_word[i]= '\0';
+
+    int pre_check_index = PJWHash(lowercase_word,strlen(word));
 
     int hash_table_size = dict_size * 1.4286;
 
@@ -41,7 +53,7 @@ bool check(const char *word)
     if(HT_Ptr->words[check_index])
     {
 
-        if(strcmp(HT_Ptr->words[check_index], word)==0)
+        if(strcmp(HT_Ptr->words[check_index], lowercase_word)==0)
         {
             return true;
         }
@@ -140,10 +152,6 @@ bool load(const char *dictionary)
         }
 
     }
-    
-    //finally got the last word in the ictionary to show up. 
-    //I was passing index as its length into the trim and PJWHash function
-    // I changed it to its actual length lw_index-1
 
     last_word[lw_index] = '\0';
 

@@ -124,7 +124,8 @@ bool load(const char *dictionary)
 
             last_word_counter ++;
         }
-
+        
+        //last word in 'small' dictionary just doesnt end up being read
         else if(last_word_counter == dict_size -1)
         {
             last_word[lw_index] = c;

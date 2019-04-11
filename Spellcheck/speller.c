@@ -30,8 +30,6 @@ char* trim(char word[], int len);
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    
-    // BRain fart   I forget that the program has to also return true even if words are capitalized  aka case unsensitive
     int pre_check_index = PJWHash(word,strlen(word));
 
     int hash_table_size = dict_size * 1.4286;
@@ -126,8 +124,7 @@ bool load(const char *dictionary)
 
             last_word_counter ++;
         }
-        
-        //last word in 'small' dictionary just doesnt end up being read
+
         else if(last_word_counter == dict_size -1)
         {
             last_word[lw_index] = c;
@@ -143,12 +140,16 @@ bool load(const char *dictionary)
         }
 
     }
+    
+    //finally got the last word in the ictionary to show up. 
+    //I was passing index as its length into the trim and PJWHash function
+    // I changed it to its actual length lw_index-1
 
     last_word[lw_index] = '\0';
 
-    char* new_word = trim(last_word, index);
+    char* new_word = trim(last_word, lw_index-1);
 
-    int pre_hash_index = PJWHash(new_word, index);
+    int pre_hash_index = PJWHash(new_word, lw_index-1);
 
     int hash_index = pre_hash_index % hash_table_size;
 

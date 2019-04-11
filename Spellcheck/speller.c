@@ -36,21 +36,17 @@ bool check(const char *word)
 
     int check_index = pre_check_index % hash_table_size;
 
+    Hashtable* HT_Ptr = &HT;
 
-
-
-
-
-
-
-
-
-    if (word)
+    if(strcmp(HT_Ptr->words[check_index], word)==0)
     {
-        true;
+        return true;
     }
-    // TODO
-    return false;
+
+    else
+    {
+        return false;
+    }
 }
 
 // Loads dictionary into memory, returning true if successful else false

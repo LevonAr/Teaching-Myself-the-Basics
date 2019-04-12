@@ -21,11 +21,13 @@ int dict_size;
 Hashtable HT;
 
 
-
+// Forward Declarations:
 
 unsigned int PJWHash(const char* str, unsigned int length);
 
 char* trim(char word[], int len);
+
+int prime(int ht_size);
 
 // Returns true if word is in dictionary else false
 bool check(const char *word)
@@ -97,21 +99,6 @@ bool load(const char *dictionary)
 
     // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
     int hash_table_size = dict_size * 1.4286;
-    
-    /* I want to find the closest prime number to hash_table_size because apparently a prime number is the best when setting table sizes.
-    It prevents preventable collisions is the best way to explain it. So I thought it would be easy to find a program online that does that
-    and i could just cite it, but I went down a rabbit hole. header file after header file. conio.h , which required which required _mingw.h
-    which required sdkddkver.h. And after all that it still wouldn't compile. 
-    
-    I figure I'll just write one from scratch tomorrow. It should be a good mental challange, also I found out about a few
-    mathematical algorithms that could help called 'sieves'.
-    
-    Sieve of eratosthenes and sieve of  sundaram 
-    
-    Its really cool that I'm potentially going to be using something an ancient mathematician came up with. 
-    God learning this shit is so much cool. Never thought learning could be so exciting
- 
-    */
 
     Hashtable* HT_Ptr = &HT;
 
@@ -246,49 +233,55 @@ unsigned int PJWHash(const char* str, unsigned int length)
    return hash;
 }
 
-
-//Sieve of eratosthenes
-
-// I have to modify this to return only the closest (or closest few) prime numbers to my hash_table_size instead of returning every prime less than it
-#define LIMIT 1500000 /*size of integers array*/
-#define PRIMES 100000 /*size of primes array*/
-
-int main()
+int prime(int ht_size)
 {
-    int i,j,numbers[LIMIT];
-    int primes[PRIMES];
+
+
+    int i;
+    int j;
+    int numbers[ht_size];
 
     /*fill the array with natural numbers*/
-    for (i= 0;i<LIMIT;i++)
+    for (i=0;i<ht_size;i++)
     {
         numbers[i]=i+2;
     }
 
+    int prime_counter = ht_size;
+
     /*sieve the non-primes*/
-    for (i=0;i<LIMIT;i++)
+    for (i=0; i<ht_size; i++)
     {
         if (numbers[i]!=-1)
         {
-            for (j=2*numbers[i]-2;j<LIMIT;j+=numbers[i])
+            for (j=2*numbers[i]-2; j<ht_size; j+=numbers[i])
             {
                 numbers[j]=-1;
             }
         }
+
+        else
+        {
+           prime_counter = prime_counter -1;
+        }
     }
+
+    int primes[prime_counter];
 
     /*transfer the primes to their own array*/
+
     j = 0;
-    for (i=0;i<LIMIT&&j<PRIMES;i++)
+
+    for (i=0; i<ht_size&&j<prime_counter; i++)
     {
        if (numbers[i]!=-1)
-            primes[j++] = numbers[i];
+       {
+          primes[j++] = numbers[i];
+       }
+
     }
 
-    /*print*/
-    for (i=0;i<PRIMES;i++)
-    {
-        printf("%d\n",primes[i]);
-    }
 
-return 0;
+
+    return primes[prime_counter-1];
 }

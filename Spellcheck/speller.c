@@ -46,7 +46,7 @@ bool check(const char *word)
 
     int pre_check_index = PJWHash(lowercase_word,strlen(word));
 
-    int hash_table_size = dict_size * 1.4286;
+    int hash_table_size = prime (dict_size * 1.4286);
 
     int check_index = pre_check_index % hash_table_size;
 
@@ -98,7 +98,7 @@ bool load(const char *dictionary)
     *dict_size_Ptr = new_line_counter;
 
     // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
-    int hash_table_size = dict_size * 1.4286;
+    int hash_table_size = prime(dict_size * 1.4286);
 
     Hashtable* HT_Ptr = &HT;
 

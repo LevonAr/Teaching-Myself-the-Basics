@@ -68,6 +68,8 @@ bool check(const char *word)
     if(HT_Ptr->words[check_index])
     {
 
+        bool check_bucket = false;
+
         if(strcmp(HT_Ptr->words[check_index]->word, lowercase_word)==0)
         {
             return true;
@@ -75,8 +77,28 @@ bool check(const char *word)
 
         else
         {
-            return false;
+            for(node* Ptr = HT_Ptr->words[check_index]; Ptr->next != NULL; Ptr = Ptr->next)
+            {
+                if(strcmp(Ptr->next->word, lowercase_word)==0)
+                {
+                    check_bucket = true;
+                    break;
+                }
+
+            }
+
+            return check_bucket;
         }
+
+        /*if(strcmp(HT_Ptr->words[check_index]->word, lowercase_word)==0)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }*/
 
     }
 

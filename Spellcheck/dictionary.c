@@ -9,12 +9,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct
-{
-    int size;
-
-    char** words;
-} Hashtable;
 
 typedef struct _node
 {
@@ -22,6 +16,13 @@ typedef struct _node
 
     struct _node *next;
 } node ;
+
+typedef struct
+{
+    int size;
+
+    node **words;
+} Hashtable;
 
 
 int dict_size;
@@ -36,6 +37,10 @@ unsigned int PJWHash(const char* str, unsigned int length);
 char* trim(char word[], int len);
 
 int prime(int ht_size);
+
+node* makeLink(void);
+
+node* addLink(node* link, char* add_word);
 
 // Returns true if word is in dictionary else false
 bool check(const char *word)
@@ -63,7 +68,7 @@ bool check(const char *word)
     if(HT_Ptr->words[check_index])
     {
 
-        if(strcmp(HT_Ptr->words[check_index], lowercase_word)==0)
+        if(strcmp(HT_Ptr->words[check_index]->word, lowercase_word)==0)
         {
             return true;
         }
@@ -112,7 +117,7 @@ bool load(const char *dictionary)
 
     HT_Ptr->size = hash_table_size;
 
-    HT_Ptr->words = calloc(hash_table_size,sizeof(char)*46);
+    HT_Ptr->words = calloc(hash_table_size,sizeof(node));
 
     fseek(load_file, 0, SEEK_SET);
 
@@ -140,7 +145,11 @@ bool load(const char *dictionary)
 
             int hash_index = pre_hash_index % hash_table_size;
 
-            HT_Ptr->words[hash_index] = new_word;
+            node* word_in= NULL;
+
+            node* word_node = addLink(word_in, new_word);
+
+            HT_Ptr->words[hash_index] = word_node;
 
             index = 0;
 
@@ -165,14 +174,17 @@ bool load(const char *dictionary)
 
     last_word[lw_index] = '\0';
 
-    char* new_word = trim(last_word, lw_index-1);
+    char* last__word = trim(last_word, lw_index-1);
 
-    int pre_hash_index = PJWHash(new_word, lw_index-1);
+    int pre_hash_index = PJWHash(last__word, lw_index-1);
 
     int hash_index = pre_hash_index % hash_table_size;
 
-    HT_Ptr->words[hash_index] = new_word;
+    node* last_word_in = NULL;
 
+    node* last_word_node = addLink(last_word_in, last__word);
+
+    HT_Ptr->words[hash_index] = last_word_node;
 
 
     return true;

@@ -9,6 +9,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+// At this point this is effectively a chained hash table that functions. Still a bunch of bugs I need to iron out as well as work on
+// freeing memory with valgrind. But I'm going to move on and create a trie to do the same function because apparently it is faster.
+
+// Will come back and iron out the kinks within the next few days hopefully, maybe even sooner depending on how the trie goes.
+
 
 typedef struct _node
 {

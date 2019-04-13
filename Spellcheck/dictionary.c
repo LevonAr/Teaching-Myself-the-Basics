@@ -16,6 +16,15 @@ typedef struct
     char** words;
 } Hashtable;
 
+struct node
+{
+    char* word;
+
+    struct node *next;
+};
+
+typedef struct node * node;
+
 int dict_size;
 
 Hashtable HT;

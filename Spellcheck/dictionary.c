@@ -29,6 +29,9 @@ int dict_size;
 
 Hashtable HT;
 
+//just checking if my linked list works
+int linked_list_counter;
+
 
 // Forward Declarations:
 
@@ -82,6 +85,8 @@ bool check(const char *word)
                 if(strcmp(Ptr->next->word, lowercase_word)==0)
                 {
                     check_bucket = true;
+                    int* LLP = &linked_list_counter;
+                    *LLP = linked_list_counter + 1;
                     break;
                 }
 
@@ -215,7 +220,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    return dict_size;
+    return linked_list_counter;
 }
 
 // Unloads dictionary from memory, returning true if successful else false

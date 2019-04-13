@@ -176,8 +176,10 @@ bool load(const char *dictionary)
             int pre_hash_index = PJWHash(new_word, index);
 
             int hash_index = pre_hash_index % hash_table_size;
+            
+            
 
-            node* word_in= NULL;
+            node* word_in= NULL; // here is the bug, this is why the linked list wont work,  we are setting the word in equal to null thus always outputing a single head node
 
             node* word_node = addLink(word_in, new_word);
 

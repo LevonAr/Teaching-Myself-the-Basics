@@ -177,6 +177,25 @@ bool load(const char *dictionary)
 
             int hash_index = pre_hash_index % hash_table_size;
             
+            /* potential solution; check when home
+            
+            node* temp = NULL;
+            
+            if (!HT_Ptr->words[hash_index])
+            {
+               node* temp = NULL;
+            }
+            
+            else 
+            {
+               node* temp = HT_Ptr->words[hash_index];
+            }
+            
+            
+            
+            
+            */
+            
             
 
             node* word_in= NULL; // here is the bug, this is why the linked list wont work,  we are setting the word in equal to null thus always outputing a single head node

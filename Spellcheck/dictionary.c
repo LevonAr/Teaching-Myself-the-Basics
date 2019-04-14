@@ -1,4 +1,4 @@
-// Implements a dictionary's functionality
+// THIS IS MY CHAINED HASH FUNCTION
 
 #include <stdbool.h>
 #include <ctype.h>

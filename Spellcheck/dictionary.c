@@ -359,43 +359,4 @@ int prime(int ht_size)
     return primes[prime_counter-1];
 }
 
-node* makeLink(void)
-{
-    node* temp;
 
-    temp = malloc(sizeof(node));
-
-    temp->next = NULL;
-
-    return temp;
-}
-
-node* addLink(node* link, char* add_word)
-{
-    node* temp;
-
-    node* ptr;
-
-    temp = makeLink();
-
-    temp->word = add_word;
-
-    if (link == NULL)
-    {
-        link = temp;
-    }
-
-    else
-    {
-        ptr = link;
-
-        while(ptr->next != NULL)
-        {
-            ptr = ptr->next;
-        }
-
-        ptr->next = temp;
-    }
-
-    return link;
-}

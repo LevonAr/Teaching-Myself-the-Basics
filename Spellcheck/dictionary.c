@@ -1,4 +1,4 @@
-// THIS IS MY CHAINED HASH FUNCTION
+// Implements a dictionary's functionality
 
 #include <stdbool.h>
 #include <ctype.h>
@@ -8,11 +8,6 @@
 #include "dictionary.h"
 #include <stdlib.h>
 #include <string.h>
-
-// At this point this is effectively a chained hash table that functions. Still a bunch of bugs I need to iron out as well as work on
-// freeing memory with valgrind. But I'm going to move on and create a trie to do the same function because apparently it is faster.
-
-// Will come back and iron out the kinks within the next few days hopefully, maybe even sooner depending on how the trie goes.
 
 
 typedef struct _node
@@ -87,7 +82,7 @@ bool check(const char *word)
         {
             for(node* Ptr = HT_Ptr->words[check_index]; Ptr->next != NULL; Ptr = Ptr->next)
             {
-                if(strcmp(Ptr->next->word, lowercase_word)==0)
+                if(strcmp(Ptr->word, lowercase_word)==0)
                 {
                     check_bucket = true;
                     int* LLP = &linked_list_counter;
@@ -176,31 +171,20 @@ bool load(const char *dictionary)
             int pre_hash_index = PJWHash(new_word, index);
 
             int hash_index = pre_hash_index % hash_table_size;
-            
-            /* potential solution; check when home
-            
+
             node* temp = NULL;
-            
-            if (!HT_Ptr->words[hash_index])
-            {
-               node* temp = NULL;
-            }
-            
-            else 
-            {
-               node* temp = HT_Ptr->words[hash_index];
-            }
-            
-            
-            
-            
-            */
-            
-            
 
-            node* word_in= NULL; // here is the bug, this is why the linked list wont work,  we are setting the word in equal to null thus always outputing a single head node
+            if(!HT_Ptr->words[hash_index])
+            {
+                temp = NULL;
+            }
 
-            node* word_node = addLink(word_in, new_word);
+            else
+            {
+                temp = HT_Ptr->words[hash_index];
+            }
+
+            node* word_node = addLink(temp, new_word);
 
             HT_Ptr->words[hash_index] = word_node;
 
@@ -246,7 +230,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    return linked_list_counter;
+    return dict_size;
 }
 
 // Unloads dictionary from memory, returning true if successful else false
@@ -359,45 +343,43 @@ int prime(int ht_size)
     return primes[prime_counter-1];
 }
 
-//alternative hashes just in case
-
-static unsigned long
-    sdbm(str)
-    unsigned char *str;
-    {
-        unsigned long hash = 0;
-        int c;
-
-        while (c = *str++)
-            hash = c + (hash << 6) + (hash << 16) - hash;
-
-        return hash;
-    }
-
-unsigned long
-    hash(unsigned char *str)
-    {
-	unsigned int hash = 0;
-	int c;
-
-	while (c = *str++)
-	    hash += c;
-
-	return hash;
-    }
-
-
-unsigned int BKDRHash(const char* str, unsigned int length)
+node* makeLink(void)
 {
-   unsigned int seed = 131; /* 31 131 1313 13131 131313 etc.. */
-   unsigned int hash = 0;
-   unsigned int i    = 0;
+    node* temp;
 
-   for (i = 0; i < length; ++str, ++i)
-   {
-      hash = (hash * seed) + (*str);
-   }
+    temp = malloc(sizeof(node));
 
-   return hash;
+    temp->next = NULL;
+
+    return temp;
 }
 
+node* addLink(node* link, char* add_word)
+{
+    node* temp;
+
+    node* ptr;
+
+    temp = makeLink();
+
+    temp->word = add_word;
+
+    if (link == NULL)
+    {
+        link = temp;
+    }
+
+    else
+    {
+        ptr = link;
+
+        while(ptr->next != NULL)
+        {
+            ptr = ptr->next;
+        }
+
+        ptr->next = temp;
+    }
+
+    return link;
+}

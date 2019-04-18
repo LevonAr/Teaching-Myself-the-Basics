@@ -359,6 +359,8 @@ int prime(int ht_size)
     return primes[prime_counter-1];
 }
 
+//alternative hashes just in case
+
 static unsigned long
     sdbm(str)
     unsigned char *str;

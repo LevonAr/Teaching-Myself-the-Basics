@@ -386,3 +386,18 @@ node* addLink(node* link, char* add_word)
 
     return link;
 }
+
+//potential hashes to try for optimization
+
+unsigned int DEKHash(const char* str, unsigned int length)
+{
+   unsigned int hash = len;
+   unsigned int i    = 0;
+
+   for (i = 0; i < length; ++str, ++i)
+   {
+      hash = ((hash << 5) ^ (hash >> 27)) ^ (*str);
+   }
+
+   return hash;
+}

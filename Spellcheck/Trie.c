@@ -427,3 +427,17 @@ uint32_t hash(const char* message, size_t message_length)
 
    return internal_state;
 }
+
+
+unsigned int JSHash(const char* str, unsigned int length)
+{
+   unsigned int hash = 1315423911;
+   unsigned int i    = 0;
+
+   for (i = 0; i < length; ++str, ++i)
+   {
+      hash ^= ((hash << 5) + (*str) + (hash >> 2));
+   }
+
+   return hash;
+}

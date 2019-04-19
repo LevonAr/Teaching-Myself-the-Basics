@@ -236,7 +236,13 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    free(HT_Ptr->words[i]);
+    for(int i=0; i<=hash_table_size; i++)
+    {
+        if(HT_Ptr->words[i])
+        {
+            free(HT_Ptr->words[i]);
+        }
+    }
 
     return true;
 }

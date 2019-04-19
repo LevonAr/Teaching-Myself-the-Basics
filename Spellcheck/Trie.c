@@ -32,6 +32,8 @@ Hashtable* HT_Ptr;
 //just checking if my linked list works
 int linked_list_counter;
 
+int hash_table_size;
+
 
 // Forward Declarations:
 
@@ -61,8 +63,6 @@ bool check(const char *word)
     lowercase_word[i]= '\0';
 
     int pre_check_index = PJWHash(lowercase_word,strlen(word));
-
-    int hash_table_size = prime (dict_size * 1.4286);
 
     int check_index = pre_check_index % hash_table_size;
 
@@ -136,7 +136,9 @@ bool load(const char *dictionary)
     *dict_size_Ptr = new_line_counter;
 
     // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
-    int hash_table_size = prime(dict_size * 1.4286);
+    int *hash_table_size_Ptr = &hash_table_size;
+
+    *hash_table_size_Ptr = prime (dict_size * 1.4286);
 
     //HT_Ptr->size = hash_table_size;
 
@@ -234,7 +236,8 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    // TODO
+    free(HT_Ptr->words[i]);
+
     return true;
 }
 

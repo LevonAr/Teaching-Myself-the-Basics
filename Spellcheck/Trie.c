@@ -1,5 +1,4 @@
-// THIS WILL BE MY ATTEMPT AT A TRIE,
-// it should work faster than my chain hash function, but i still think ill use the structure of it
+// Implements a dictionary's functionality
 
 #include <stdbool.h>
 #include <ctype.h>
@@ -9,11 +8,6 @@
 #include "dictionary.h"
 #include <stdlib.h>
 #include <string.h>
-
-// At this point this is effectively a chained hash table that functions. Still a bunch of bugs I need to iron out as well as work on
-// freeing memory with valgrind. But I'm going to move on and create a trie to do the same function because apparently it is faster.
-
-// Will come back and iron out the kinks within the next few days hopefully, maybe even sooner depending on how the trie goes.
 
 
 typedef struct _node
@@ -33,7 +27,7 @@ typedef struct
 
 int dict_size;
 
-Hashtable HT;
+Hashtable* HT_Ptr = NULL;
 
 //just checking if my linked list works
 int linked_list_counter;
@@ -72,8 +66,6 @@ bool check(const char *word)
 
     int check_index = pre_check_index % hash_table_size;
 
-    Hashtable* HT_Ptr = &HT;
-
     if(HT_Ptr->words[check_index])
     {
 
@@ -88,7 +80,7 @@ bool check(const char *word)
         {
             for(node* Ptr = HT_Ptr->words[check_index]; Ptr->next != NULL; Ptr = Ptr->next)
             {
-                if(strcmp(Ptr->next->word, lowercase_word)==0)
+                if(strcmp(Ptr->word, lowercase_word)==0)
                 {
                     check_bucket = true;
                     int* LLP = &linked_list_counter;
@@ -100,6 +92,16 @@ bool check(const char *word)
 
             return check_bucket;
         }
+
+        /*if(strcmp(HT_Ptr->words[check_index]->word, lowercase_word)==0)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }*/
 
     }
 
@@ -136,11 +138,11 @@ bool load(const char *dictionary)
     // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
     int hash_table_size = prime(dict_size * 1.4286);
 
-    Hashtable* HT_Ptr = &HT;
+    *HT_Ptr->size = malloc(sizeof(int));
 
     HT_Ptr->size = hash_table_size;
 
-    HT_Ptr->words = calloc(hash_table_size,sizeof(node));
+    *HT_Ptr->words = calloc(hash_table_size,sizeof(node));
 
     fseek(load_file, 0, SEEK_SET);
 
@@ -167,25 +169,18 @@ bool load(const char *dictionary)
             int pre_hash_index = PJWHash(new_word, index);
 
             int hash_index = pre_hash_index % hash_table_size;
-            
-            potential solution; check when home
-            
-            node* temp = NULL;
-            
-            if (!HT_Ptr->words[hash_index])
-            {
-               node* temp = NULL;
-            }
-            
-            else 
-            {
-               node* temp = HT_Ptr->words[hash_index];
-            }
-           
-            
-            
 
-            //node* word_in= NULL; // here is the bug, this is why the linked list wont work,  we are setting the word in equal to null thus always outputing a single head node
+            node* temp = NULL;
+
+            if(!HT_Ptr->words[hash_index])
+            {
+                temp = NULL;
+            }
+
+            else
+            {
+                temp = HT_Ptr->words[hash_index];
+            }
 
             node* word_node = addLink(temp, new_word);
 
@@ -233,7 +228,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    return linked_list_counter;
+    return dict_size;
 }
 
 // Unloads dictionary from memory, returning true if successful else false
@@ -245,7 +240,7 @@ bool unload(void)
 
 char* trim(char word[], int len)
 {
-    char* storage = malloc(sizeof(char)*len);
+    char* storage = malloc(sizeof(char)*(len+1));
 
     for(int i=0; i<=len; i++)
     {
@@ -359,9 +354,9 @@ node* makeLink(void)
 
 node* addLink(node* link, char* add_word)
 {
-    node* temp;
+    node* temp = NULL;
 
-    node* ptr;
+    node* ptr = NULL;
 
     temp = makeLink();
 
@@ -369,7 +364,10 @@ node* addLink(node* link, char* add_word)
 
     if (link == NULL)
     {
+        temp->next = NULL;
+
         link = temp;
+
     }
 
     else
@@ -385,94 +383,4 @@ node* addLink(node* link, char* add_word)
     }
 
     return link;
-}
-
-//potential hashes to try for optimization
-
-unsigned int DEKHash(const char* str, unsigned int length)
-{
-   unsigned int hash = len;
-   unsigned int i    = 0;
-
-   for (i = 0; i < length; ++str, ++i)
-   {
-      hash = ((hash << 5) ^ (hash >> 27)) ^ (*str);
-   }
-
-   return hash;
-}
-
-uint32_t hash(const char* message, size_t message_length)
-{
-   uint32_t internal_state = 0xA5A5A5A5; // IV: A magic number
-   uint32_t message_block = 0;
-
-   // Loop over the message 32-bits at-a-time
-   while (message_length >= 4)
-   {
-      memcpy(message_block, message, sizeof(uint32_t));
-
-      internal_state = mix(message_block, internal_state);
-
-      message_length -= sizeof(uint32_t);
-      message        += sizeof(uint32_t);
-   }
-
-   // Are there any remaining bytes?
-   if (message_length)
-   {
-      memcpy(message_block, message, message_length);
-      internal_state = mix(message_block, internal_state);
-   }
-
-   return internal_state;
-}
-
-
-unsigned int JSHash(const char* str, unsigned int length)
-{
-   unsigned int hash = 1315423911;
-   unsigned int i    = 0;
-
-   for (i = 0; i < length; ++str, ++i)
-   {
-      hash ^= ((hash << 5) + (*str) + (hash >> 2));
-   }
-
-   return hash;
-}
-
-unsigned int ELFHash(const char* str, unsigned int length)
-{
-   unsigned int hash = 0;
-   unsigned int x    = 0;
-   unsigned int i    = 0;
-
-   for (i = 0; i < length; ++str, ++i)
-   {
-      hash = (hash << 4) + (*str);
-
-      if ((x = hash & 0xF0000000L) != 0)
-      {
-         hash ^= (x >> 24);
-      }
-
-      hash &= ~x;
-   }
-
-   return hash;
-}
-
-unsigned int BKDRHash(const char* str, unsigned int length)
-{
-   unsigned int seed = 131; /* 31 131 1313 13131 131313 etc.. */
-   unsigned int hash = 0;
-   unsigned int i    = 0;
-
-   for (i = 0; i < length; ++str, ++i)
-   {
-      hash = (hash * seed) + (*str);
-   }
-
-   return hash;
 }

@@ -27,7 +27,7 @@ typedef struct
 
 int dict_size;
 
-Hashtable* HT_Ptr = NULL;
+Hashtable* HT_Ptr;
 
 //just checking if my linked list works
 int linked_list_counter;
@@ -138,11 +138,11 @@ bool load(const char *dictionary)
     // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
     int hash_table_size = prime(dict_size * 1.4286);
 
-    *HT_Ptr->size = malloc(sizeof(int));
+    //HT_Ptr->size = hash_table_size;
 
-    HT_Ptr->size = hash_table_size;
+    HT_Ptr = malloc(sizeof(Hashtable));
 
-    *HT_Ptr->words = calloc(hash_table_size,sizeof(node));
+    HT_Ptr->words = calloc(hash_table_size,sizeof(node));
 
     fseek(load_file, 0, SEEK_SET);
 

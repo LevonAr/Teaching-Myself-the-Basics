@@ -242,7 +242,7 @@ bool unload(void)
 
 char* trim(char word[], int len)
 {
-    char* storage = malloc(sizeof(char)*len);
+    char* storage = malloc(sizeof(char)*(len+1));
 
     for(int i=0; i<=len; i++)
     {
@@ -366,6 +366,8 @@ node* addLink(node* link, char* add_word)
 
     if (link == NULL)
     {
+        temp->next = NULL;
+
         link = temp;
     }
 

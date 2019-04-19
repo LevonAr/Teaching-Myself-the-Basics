@@ -369,6 +369,11 @@ node* addLink(node* link, char* add_word)
         temp->next = NULL;
 
         link = temp;
+
+        free(ptr);
+
+        free(temp);
+
     }
 
     else
@@ -381,6 +386,10 @@ node* addLink(node* link, char* add_word)
         }
 
         ptr->next = temp;
+
+        free(ptr);
+
+        free(temp);
     }
 
     return link;

@@ -27,11 +27,16 @@ typedef struct
 
 int dict_size;
 
-Hashtable HT;
+Hashtable* HT_Ptr;
 
 //just checking if my linked list works
 int linked_list_counter;
 
+int hash_table_size;
+
+int load_debugger;
+
+int LL_debugger=0;
 
 // Forward Declarations:
 
@@ -62,38 +67,26 @@ bool check(const char *word)
 
     int pre_check_index = PJWHash(lowercase_word,strlen(word));
 
-    int hash_table_size = prime (dict_size * 1.4286);
-
     int check_index = pre_check_index % hash_table_size;
-
-    Hashtable* HT_Ptr = &HT;
 
     if(HT_Ptr->words[check_index])
     {
 
         bool check_bucket = false;
 
-        if(strcmp(HT_Ptr->words[check_index]->word, lowercase_word)==0)
+        for(node* Ptr = HT_Ptr->words[check_index]; Ptr->next != NULL; Ptr = Ptr->next)
         {
-            return true;
-        }
-
-        else
-        {
-            for(node* Ptr = HT_Ptr->words[check_index]; Ptr->next != NULL; Ptr = Ptr->next)
+            if(strcmp(Ptr->word, lowercase_word)==0)
             {
-                if(strcmp(Ptr->word, lowercase_word)==0)
-                {
-                    check_bucket = true;
-                    int* LLP = &linked_list_counter;
-                    *LLP = linked_list_counter + 1;
-                    break;
-                }
-
+                check_bucket = true;
+                int* LLP = &linked_list_counter;
+                *LLP = linked_list_counter + 1;
+                break;
             }
-
-            return check_bucket;
         }
+
+        return check_bucket;
+
 
         /*if(strcmp(HT_Ptr->words[check_index]->word, lowercase_word)==0)
         {
@@ -138,11 +131,13 @@ bool load(const char *dictionary)
     *dict_size_Ptr = new_line_counter;
 
     // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
-    int hash_table_size = prime(dict_size * 1.4286);
+    int *hash_table_size_Ptr = &hash_table_size;
 
-    Hashtable* HT_Ptr = &HT;
+    *hash_table_size_Ptr = prime (dict_size * 1.4286);
 
-    HT_Ptr->size = hash_table_size;
+    //HT_Ptr->size = hash_table_size;
+
+    HT_Ptr = malloc(sizeof(Hashtable));
 
     HT_Ptr->words = calloc(hash_table_size,sizeof(node));
 
@@ -182,6 +177,10 @@ bool load(const char *dictionary)
             else
             {
                 temp = HT_Ptr->words[hash_index];
+
+                int* LLDP = &LL_debugger;
+
+                *LLDP = LL_debugger+1;
             }
 
             node* word_node = addLink(temp, new_word);
@@ -223,6 +222,7 @@ bool load(const char *dictionary)
 
     HT_Ptr->words[hash_index] = last_word_node;
 
+    fclose(load_file);
 
     return true;
 }
@@ -230,13 +230,20 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    return dict_size;
+    return LL_debugger;
 }
 
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    // TODO
+    for(int i=0; i<=hash_table_size; i++)
+    {
+        if(HT_Ptr->words[i])
+        {
+            free(HT_Ptr->words[i]);
+        }
+    }
+
     return true;
 }
 
@@ -356,9 +363,9 @@ node* makeLink(void)
 
 node* addLink(node* link, char* add_word)
 {
-    node* temp;
+    node* temp = NULL;
 
-    node* ptr;
+    node* ptr = NULL;
 
     temp = makeLink();
 
@@ -369,10 +376,6 @@ node* addLink(node* link, char* add_word)
         temp->next = NULL;
 
         link = temp;
-
-        free(ptr);
-
-        free(temp);
 
     }
 
@@ -386,10 +389,6 @@ node* addLink(node* link, char* add_word)
         }
 
         ptr->next = temp;
-
-        free(ptr);
-
-        free(temp);
     }
 
     return link;

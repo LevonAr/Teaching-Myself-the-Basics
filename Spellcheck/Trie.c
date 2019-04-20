@@ -39,7 +39,7 @@ int hash_table_size;
 
 unsigned int PJWHash(const char* str, unsigned int length);
 
-//char* trim(char word[], int len);
+char* trim(char word[], int len);
 
 int prime(int ht_size);
 
@@ -166,9 +166,9 @@ bool load(const char *dictionary)
         {
             dict_word[index]= '\0';
 
-            //char* new_word = trim(dict_word, index);
+            char* new_word = trim(dict_word, index);
 
-            int pre_hash_index = PJWHash(dict_word, index);
+            int pre_hash_index = PJWHash(new_word, index);
 
             int hash_index = pre_hash_index % hash_table_size;
 
@@ -184,7 +184,7 @@ bool load(const char *dictionary)
                 temp = HT_Ptr->words[hash_index];
             }
 
-            node* word_node = addLink(temp, dict_word);
+            node* word_node = addLink(temp, new_word);
 
             HT_Ptr->words[hash_index] = word_node;
 
@@ -211,15 +211,15 @@ bool load(const char *dictionary)
 
     last_word[lw_index] = '\0';
 
-    //char* last__word = trim(last_word, lw_index-1);
+    char* last__word = trim(last_word, lw_index-1);
 
-    int pre_hash_index = PJWHash(last_word, lw_index-1);
+    int pre_hash_index = PJWHash(last__word, lw_index-1);
 
     int hash_index = pre_hash_index % hash_table_size;
 
     node* last_word_in = NULL;
 
-    node* last_word_node = addLink(last_word_in, last_word);
+    node* last_word_node = addLink(last_word_in, last__word);
 
     HT_Ptr->words[hash_index] = last_word_node;
 

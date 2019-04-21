@@ -142,11 +142,11 @@ bool load(const char *dictionary)
 
     //HT_Ptr->size = hash_table_size;
 
-    HT_Ptr = malloc(sizeof(Hashtable));
-
-    HT_Ptr->words = calloc(hash_table_size,sizeof(node));
-
-    fseek(load_file, 0, SEEK_SET);
+    HT_Ptr = malloc(sizeof(Hashtable));                 XXXXXXXXXXX
+                                                        XXXXXXXXXXX
+    HT_Ptr->words = calloc(hash_table_size,sizeof(node  XXXXBUGXXXX  )); // took me around 8 hours of debugging.
+                                                        XXXXXXXXXXX      // I literally drew around 10  pages of diagrams of pointers.
+    fseek(load_file, 0, SEEK_SET);                      XXXXXXXXXXX      // The problem is i used calloc with node instead of node*. This ended up being a unique bug because the first part of the struct node is a char*, so im assuming the computer just followed the pointer to the word and stored that, which is not too far off from what is supposed to happen, so the program saved most of the words correctly. But obviously this is completely wrong, so it only correctly stored about 70% of the words. Im assuming the second buckets are where most of the damage happened.
 
     int index = 0;
 
@@ -355,7 +355,7 @@ node* makeLink(void)
     node* temp;
 
     temp = malloc(sizeof(node));
-    
+
     temp->next = NULL;
 
     return temp;
@@ -373,7 +373,6 @@ node* addLink(node* link, char* add_word)
 
     if (link == NULL)
     {
-        //potentially unnecessary, its alreay done in makeLink
         temp->next = NULL;
 
         link = temp;

@@ -79,8 +79,12 @@ bool check(const char *word)
         else
         {
             for(node* Ptr = HT_Ptr->words[check_index]; Ptr->next != NULL; Ptr = Ptr->next)
-            {
-                if(strcmp(Ptr->word, lowercase_word)==0)
+            {                                               XXXXXXXXXXX
+                                                            XXXXXXXXXXX
+                //if(strcmp(Ptr->word, lowercase_word)==0)  XXXXBUGXXXX
+                                                            XXXXXXXXXXX
+                                                            XXXXXXXXXXX
+                if(strcmp(Ptr->next->word, lowercase_word)==0)
                 {
                     check_bucket = true;
                     int* LLP = &linked_list_counter;

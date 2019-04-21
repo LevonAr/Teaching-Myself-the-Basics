@@ -152,12 +152,12 @@ bool load(const char *dictionary)
 
     char dict_word[LENGTH + 1];
 
-    int last_word_counter = 0;
+    //int last_word_counter = 0;
 
     //last word index
-    int lw_index = 0;
+    //int lw_index = 0;
 
-    char last_word[LENGTH + 1];
+    //char last_word[LENGTH + 1];
 
     for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
     {
@@ -190,15 +190,15 @@ bool load(const char *dictionary)
 
             index = 0;
 
-            last_word_counter ++;
+            //last_word_counter ++;
         }
 
-        else if(last_word_counter == dict_size -1)
+        /*else if(last_word_counter == dict_size -1)
         {
             last_word[lw_index] = c;
 
             lw_index++;
-        }
+        }*/
 
         else
         {
@@ -209,7 +209,7 @@ bool load(const char *dictionary)
 
     }
 
-    last_word[lw_index] = '\0';
+    /*last_word[lw_index] = '\0';
 
     char* last__word = trim(last_word, lw_index-1);
 
@@ -221,7 +221,7 @@ bool load(const char *dictionary)
 
     node* last_word_node = addLink(last_word_in, last__word);
 
-    HT_Ptr->words[hash_index] = last_word_node;
+    HT_Ptr->words[hash_index] = last_word_node;*/
 
 
     return true;
@@ -230,7 +230,31 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    return dict_size;
+
+    int bucket_counter = 0;
+
+    int second_bucket_counter =0;
+
+    for(int i=0; i<=hash_table_size; i++)
+    {
+        if(HT_Ptr->words[i])
+        {
+            bucket_counter++;
+
+            for(node* Ptr = HT_Ptr->words[i]; Ptr->next != NULL; Ptr = Ptr->next)
+            {
+                if(Ptr->word)
+                {
+                    second_bucket_counter++;
+                    break;
+                }
+
+            }
+
+        }
+    }
+
+    return second_bucket_counter;
 }
 
 // Unloads dictionary from memory, returning true if successful else false
@@ -366,6 +390,8 @@ node* addLink(node* link, char* add_word)
     node* temp = NULL;
 
     node* ptr = NULL;
+
+    //ptr = makeLink();
 
     temp = makeLink();
 

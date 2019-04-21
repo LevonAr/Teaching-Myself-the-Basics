@@ -34,9 +34,6 @@ int linked_list_counter;
 
 int hash_table_size;
 
-int load_debugger;
-
-int LL_debugger=0;
 
 // Forward Declarations:
 
@@ -71,22 +68,27 @@ bool check(const char *word)
 
     if(HT_Ptr->words[check_index])
     {
+        if(strcmp(HT_Ptr->words[check_index]->word, lowercase_word)==0)
+        {
+            return true;
+        }
 
         bool check_bucket = false;
 
+
         for(node* Ptr = HT_Ptr->words[check_index]; Ptr->next != NULL; Ptr = Ptr->next)
-        {
-            if(strcmp(Ptr->word, lowercase_word)==0)
             {
-                check_bucket = true;
-                int* LLP = &linked_list_counter;
-                *LLP = linked_list_counter + 1;
-                break;
+                if(strcmp(Ptr->next->word, lowercase_word)==0)
+                {
+                    check_bucket = true;
+                    int* LLP = &linked_list_counter;
+                    *LLP = linked_list_counter + 1;
+                    break;
+                }
+
             }
-        }
 
-        return check_bucket;
-
+            return check_bucket;
 
         /*if(strcmp(HT_Ptr->words[check_index]->word, lowercase_word)==0)
         {
@@ -135,11 +137,11 @@ bool load(const char *dictionary)
 
     *hash_table_size_Ptr = prime (dict_size * 1.4286);
 
-    //HT_Ptr->size = hash_table_size;
-
     HT_Ptr = malloc(sizeof(Hashtable));
 
-    HT_Ptr->words = calloc(hash_table_size,sizeof(node));
+    HT_Ptr->size = hash_table_size;
+
+    HT_Ptr->words = calloc(hash_table_size,sizeof(node*));
 
     fseek(load_file, 0, SEEK_SET);
 
@@ -177,10 +179,6 @@ bool load(const char *dictionary)
             else
             {
                 temp = HT_Ptr->words[hash_index];
-
-                int* LLDP = &LL_debugger;
-
-                *LLDP = LL_debugger+1;
             }
 
             node* word_node = addLink(temp, new_word);
@@ -222,7 +220,6 @@ bool load(const char *dictionary)
 
     HT_Ptr->words[hash_index] = last_word_node;
 
-    fclose(load_file);
 
     return true;
 }
@@ -230,7 +227,7 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    return LL_debugger;
+    return dict_size;
 }
 
 // Unloads dictionary from memory, returning true if successful else false

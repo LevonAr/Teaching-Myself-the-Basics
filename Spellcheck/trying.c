@@ -146,7 +146,7 @@ bool load(const char *dictionary)
 
     //HT_Ptr->size = hash_table_size;
 
-    HT_Ptr = malloc(sizeof(Hashtable));                 XXXXXXXXXXX
+    HT_Ptr = malloc(sizeof(Hashtable));                 XXXXXXXXXXX     // apparently this program works even with this bug. Need to come back to this later and find out why.
                                                         XXXXXXXXXXX
     HT_Ptr->words = calloc(hash_table_size,sizeof(node  XXXXBUGXXXX  )); // took me around 8 hours of debugging.
                                                         XXXXXXXXXXX      // I literally drew around 10  pages of diagrams of pointers.

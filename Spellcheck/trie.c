@@ -165,25 +165,7 @@ bool load(const char *dictionary)
 
             char* new_word = trim(dict_word, index);
 
-            int pre_hash_index = PJWHash(new_word, index);
-
-            int hash_index = pre_hash_index % hash_table_size;
-
-            node* temp = NULL;
-
-            if(!HT_Ptr->words[hash_index])
-            {
-                temp = NULL;
-            }
-
-            else
-            {
-                temp = HT_Ptr->words[hash_index];
-            }
-
-            node* word_node = addLink(temp, new_word);
-
-            HT_Ptr->words[hash_index] = word_node;
+   
 
             index = 0;
 

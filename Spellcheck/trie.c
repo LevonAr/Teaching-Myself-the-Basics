@@ -72,12 +72,102 @@ void add_entry(trie* root, const char* input_word)
 
 trie* base_root;
 
+int dict_size;
 
 bool load(const char *dictionary)
 {
+    FILE *load_file = fopen(dictionary, "r");
+
+    if(!load_file)
+    {
+        printf("%s", "could not open dictionary");
+
+        return 1;
+    }
+
+
+
     base_root = init_node();
 
-    add_entry(base_root, dictionary);
+    int new_line_counter = 1;
+
+    for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
+    {
+        if( c== '\n')
+        {
+            new_line_counter++;
+        }
+
+    }
+
+    dict_size = new_line_counter;
+
+    fseek(load_file, 0, SEEK_SET);
+
+    int index = 0;
+
+    char dict_word[LENGTH + 1];
+
+    int last_word_counter = 0;
+
+    //last word index
+    int lw_index = 0;
+
+    char last_word[LENGTH + 1];
+
+    for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
+    {
+
+        if( c== '\n')
+        {
+            dict_word[index]= '\0';
+
+            char* new_word = trim(dict_word, index);
+
+            add_entry(base_root, new_word);
+
+            index = 0;
+
+            last_word_counter ++;
+        }
+
+        else if(last_word_counter == dict_size -1)
+        {
+            last_word[lw_index] = c;
+
+            lw_index++;
+        }
+
+        else
+        {
+            dict_word[index]= c;
+
+            index++;
+        }
+
+    }
+
+    last_word[lw_index] = '\0';
+
+    char* last__word = trim(last_word, lw_index-1);
+
+    int pre_hash_index = PJWHash(last__word, lw_index-1);
+
+    int hash_index = pre_hash_index % hash_table_size;
+
+    node* last_word_in = NULL;
+
+    node* last_word_node = addLink(last_word_in, last__word);
+
+    HT_Ptr->words[hash_index] = last_word_node;
+
+
+    return true;
+}
+
+
+
+
 
     return 0;
 }

@@ -7,7 +7,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define alphabet (26)
+// technically alphabet and an apostrophe
+#define alphabet (27)
 
 typedef struct trie_
 {
@@ -52,7 +53,15 @@ void add_entry(trie* root, const char* input_word)
     for(i=0; i<strlen(input_word); i++)
     {
         //convert letter to corresponsing trie node
+
+
         node_of_letter = (int)input_word[i] - 97;
+
+        if(input_word[i]== '\'')
+        {
+            node_of_letter = 26;
+        }
+
 
         if (claw->nodes[node_of_letter])
         {
@@ -111,6 +120,11 @@ bool check(const char *word)
     for(j=0; j<strlen(lowercase_word); j++)
     {
         node_of_letter = (int)lowercase_word[j] - 97;
+
+        if(lowercase_word[j]== '\'')
+        {
+            node_of_letter = 26;
+        }
 
         if(check_claw->nodes[node_of_letter])
         {
@@ -239,15 +253,5 @@ bool unload(void)
 {
     free(base_root);
 
-    if(!base_root)
-    {
-        return true;
-    }
-
-    else
-    {
-        return false;
-    }
+    return true;
 }
-
-

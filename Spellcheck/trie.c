@@ -222,3 +222,32 @@ bool load(const char *dictionary)
         return false;
     }
 }
+
+unsigned int size(void)
+{
+    if(!dict_size)
+    {
+        perror("error: dictionary size does not exist");
+
+        return -1;
+    }
+
+    return dict_size;
+}
+
+bool unload(void)
+{
+    free(base_root);
+
+    if(!base_root)
+    {
+        return true;
+    }
+
+    else
+    {
+        return false;
+    }
+}
+
+

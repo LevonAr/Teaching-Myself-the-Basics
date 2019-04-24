@@ -72,7 +72,11 @@ void add_entry(trie* root, const char* input_word)
 
 int main(void)
 {
+    char* word = "check";
+
     trie* root = init_node();
+
+    add_entry(root, word);
 
 
 }

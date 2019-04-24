@@ -260,17 +260,6 @@ char* trim(char word[], int len)
     }
 
     return storage;
-
-
-    /*int pre_index = PJWHash(storage, len);
-
-    int index = pre_index % hash_table_size;
-
-    printf("%i%s\n", index, storage);*/
-
-    /*
-
-    printf("%s", storage);*/
 }
 
 

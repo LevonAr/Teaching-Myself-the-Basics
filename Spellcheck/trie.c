@@ -16,7 +16,7 @@ typedef struct trie_
     bool end_of_word;
 } trie;
 
-trie* initialize_node(void)
+trie* init_node(void)
 {
     trie* temp = malloc(sizeof(trie));
 
@@ -38,7 +38,18 @@ trie* initialize_node(void)
 }
 
 
-void add_entry
+void add_entry(trie* root, const char* input_word)
+{
+    // double for loop that increments chars in the word and increments through the trie pointers accordingly
+    for()
+}
 
-
+int main(void)
+{
+    trie* root = init_node();
+    
+    add_entry(root, )
+    
+    
+}
 

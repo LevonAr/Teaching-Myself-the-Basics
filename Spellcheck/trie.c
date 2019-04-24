@@ -70,16 +70,16 @@ void add_entry(trie* root, const char* input_word)
     claw->end_of_word = true;
 }
 
-trie base_root;
+trie* base_root;
 
 
 bool load(const char *dictionary)
 {
-    trie* root = &base_root;
+    base_root = init_node();
 
-    root = init_node();
+    add_entry(base_root, dictionary);
 
-    add_entry(root, word);
+    return 0;
 }
 
 

@@ -110,6 +110,13 @@ bool check(const char *word)
 bool load(const char *dictionary)
 {
     FILE *load_file = fopen(dictionary, "r");
+    
+    if(!load_file)
+    {
+        printf("%s", "could not open dictionary");
+        
+        return 1;
+    }
 
     //lets figure out the fastes way to store each word in the least of memory
 

@@ -87,6 +87,53 @@ trie* base_root;
 
 int dict_size;
 
+bool check(const char *word)
+{
+    char* lowercase_word = malloc((strlen(word)+1)*sizeof(char)) ;
+
+    int i;
+
+    for(i=0; i<strlen(word); i++)
+    {
+        lowercase_word[i] = tolower(word[i]);
+    }
+
+    lowercase_word[i]= '\0';
+
+    trie* check_claw = init_node();
+
+    check_claw = base_root;
+
+    int node_of_letter;
+
+    int j;
+
+    for(j=0; j<strlen(lowercase_word); j++)
+    {
+        node_of_letter = (int)lowercase_word[j] - 97;
+
+        if(check_claw->nodes[node_of_letter])
+        {
+            check_claw = check_claw->nodes[node_of_letter];
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    if(check_claw->end_of_word == true)
+    {
+        return true;
+    }
+
+    else
+    {
+        return false;
+    }
+}
+
 bool load(const char *dictionary)
 {
     FILE *load_file = fopen(dictionary, "r");
@@ -95,7 +142,7 @@ bool load(const char *dictionary)
     {
         printf("%s", "could not open dictionary");
 
-        return 1;
+        return false;
     }
 
 
@@ -166,20 +213,12 @@ bool load(const char *dictionary)
 
     add_entry(base_root, last__word);
 
-
-    return true;
+    if(base_root != NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
-
-
-
-/*int main(void)
-{
-    char* word = "check";
-
-    trie* root = init_node();
-
-    add_entry(root, word);
-
-
-}*/
-

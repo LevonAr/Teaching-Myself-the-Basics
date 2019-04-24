@@ -70,6 +70,19 @@ void add_entry(trie* root, const char* input_word)
     claw->end_of_word = true;
 }
 
+char* trim(char word[], int len)
+{
+    char* storage = malloc(sizeof(char)*(len+1));
+
+    for(int i=0; i<=len; i++)
+    {
+        storage[i] = word[i];
+
+    }
+
+    return storage;
+}
+
 trie* base_root;
 
 int dict_size;
@@ -151,26 +164,12 @@ bool load(const char *dictionary)
 
     char* last__word = trim(last_word, lw_index-1);
 
-    int pre_hash_index = PJWHash(last__word, lw_index-1);
-
-    int hash_index = pre_hash_index % hash_table_size;
-
-    node* last_word_in = NULL;
-
-    node* last_word_node = addLink(last_word_in, last__word);
-
-    HT_Ptr->words[hash_index] = last_word_node;
+    add_entry(base_root, last__word);
 
 
     return true;
 }
 
-
-
-
-
-    return 0;
-}
 
 
 /*int main(void)

@@ -70,7 +70,20 @@ void add_entry(trie* root, const char* input_word)
     claw->end_of_word = true;
 }
 
-int main(void)
+trie base_root;
+
+
+bool load(const char *dictionary)
+{
+    trie* root = &base_root;
+
+    root = init_node();
+
+    add_entry(root, word);
+}
+
+
+/*int main(void)
 {
     char* word = "check";
 
@@ -79,5 +92,5 @@ int main(void)
     add_entry(root, word);
 
 
-}
+}*/
 

@@ -1,4 +1,5 @@
 # compiler to use
+// why clang and not gcc?
 CC = clang
 
 # flags to pass compiler

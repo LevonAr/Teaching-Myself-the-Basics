@@ -253,5 +253,12 @@ bool unload(void)
 {
     free(base_root);
 
+    base_root = NULL;
+
+    if(base_root)
+    {
+        return false;
+    }
+
     return true;
 }

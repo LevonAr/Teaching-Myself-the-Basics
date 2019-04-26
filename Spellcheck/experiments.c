@@ -56,17 +56,17 @@ trie* init_node(void)
 }
 
 
-void add_entry(trie* root, const char* input_word)
+void add_entry(trie* claw, const char* input_word)
 {
     // double for loop that increments chars in the word and increments through the trie pointers accordingly
     int i;
 
-    trie* claw = init_node();
+    //trie* claw = init_node();
 
     int node_of_letter;
 
-    claw = root;// okay, why does this work, lets see what happens when i alter it
-
+    //claw = root;
+    
     for(i=0; i<strlen(input_word); i++)
     {
         //convert letter to corresponsing trie node

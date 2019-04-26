@@ -65,7 +65,7 @@ void add_entry(trie* root, const char* input_word)
 
     int node_of_letter;
 
-    claw = root;
+    claw = root;// okay, why does this work, lets see what happens when i alter it
 
     for(i=0; i<strlen(input_word); i++)
     {

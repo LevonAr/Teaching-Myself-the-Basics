@@ -82,6 +82,11 @@ void add_entry(trie* root, const char* input_word)
 char* trim(char word[], int len)
 {
     char* storage = malloc(sizeof(char)*(len+1));
+    
+    if(!storage)
+    {
+        perror("error: not enough memory for malloc() in trim");
+    }
 
     for(int i=0; i<=len; i++)
     {

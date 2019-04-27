@@ -62,6 +62,8 @@ void add_entry(trie* claw, const char* input_word)
     int i;
 
     //trie* claw = init_node();
+    
+    // run valgrind on control(trie.c) and experiment
 
     int node_of_letter;
 

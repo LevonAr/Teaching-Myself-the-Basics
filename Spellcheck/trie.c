@@ -272,78 +272,78 @@ bool unload(void)
 
 // Valgrind output with leak report
 /*
-==4623== 
-==4623== HEAP SUMMARY:
-==4623==     in use at exit: 119,789,994 bytes in 688,776 blocks
-==4623==   total heap usage: 688,778 allocs, 2 frees, 119,790,786 bytes allocated
-==4623== 
-==4623== 7 bytes in 1 blocks are definitely lost in loss record 1 of 13
-==4623==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4623==    by 0x422C4A: trim (dictionary.c:84)
-==4623==    by 0x423B6B: load (dictionary.c:226)
-==4623==    by 0x420942: main (speller.c:40)
-==4623== 
-==4623== 224 bytes in 1 blocks are definitely lost in loss record 2 of 13
-==4623==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4623==    by 0x4222E3: init_node (dictionary.c:22)
-==4623==    by 0x422527: add_entry (dictionary.c:47)
-==4623==    by 0x423B86: load (dictionary.c:228)
-==4623==    by 0x420942: main (speller.c:40)
-==4623== 
-==4623== 672 bytes in 3 blocks are possibly lost in loss record 4 of 13
-==4623==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4623==    by 0x4222E3: init_node (dictionary.c:22)
-==4623==    by 0x422527: add_entry (dictionary.c:47)
-==4623==    by 0x423770: load (dictionary.c:201)
-==4623==    by 0x420942: main (speller.c:40)
-==4623== 
-==4623== 9,184 bytes in 41 blocks are possibly lost in loss record 7 of 13
-==4623==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4623==    by 0x4222E3: init_node (dictionary.c:22)
-==4623==    by 0x422891: add_entry (dictionary.c:73)
-==4623==    by 0x423770: load (dictionary.c:201)
-==4623==    by 0x420942: main (speller.c:40)
-==4623== 
-==4623== 94,327 bytes in 17,756 blocks are definitely lost in loss record 8 of 13
-==4623==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4623==    by 0x422DCB: check (dictionary.c:101)
-==4623==    by 0x421313: main (speller.c:112)
-==4623== 
-==4623== 1,439,220 bytes in 143,090 blocks are definitely lost in loss record 9 of 13
-==4623==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4623==    by 0x422C4A: trim (dictionary.c:84)
-==4623==    by 0x423755: load (dictionary.c:199)
-==4623==    by 0x420942: main (speller.c:40)
-==4623== 
-==4623== 3,977,344 bytes in 17,756 blocks are definitely lost in loss record 10 of 13
-==4623==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4623==    by 0x4222E3: init_node (dictionary.c:22)
-==4623==    by 0x422F87: check (dictionary.c:112)
-==4623==    by 0x421313: main (speller.c:112)
-==4623== 
-==4623== 32,051,488 bytes in 143,087 blocks are definitely lost in loss record 11 of 13
-==4623==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4623==    by 0x4222E3: init_node (dictionary.c:22)
-==4623==    by 0x422527: add_entry (dictionary.c:47)
-==4623==    by 0x423770: load (dictionary.c:201)
-==4623==    by 0x420942: main (speller.c:40)
-==4623== 
-==4623== 82,215,392 (5,824 direct, 82,209,568 indirect) bytes in 26 blocks are definitely lost in loss record 13 of 13
-==4623==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==4623==    by 0x4222E3: init_node (dictionary.c:22)
-==4623==    by 0x422891: add_entry (dictionary.c:73)
-==4623==    by 0x423770: load (dictionary.c:201)
-==4623==    by 0x420942: main (speller.c:40)
-==4623== 
-==4623== LEAK SUMMARY:
-==4623==    definitely lost: 37,568,434 bytes in 321,717 blocks
-==4623==    indirectly lost: 82,209,568 bytes in 367,007 blocks
-==4623==      possibly lost: 9,856 bytes in 44 blocks
-==4623==    still reachable: 2,136 bytes in 8 blocks
-==4623==         suppressed: 0 bytes in 0 blocks
-==4623== Reachable blocks (those to which a pointer was found) are not shown.
-==4623== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==4623== 
-==4623== For counts of detected and suppressed errors, rerun with: -v
-==4623== ERROR SUMMARY: 17 errors from 10 contexts (suppressed: 0 from 0)
+==14624== 
+==14624== HEAP SUMMARY:
+==14624==     in use at exit: 119,789,994 bytes in 688,776 blocks
+==14624==   total heap usage: 688,778 allocs, 2 frees, 119,790,786 bytes allocated
+==14624== 
+==14624== 7 bytes in 1 blocks are definitely lost in loss record 1 of 13
+==14624==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14624==    by 0x422C4A: trim (dictionary.c:84)
+==14624==    by 0x423B8B: load (dictionary.c:233)
+==14624==    by 0x420942: main (speller.c:40)
+==14624== 
+==14624== 224 bytes in 1 blocks are definitely lost in loss record 2 of 13
+==14624==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14624==    by 0x4222E3: init_node (dictionary.c:22)
+==14624==    by 0x422527: add_entry (dictionary.c:47)
+==14624==    by 0x423BA6: load (dictionary.c:235)
+==14624==    by 0x420942: main (speller.c:40)
+==14624== 
+==14624== 672 bytes in 3 blocks are possibly lost in loss record 4 of 13
+==14624==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14624==    by 0x4222E3: init_node (dictionary.c:22)
+==14624==    by 0x422527: add_entry (dictionary.c:47)
+==14624==    by 0x423790: load (dictionary.c:208)
+==14624==    by 0x420942: main (speller.c:40)
+==14624== 
+==14624== 9,184 bytes in 41 blocks are possibly lost in loss record 7 of 13
+==14624==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14624==    by 0x4222E3: init_node (dictionary.c:22)
+==14624==    by 0x422891: add_entry (dictionary.c:73)
+==14624==    by 0x423790: load (dictionary.c:208)
+==14624==    by 0x420942: main (speller.c:40)
+==14624== 
+==14624== 94,327 bytes in 17,756 blocks are definitely lost in loss record 8 of 13
+==14624==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14624==    by 0x422DEB: check (dictionary.c:108)
+==14624==    by 0x421313: main (speller.c:112)
+==14624== 
+==14624== 1,439,220 bytes in 143,090 blocks are definitely lost in loss record 9 of 13
+==14624==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14624==    by 0x422C4A: trim (dictionary.c:84)
+==14624==    by 0x423775: load (dictionary.c:206)
+==14624==    by 0x420942: main (speller.c:40)
+==14624== 
+==14624== 3,977,344 bytes in 17,756 blocks are definitely lost in loss record 10 of 13
+==14624==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14624==    by 0x4222E3: init_node (dictionary.c:22)
+==14624==    by 0x422FA7: check (dictionary.c:119)
+==14624==    by 0x421313: main (speller.c:112)
+==14624== 
+==14624== 32,051,488 bytes in 143,087 blocks are definitely lost in loss record 11 of 13
+==14624==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14624==    by 0x4222E3: init_node (dictionary.c:22)
+==14624==    by 0x422527: add_entry (dictionary.c:47)
+==14624==    by 0x423790: load (dictionary.c:208)
+==14624==    by 0x420942: main (speller.c:40)
+==14624== 
+==14624== 82,215,392 (5,824 direct, 82,209,568 indirect) bytes in 26 blocks are definitely lost in loss record 13 of 13
+==14624==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14624==    by 0x4222E3: init_node (dictionary.c:22)
+==14624==    by 0x422891: add_entry (dictionary.c:73)
+==14624==    by 0x423790: load (dictionary.c:208)
+==14624==    by 0x420942: main (speller.c:40)
+==14624== 
+==14624== LEAK SUMMARY:
+==14624==    definitely lost: 37,568,434 bytes in 321,717 blocks
+==14624==    indirectly lost: 82,209,568 bytes in 367,007 blocks
+==14624==      possibly lost: 9,856 bytes in 44 blocks
+==14624==    still reachable: 2,136 bytes in 8 blocks
+==14624==         suppressed: 0 bytes in 0 blocks
+==14624== Reachable blocks (those to which a pointer was found) are not shown.
+==14624== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==14624== 
+==14624== For counts of detected and suppressed errors, rerun with: -v
+==14624== ERROR SUMMARY: 17 errors from 10 contexts (suppressed: 0 from 0)
 */

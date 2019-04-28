@@ -70,6 +70,8 @@ void add_entry(trie* root, const char* input_word)
 
         else
         {
+            //XXXXX EFFECT XXXXXX
+                
             claw->nodes[node_of_letter] = init_node();
 
             claw = claw->nodes[node_of_letter];
@@ -258,16 +260,18 @@ unsigned int size(void)
 
 bool unload(void)
 {
-    free(base_root);
+    //XXXXX  CAUSE  XXXXXX
+    
+    /*free(base_root);
 
     base_root = NULL;
 
     if(base_root)
     {
         return false;
-    }
+    }*/
 
-    return true;
+    return true
 }
 
 // Valgrind output with leak report

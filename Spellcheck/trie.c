@@ -209,6 +209,8 @@ bool load(const char *dictionary)
             char* new_word = trim(dict_word, index);
 
             add_entry(base_root, new_word);
+            
+            free(new_word);
 
             index = 0;
 

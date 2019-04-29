@@ -169,7 +169,8 @@ bool load(const char *dictionary)
     }
 
 
-
+    
+    //XXXX HERE  XXXXX
     base_root = init_node();
 
     int new_line_counter = 1;

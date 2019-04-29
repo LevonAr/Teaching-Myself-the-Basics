@@ -69,9 +69,7 @@ void add_entry(trie* root, const char* input_word)
         }
 
         else
-        {
-            //XXXXX EFFECT XXXXXX
-                
+        {                
             claw->nodes[node_of_letter] = init_node();
 
             claw = claw->nodes[node_of_letter];

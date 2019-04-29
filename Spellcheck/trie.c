@@ -476,3 +476,41 @@ report after new code for unload
 ==11141== For counts of detected and suppressed errors, rerun with: -v
 ==11141== ERROR SUMMARY: 12 errors from 5 contexts (suppressed: 0 from 0)
 */
+
+/*
+after fixing another bug
+
+==18228== 
+==18228== HEAP SUMMARY:
+==18228==     in use at exit: 4,072,246 bytes in 35,514 blocks
+==18228==   total heap usage: 545,687 allocs, 510,173 frees, 87,738,402 bytes allocated
+==18228== 
+==18228== 7 bytes in 1 blocks are definitely lost in loss record 1 of 4
+==18228==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==18228==    by 0x422C2A: trim (dictionary.c:84)
+==18228==    by 0x423B67: load (dictionary.c:233)
+==18228==    by 0x420942: main (speller.c:40)
+==18228== 
+==18228== 94,327 bytes in 17,756 blocks are definitely lost in loss record 3 of 4
+==18228==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==18228==    by 0x422DBB: check (dictionary.c:106)
+==18228==    by 0x421313: main (speller.c:112)
+==18228== 
+==18228== 3,977,344 bytes in 17,756 blocks are definitely lost in loss record 4 of 4
+==18228==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==18228==    by 0x4222E3: init_node (dictionary.c:22)
+==18228==    by 0x422F77: check (dictionary.c:117)
+==18228==    by 0x421313: main (speller.c:112)
+==18228== 
+==18228== LEAK SUMMARY:
+==18228==    definitely lost: 4,071,678 bytes in 35,513 blocks
+==18228==    indirectly lost: 0 bytes in 0 blocks
+==18228==      possibly lost: 0 bytes in 0 blocks
+==18228==    still reachable: 568 bytes in 1 blocks
+==18228==         suppressed: 0 bytes in 0 blocks
+==18228== Reachable blocks (those to which a pointer was found) are not shown.
+==18228== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==18228== 
+==18228== For counts of detected and suppressed errors, rerun with: -v
+==18228== ERROR SUMMARY: 11 errors from 4 contexts (suppressed: 0 from 0)
+*/

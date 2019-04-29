@@ -234,7 +234,10 @@ bool load(const char *dictionary)
     char* last__word = trim(last_word, lw_index-1);
 
     add_entry(base_root, last__word);
+    
+    free(last__word);
 
+    // trying to say if base_root is empty, but im not sure if this is the best way
     if(base_root != NULL)
     {
         return true;

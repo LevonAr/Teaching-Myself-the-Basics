@@ -259,16 +259,25 @@ unsigned int size(void)
     return dict_size;
 }
 
+void freedom(trie* node_to_free);
+
 bool unload(void)
 {
-    //Psuedocode
-    
-    /*probably need to use recursion
-    
-    trie* temp      to access all the node
-      
-    temp->nodes[i]
-    
+    freedom(base_root)
+    {
+        for(int i=0; i<alphabet; i++)
+
+        if(node_to_free[i])
+        {
+            freedom(base_root[i]);
+        }
+    }
+
+    free(node_to_free);
+
+    return true;
+}
+
     
     //XXXXX  HERE  XXXXXX
     
@@ -280,9 +289,6 @@ bool unload(void)
     {
         return false;
     }*/
-
-    return true
-}
 
 // Valgrind output with leak report
 /*

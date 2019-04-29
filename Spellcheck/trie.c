@@ -260,6 +260,15 @@ unsigned int size(void)
 
 bool unload(void)
 {
+    //Psuedocode
+    
+    /*probably need to use recursion
+    
+    trie* temp      to access all the node
+      
+    temp->nodes[i]
+    
+    
     //XXXXX  HERE  XXXXXX
     
     /*free(base_root);

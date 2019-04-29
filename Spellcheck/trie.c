@@ -433,3 +433,48 @@ HEAP SUMMARY:
 ==14760== For counts of detected and suppressed errors, rerun with: -v
 ==14760== ERROR SUMMARY: 15 errors from 8 contexts (suppressed: 0 from 0)
     */
+
+/*
+
+report after new code for unload
+
+=11141== 
+==11141== HEAP SUMMARY:
+==11141==     in use at exit: 5,511,466 bytes in 178,604 blocks
+==11141==   total heap usage: 545,687 allocs, 367,083 frees, 87,738,402 bytes allocated
+==11141== 
+==11141== 7 bytes in 1 blocks are definitely lost in loss record 1 of 6
+==11141==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11141==    by 0x422C2A: trim (dictionary.c:84)
+==11141==    by 0x423B6B: load (dictionary.c:233)
+==11141==    by 0x420942: main (speller.c:40)
+==11141== 
+==11141== 94,327 bytes in 17,756 blocks are definitely lost in loss record 4 of 6
+==11141==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11141==    by 0x422DCB: check (dictionary.c:108)
+==11141==    by 0x421313: main (speller.c:112)
+==11141== 
+==11141== 1,439,210 bytes in 143,089 blocks are definitely lost in loss record 5 of 6
+==11141==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11141==    by 0x422C2A: trim (dictionary.c:84)
+==11141==    by 0x423755: load (dictionary.c:206)
+==11141==    by 0x420942: main (speller.c:40)
+==11141== 
+==11141== 3,977,344 bytes in 17,756 blocks are definitely lost in loss record 6 of 6
+==11141==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==11141==    by 0x4222E3: init_node (dictionary.c:22)
+==11141==    by 0x422F87: check (dictionary.c:119)
+==11141==    by 0x421313: main (speller.c:112)
+==11141== 
+==11141== LEAK SUMMARY:
+==11141==    definitely lost: 5,510,888 bytes in 178,602 blocks
+==11141==    indirectly lost: 0 bytes in 0 blocks
+==11141==      possibly lost: 0 bytes in 0 blocks
+==11141==    still reachable: 578 bytes in 2 blocks
+==11141==         suppressed: 0 bytes in 0 blocks
+==11141== Reachable blocks (those to which a pointer was found) are not shown.
+==11141== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==11141== 
+==11141== For counts of detected and suppressed errors, rerun with: -v
+==11141== ERROR SUMMARY: 12 errors from 5 contexts (suppressed: 0 from 0)
+*/

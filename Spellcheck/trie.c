@@ -39,16 +39,12 @@ trie* init_node(void)
 }
 
 
-void add_entry(trie* root, const char* input_word)
+void add_entry(trie* claw, const char* input_word)
 {
     // double for loop that increments chars in the word and increments through the trie pointers accordingly
     int i;
 
-    trie* claw = init_node();
-
     int node_of_letter;
-
-    claw = root;
 
     for(i=0; i<strlen(input_word); i++)
     {
@@ -69,7 +65,7 @@ void add_entry(trie* root, const char* input_word)
         }
 
         else
-        {                
+        {
             claw->nodes[node_of_letter] = init_node();
 
             claw = claw->nodes[node_of_letter];

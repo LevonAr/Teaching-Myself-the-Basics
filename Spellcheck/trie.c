@@ -582,3 +582,29 @@ after another bug is ousted
 ==14047== For counts of detected and suppressed errors, rerun with: -v
 ==14047== ERROR SUMMARY: 8 errors from 1 contexts (suppressed: 0 from 0)
 */
+
+/*
+==14137== 
+==14137== HEAP SUMMARY:
+==14137==     in use at exit: 0 bytes in 0 blocks
+==14137==   total heap usage: 527,931 allocs, 527,931 frees, 83,761,058 bytes allocated
+==14137== 
+==14137== All heap blocks were freed -- no leaks are possible
+==14137== 
+==14137== ERROR SUMMARY: 8 errors from 1 contexts (suppressed: 0 from 0)
+==14137== 
+==14137== 8 errors in context 1 of 1:
+==14137== Invalid read of size 1
+==14137==    at 0x4C2E0F4: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14137==    by 0x42255E: add_entry (dictionary.c:53)
+==14137==    by 0x423B92: load (dictionary.c:238)
+==14137==    by 0x420942: main (speller.c:40)
+==14137==  Address 0xcd11bd7 is 0 bytes after a block of size 7 alloc'd
+==14137==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14137==    by 0x422C2A: trim (dictionary.c:84)
+==14137==    by 0x423B77: load (dictionary.c:236)
+==14137==    by 0x420942: main (speller.c:40)
+==14137== 
+==14137== ERROR SUMMARY: 8 errors from 1 contexts (suppressed: 0 from 0)
+*/
+

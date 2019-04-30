@@ -608,3 +608,14 @@ after another bug is ousted
 ==14137== ERROR SUMMARY: 8 errors from 1 contexts (suppressed: 0 from 0)
 */
 
+/*==14620== 
+==14620== HEAP SUMMARY:
+==14620==     in use at exit: 0 bytes in 0 blocks
+==14620==   total heap usage: 527,931 allocs, 527,931 frees, 83,761,059 bytes allocated
+==14620== 
+==14620== All heap blocks were freed -- no leaks are possible
+==14620== 
+==14620== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==14620== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+*/
+

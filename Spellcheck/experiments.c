@@ -269,16 +269,22 @@ unsigned int size(void)
     return dict_size;
 }
 
+void freedom(trie* node_to_free)
+{
+    for(int i=0; i<alphabet; i++)
+    {
+        if(node_to_free->nodes[i])
+        {
+            freedom(node_to_free->nodes[i]);
+        }
+    }
+
+    free(node_to_free);
+}
 bool unload(void)
 {
-    /*free(base_root);
-
-    base_root = NULL;
-
-    if(base_root)
-    {
-        return false;
-    }*/
+    freedom(base_root);
 
     return true;
 }
+

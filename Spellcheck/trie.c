@@ -570,3 +570,15 @@ after another bug is ousted
 ==13948== For counts of detected and suppressed errors, rerun with: -v
 ==13948== ERROR SUMMARY: 9 errors from 2 contexts (suppressed: 0 from 0)
 */
+
+/*
+==14047== 
+==14047== HEAP SUMMARY:
+==14047==     in use at exit: 0 bytes in 0 blocks
+==14047==   total heap usage: 527,931 allocs, 527,931 frees, 83,761,058 bytes allocated
+==14047== 
+==14047== All heap blocks were freed -- no leaks are possible
+==14047== 
+==14047== For counts of detected and suppressed errors, rerun with: -v
+==14047== ERROR SUMMARY: 8 errors from 1 contexts (suppressed: 0 from 0)
+*/

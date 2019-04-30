@@ -137,6 +137,8 @@ bool check(const char *word)
             return false;
         }
     }
+    
+    free(lowercase_word);
 
     if(check->end_of_word == true)
     {
@@ -147,9 +149,6 @@ bool check(const char *word)
     {
         return false;
     }
-    
-    free(lowercase_word);
-
 }
 
 bool load(const char *dictionary)

@@ -229,7 +229,7 @@ bool load(const char *dictionary)
 
     last_word[lw_index] = '\0';
 
-    char* last__word = trim(last_word, lw_index-1);
+    char* last__word = trim(last_word, lw_index);
 
     add_entry(base_root, last__word);
     

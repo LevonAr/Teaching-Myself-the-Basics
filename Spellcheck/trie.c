@@ -548,3 +548,26 @@ after another bug is ousted
 ==18484== For counts of detected and suppressed errors, rerun with: -v
 ==18484== ERROR SUMMARY: 10 errors from 3 contexts (suppressed: 0 from 0)
 */
+
+
+/*
+==13948== 
+==13948== HEAP SUMMARY:
+==13948==     in use at exit: 92,474 bytes in 17,540 blocks
+==13948==   total heap usage: 527,931 allocs, 510,391 frees, 83,761,058 bytes allocated
+==13948== 
+==13948== 92,474 bytes in 17,540 blocks are definitely lost in loss record 1 of 1
+==13948==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13948==    by 0x422DBB: check (dictionary.c:106)
+==13948==    by 0x421313: main (speller.c:112)
+==13948== 
+==13948== LEAK SUMMARY:
+==13948==    definitely lost: 92,474 bytes in 17,540 blocks
+==13948==    indirectly lost: 0 bytes in 0 blocks
+==13948==      possibly lost: 0 bytes in 0 blocks
+==13948==    still reachable: 0 bytes in 0 blocks
+==13948==         suppressed: 0 bytes in 0 blocks
+==13948== 
+==13948== For counts of detected and suppressed errors, rerun with: -v
+==13948== ERROR SUMMARY: 9 errors from 2 contexts (suppressed: 0 from 0)
+*/

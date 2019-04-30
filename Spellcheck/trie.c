@@ -110,9 +110,7 @@ bool check(const char *word)
 
     lowercase_word[i]= '\0';
 
-    trie* check_claw = init_node();
-
-    check_claw = base_root;
+    trie*check = base_root;
 
     int node_of_letter;
 
@@ -127,18 +125,20 @@ bool check(const char *word)
             node_of_letter = 26;
         }
 
-        if(check_claw->nodes[node_of_letter])
+        if(check->nodes[node_of_letter])
         {
-            check_claw = check_claw->nodes[node_of_letter];
+            check = check->nodes[node_of_letter];
         }
 
         else
         {
+            free(lowercase_word);
+
             return false;
         }
     }
 
-    if(check_claw->end_of_word == true)
+    if(check->end_of_word == true)
     {
         return true;
     }
@@ -147,6 +147,9 @@ bool check(const char *word)
     {
         return false;
     }
+    
+    free(lowercase_word);
+
 }
 
 bool load(const char *dictionary)

@@ -1,4 +1,4 @@
-// At this point I have got a trie and a hashtable to succesfully work with the following time stats
+// At this point I have got a trie and a hashtable to succesfully work with the following time stats ( THIS IS THE JANKY TRIE WITH TONS OF MEMORY LEAKS )
 
 /*Trie: 
 TIME IN load:         0.35

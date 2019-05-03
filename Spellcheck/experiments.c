@@ -1,11 +1,22 @@
 // At this point I have got a trie and a hashtable to succesfully work with the following time stats ( THIS IS THE JANKY TRIE WITH TONS OF MEMORY LEAKS )
 
-/*Trie: 
+/*Janky Trie: 
 TIME IN load:         0.35
 TIME IN check:        0.02
 TIME IN size:         0.00
 TIME IN unload:       0.00
 TIME IN TOTAL:        0.37
+*/
+
+/* Perfected trie 
+WORDS MISSPELLED:     955
+WORDS IN DICTIONARY:  143091
+WORDS IN TEXT:        17756
+TIME IN load:         0.28
+TIME IN check:        0.02
+TIME IN size:         0.00
+TIME IN unload:       0.10
+TIME IN TOTAL:        0.40
 */
 
 

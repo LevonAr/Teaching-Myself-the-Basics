@@ -19,6 +19,8 @@ TIME IN unload:       0.10
 TIME IN TOTAL:        0.40
 */
 
+// REMEMBER TO INCLUDE HASH TABLE AT SOME POINT!
+
 
 //I have two goals now. 
 // Goal 1 - the more important goal: is to strenghten my understanding of how and why my programs work the way they do. 

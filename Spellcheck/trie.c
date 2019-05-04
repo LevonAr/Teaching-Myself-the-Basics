@@ -278,12 +278,11 @@ void freedom(trie* node_to_free)
 }
 bool unload(void)
 {
-    freedom(base_root);
-
+    freedom(base_root)
     return true;
 }
 
-*/
+/*
 valgrind memcheck report
 
 ==1570== 
@@ -295,3 +294,4 @@ valgrind memcheck report
 ==1570== 
 ==1570== For counts of detected and suppressed errors, rerun with: -v
 ==1570== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ */

@@ -1,3 +1,8 @@
+// Finalized Trie 
+// - no memory leaks
+// - relatively fast
+
+
 #include <stdbool.h>
 #include <ctype.h>
 #include <stdio.h>

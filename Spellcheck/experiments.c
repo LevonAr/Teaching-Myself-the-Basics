@@ -1081,3 +1081,80 @@ node* addLink(node* link, char* add_word)
 
     return link;
 }
+
+
+// memcheck report
+/*
+--2987-- REDIR: 0x5a00120 (libc.so.6:free) redirected to 0x4c2bd80 (free)
+==2987== Invalid read of size 8
+==2987==    at 0x425408: unload (dictionary.c:243)
+==2987==    by 0x421554: main (speller.c:152)
+==2987==  Address 0x5ed5678 is 0 bytes after a block of size 1,635,176 alloc'd
+==2987==    at 0x4C2CC70: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2987==    by 0x4234F8: load (dictionary.c:149)
+==2987==    by 0x420982: main (speller.c:40)
+==2987== 
+
+WORDS MISSPELLED:     955
+WORDS IN DICTIONARY:  143091
+WORDS IN TEXT:        17756
+TIME IN load:         3.50
+TIME IN check:        0.28
+TIME IN size:         0.00
+TIME IN unload:       0.28
+TIME IN TOTAL:        4.07
+
+==2987== 
+==2987== HEAP SUMMARY:
+==2987==     in use at exit: 3,816,514 bytes in 201,300 blocks
+==2987==   total heap usage: 303,942 allocs, 102,642 frees, 5,459,338 bytes allocated
+==2987== 
+==2987== Searching for pointers to 201,300 not-freed blocks
+==2987== Checked 12,621,808 bytes
+==2987== 
+==2987== 7 bytes in 1 blocks are definitely lost in loss record 1 of 9
+==2987==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2987==    by 0x424D9A: trim (dictionary.c:254)
+==2987==    by 0x423FE3: load (dictionary.c:216)
+==2987==    by 0x420982: main (speller.c:40)
+==2987== 
+==2987== 94,327 bytes in 17,756 blocks are definitely lost in loss record 4 of 9
+==2987==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2987==    by 0x42235E: check (dictionary.c:52)
+==2987==    by 0x421353: main (speller.c:112)
+==2987== 
+==2987== 1,033,040 bytes in 102,640 blocks are definitely lost in loss record 7 of 9
+==2987==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2987==    by 0x424D9A: trim (dictionary.c:254)
+==2987==    by 0x423717: load (dictionary.c:171)
+==2987==    by 0x420982: main (speller.c:40)
+==2987== 
+==2987== 1,053,380 (508,240 direct, 545,140 indirect) bytes in 31,765 blocks are definitely lost in loss record 8 of 9
+==2987==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2987==    by 0x4255A3: makeLink (dictionary.c:348)
+==2987==    by 0x424EF7: addLink (dictionary.c:361)
+==2987==    by 0x423A76: load (dictionary.c:189)
+==2987==    by 0x420982: main (speller.c:40)
+==2987== 
+==2987== LEAK SUMMARY:
+==2987==    definitely lost: 1,635,614 bytes in 152,162 blocks
+==2987==    indirectly lost: 545,140 bytes in 49,135 blocks
+==2987==      possibly lost: 0 bytes in 0 blocks
+==2987==    still reachable: 1,635,760 bytes in 3 blocks
+==2987==         suppressed: 0 bytes in 0 blocks
+==2987== Reachable blocks (those to which a pointer was found) are not shown.
+==2987== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==2987== 
+==2987== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
+==2987== 
+==2987== 1 errors in context 1 of 5:
+==2987== Invalid read of size 8
+==2987==    at 0x425408: unload (dictionary.c:243)
+==2987==    by 0x421554: main (speller.c:152)
+==2987==  Address 0x5ed5678 is 0 bytes after a block of size 1,635,176 alloc'd
+==2987==    at 0x4C2CC70: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2987==    by 0x4234F8: load (dictionary.c:149)
+==2987==    by 0x420982: main (speller.c:40)
+==2987== 
+==2987== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
+*/

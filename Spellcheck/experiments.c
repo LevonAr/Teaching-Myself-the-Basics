@@ -19,7 +19,16 @@ TIME IN unload:       0.10
 TIME IN TOTAL:        0.40
 */
 
-// REMEMBER TO INCLUDE HASH TABLE AT SOME POINT!
+/*
+WORDS MISSPELLED:     955
+WORDS IN DICTIONARY:  143091
+WORDS IN TEXT:        17756
+TIME IN load:         0.10
+TIME IN check:        0.02
+TIME IN size:         0.00
+TIME IN unload:       0.02
+TIME IN TOTAL:        0.13
+*/
 
 
 //I have two goals now. 

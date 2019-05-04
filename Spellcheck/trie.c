@@ -2,6 +2,14 @@
 // - no memory leaks
 // - relatively fast
 
+/*
+TIME IN load:         0.28
+TIME IN check:        0.02
+TIME IN size:         0.00
+TIME IN unload:       0.10
+TIME IN TOTAL:        0.40
+*/
+
 
 #include <stdbool.h>
 #include <ctype.h>

@@ -474,3 +474,46 @@ TIME IN TOTAL:        4.07
 ==2987==    by 0x420982: main (speller.c:40)
 ==2987== 
 ==2987== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)*/
+
+/*
+==4622== 
+==4622== HEAP SUMMARY:
+==4622==     in use at exit: 3,816,514 bytes in 201,300 blocks
+==4622==   total heap usage: 303,942 allocs, 102,642 frees, 5,459,338 bytes allocated
+==4622== 
+==4622== 7 bytes in 1 blocks are definitely lost in loss record 1 of 9
+==4622==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4622==    by 0x424D9A: trim (dictionary.c:254)
+==4622==    by 0x423FE3: load (dictionary.c:216)
+==4622==    by 0x420982: main (speller.c:40)
+==4622== 
+==4622== 94,327 bytes in 17,756 blocks are definitely lost in loss record 4 of 9
+==4622==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4622==    by 0x42235E: check (dictionary.c:52)
+==4622==    by 0x421353: main (speller.c:112)
+==4622== 
+==4622== 1,033,040 bytes in 102,640 blocks are definitely lost in loss record 7 of 9
+==4622==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4622==    by 0x424D9A: trim (dictionary.c:254)
+==4622==    by 0x423717: load (dictionary.c:171)
+==4622==    by 0x420982: main (speller.c:40)
+==4622== 
+==4622== 1,053,380 (508,240 direct, 545,140 indirect) bytes in 31,765 blocks are definitely lost in loss record 8 of 9
+==4622==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4622==    by 0x4255A3: makeLink (dictionary.c:348)
+==4622==    by 0x424EF7: addLink (dictionary.c:361)
+==4622==    by 0x423A76: load (dictionary.c:189)
+==4622==    by 0x420982: main (speller.c:40)
+==4622== 
+==4622== LEAK SUMMARY:
+==4622==    definitely lost: 1,635,614 bytes in 152,162 blocks
+==4622==    indirectly lost: 545,140 bytes in 49,135 blocks
+==4622==      possibly lost: 0 bytes in 0 blocks
+==4622==    still reachable: 1,635,760 bytes in 3 blocks
+==4622==         suppressed: 0 bytes in 0 blocks
+==4622== Reachable blocks (those to which a pointer was found) are not shown.
+==4622== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4622== 
+==4622== For counts of detected and suppressed errors, rerun with: -v
+==4622== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
+*/

@@ -226,9 +226,9 @@ bool load(const char *dictionary)
 
     last_word[lw_index] = '\0';
 
-    char* last__word = trim(last_word, lw_index-1);
+    char* last__word = trim(last_word, lw_index);
 
-    int pre_hash_index = PJWHash(last__word, lw_index-1);
+    int pre_hash_index = PJWHash(last__word, lw_index);
 
     int hash_index = pre_hash_index % hash_table_size;
 

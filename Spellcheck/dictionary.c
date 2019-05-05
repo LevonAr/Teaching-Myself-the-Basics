@@ -517,3 +517,64 @@ TIME IN TOTAL:        4.07
 ==4622== For counts of detected and suppressed errors, rerun with: -v
 ==4622== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
 */
+
+/*
+==4844== Invalid read of size 8
+==4844==    at 0x425368: unload (dictionary.c:243)
+==4844==    by 0x421554: main (speller.c:152)
+==4844==  Address 0x5ed5678 is 0 bytes after a block of size 1,635,176 alloc'd
+==4844==    at 0x4C2CC70: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4844==    by 0x4234F8: load (dictionary.c:149)
+==4844==    by 0x420982: main (speller.c:40)
+==4844== 
+
+WORDS MISSPELLED:     955
+WORDS IN DICTIONARY:  143091
+WORDS IN TEXT:        17756
+TIME IN load:         3.53
+TIME IN check:        0.30
+TIME IN size:         0.00
+TIME IN unload:       0.28
+TIME IN TOTAL:        4.11
+
+==4844== 
+==4844== HEAP SUMMARY:
+==4844==     in use at exit: 3,816,515 bytes in 201,300 blocks
+==4844==   total heap usage: 303,942 allocs, 102,642 frees, 5,459,339 bytes allocated
+==4844== 
+==4844== 8 bytes in 1 blocks are definitely lost in loss record 1 of 9
+==4844==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4844==    by 0x424CFA: trim (dictionary.c:254)
+==4844==    by 0x423F8C: load (dictionary.c:216)
+==4844==    by 0x420982: main (speller.c:40)
+==4844== 
+==4844== 94,327 bytes in 17,756 blocks are definitely lost in loss record 4 of 9
+==4844==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4844==    by 0x42235E: check (dictionary.c:52)
+==4844==    by 0x421353: main (speller.c:112)
+==4844== 
+==4844== 1,033,033 bytes in 102,640 blocks are definitely lost in loss record 7 of 9
+==4844==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4844==    by 0x424CFA: trim (dictionary.c:254)
+==4844==    by 0x423717: load (dictionary.c:171)
+==4844==    by 0x420982: main (speller.c:40)
+==4844== 
+==4844== 1,053,387 (508,240 direct, 545,147 indirect) bytes in 31,765 blocks are definitely lost in loss record 8 of 9
+==4844==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4844==    by 0x425503: makeLink (dictionary.c:348)
+==4844==    by 0x424E57: addLink (dictionary.c:361)
+==4844==    by 0x423A76: load (dictionary.c:189)
+==4844==    by 0x420982: main (speller.c:40)
+==4844== 
+==4844== LEAK SUMMARY:
+==4844==    definitely lost: 1,635,608 bytes in 152,162 blocks
+==4844==    indirectly lost: 545,147 bytes in 49,135 blocks
+==4844==      possibly lost: 0 bytes in 0 blocks
+==4844==    still reachable: 1,635,760 bytes in 3 blocks
+==4844==         suppressed: 0 bytes in 0 blocks
+==4844== Reachable blocks (those to which a pointer was found) are not shown.
+==4844== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4844== 
+==4844== For counts of detected and suppressed errors, rerun with: -v
+==4844== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
+*/

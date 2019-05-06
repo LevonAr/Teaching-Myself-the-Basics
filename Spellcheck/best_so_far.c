@@ -443,5 +443,19 @@ TIME IN TOTAL:        4.11
 ==4844==    by 0x423A76: load (dictionary.c:189)
 ==4844==    by 0x420982: main (speller.c:40)
 ==4844== 
+==4844== LEAK SUMMARY:
+==4844==    definitely lost: 1,635,608 bytes in 152,162 blocks
+==4844==    indirectly lost: 545,147 bytes in 49,135 blocks
+==4844==      possibly lost: 0 bytes in 0 blocks
+==4844==    still reachable: 1,635,760 bytes in 3 blocks
+==4844==         suppressed: 0 bytes in 0 blocks
+==4844== Reachable blocks (those to which a pointer was found) are not shown.
+==4844== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4844== 
+==4844== For counts of detected and suppressed errors, rerun with: -v
+==4844== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
+*/
+
+
 
 

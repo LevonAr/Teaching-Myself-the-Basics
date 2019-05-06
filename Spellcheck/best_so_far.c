@@ -423,3 +423,9 @@ TIME IN TOTAL:        4.11
 ==4844==    by 0x423F8C: load (dictionary.c:216)
 ==4844==    by 0x420982: main (speller.c:40)
 ==4844== 
+
+==4844== 94,327 bytes in 17,756 blocks are definitely lost in loss record 4 of 9
+==4844==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4844==    by 0x42235E: check (dictionary.c:52)
+==4844==    by 0x421353: main (speller.c:112)
+==4844== 

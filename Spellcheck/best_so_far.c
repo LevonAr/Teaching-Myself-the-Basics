@@ -393,3 +393,21 @@ node* addLink(node* link, char* add_word)
 
     return link;
 }
+
+/*
+==4844== Invalid read of size 8
+==4844==    at 0x425368: unload (dictionary.c:243)
+==4844==    by 0x421554: main (speller.c:152)
+==4844==  Address 0x5ed5678 is 0 bytes after a block of size 1,635,176 alloc'd
+==4844==    at 0x4C2CC70: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4844==    by 0x4234F8: load (dictionary.c:149)
+==4844==    by 0x420982: main (speller.c:40)
+==4844== 
+WORDS MISSPELLED:     955
+WORDS IN DICTIONARY:  143091
+WORDS IN TEXT:        17756
+TIME IN load:         3.53
+TIME IN check:        0.30
+TIME IN size:         0.00
+TIME IN unload:       0.28
+TIME IN TOTAL:        4.11

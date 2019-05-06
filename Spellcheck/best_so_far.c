@@ -411,3 +411,15 @@ TIME IN check:        0.30
 TIME IN size:         0.00
 TIME IN unload:       0.28
 TIME IN TOTAL:        4.11
+
+==4844== 
+==4844== HEAP SUMMARY:
+==4844==     in use at exit: 3,816,515 bytes in 201,300 blocks
+==4844==   total heap usage: 303,942 allocs, 102,642 frees, 5,459,339 bytes allocated
+==4844== 
+==4844== 8 bytes in 1 blocks are definitely lost in loss record 1 of 9
+==4844==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4844==    by 0x424CFA: trim (dictionary.c:254)
+==4844==    by 0x423F8C: load (dictionary.c:216)
+==4844==    by 0x420982: main (speller.c:40)
+==4844== 

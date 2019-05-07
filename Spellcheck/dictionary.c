@@ -123,11 +123,11 @@ bool check(const char *word)
 bool load(const char *dictionary)
 {
     FILE *load_file = fopen(dictionary, "r");
-    
+
     if(!load_file)
     {
         printf("%s", "could not open dictionary");
-        
+
         return 1;
     }
 
@@ -253,10 +253,13 @@ bool unload(void)
 {
     for(int i=0; i<=hash_table_size; i++)
     {
-        if(HT_Ptr->words[i])
+        node* Ptr = HT_Ptr->words[i];
+
+        while(Ptr->next != NULL)
         {
-            free(HT_Ptr->words[i]);
+            Ptr = Ptr->next
         }
+            free(HT_Ptr->words[i]);
     }
 
     return true;
@@ -397,10 +400,6 @@ node* addLink(node* link, char* add_word)
 
     return link;
 }
-
-
-
-
 /*
 ==4844== Invalid read of size 8
 ==4844==    at 0x425368: unload (dictionary.c:243)

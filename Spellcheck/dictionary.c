@@ -267,16 +267,22 @@ bool unload(void)
         {
             Ptr = Ptr->next;
 
-            depth_of_LL_counter;
+            depth_of_LL_counter ++;
         }
 
-        Ptr = &Ptr;
+        for(int i=0; i<depth_of_LL_counter; i++)
+        {
+            Ptr = &Ptr;
+
+            free(Ptr->next);
+        }
 
         free(HT_Ptr->words[i]);
     }
 
     return true;
 }
+
 
 char* trim(char word[], int len)
 {

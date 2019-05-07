@@ -397,3 +397,65 @@ node* addLink(node* link, char* add_word)
 
     return link;
 }
+/*
+HEAP SUMMARY:
+==14760==     in use at exit: 119,790,218 bytes in 688,777 blocks
+==14760==   total heap usage: 688,778 allocs, 1 frees, 119,790,786 bytes allocated
+==14760== 
+==14760== 7 bytes in 1 blocks are definitely lost in loss record 1 of 11
+==14760==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14760==    by 0x422BFA: trim (dictionary.c:84)
+==14760==    by 0x423B3B: load (dictionary.c:233)
+==14760==    by 0x4208F2: main (speller.c:40)
+==14760== 
+==14760== 224 bytes in 1 blocks are definitely lost in loss record 3 of 11
+==14760==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14760==    by 0x422293: init_node (dictionary.c:22)
+==14760==    by 0x4224D7: add_entry (dictionary.c:47)
+==14760==    by 0x423B56: load (dictionary.c:235)
+==14760==    by 0x4208F2: main (speller.c:40)
+==14760== 
+==14760== 672 bytes in 3 blocks are possibly lost in loss record 5 of 11
+==14760==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14760==    by 0x422293: init_node (dictionary.c:22)
+==14760==    by 0x4224D7: add_entry (dictionary.c:47)
+==14760==    by 0x423740: load (dictionary.c:208)
+==14760==    by 0x4208F2: main (speller.c:40)
+==14760== 
+==14760== 94,327 bytes in 17,756 blocks are definitely lost in loss record 7 of 11
+==14760==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14760==    by 0x422D9B: check (dictionary.c:108)
+==14760==    by 0x4212C3: main (speller.c:112)
+==14760== 
+==14760== 1,439,220 bytes in 143,090 blocks are definitely lost in loss record 8 of 11
+==14760==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14760==    by 0x422BFA: trim (dictionary.c:84)
+==14760==    by 0x423725: load (dictionary.c:206)
+==14760==    by 0x4208F2: main (speller.c:40)
+==14760== 
+==14760== 3,977,344 bytes in 17,756 blocks are definitely lost in loss record 9 of 11
+==14760==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14760==    by 0x422293: init_node (dictionary.c:22)
+==14760==    by 0x422F57: check (dictionary.c:119)
+==14760==    by 0x4212C3: main (speller.c:112)
+==14760== 
+==14760== 32,051,488 bytes in 143,087 blocks are definitely lost in loss record 10 of 11
+==14760==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14760==    by 0x422293: init_node (dictionary.c:22)
+==14760==    by 0x4224D7: add_entry (dictionary.c:47)
+==14760==    by 0x423740: load (dictionary.c:208)
+==14760==    by 0x4208F2: main (speller.c:40)
+==14760== 
+==14760== LEAK SUMMARY:
+==14760==    definitely lost: 37,562,610 bytes in 321,691 blocks
+==14760==    indirectly lost: 0 bytes in 0 blocks
+==14760==      possibly lost: 672 bytes in 3 blocks
+==14760==    still reachable: 82,226,936 bytes in 367,083 blocks
+==14760==         suppressed: 0 bytes in 0 blocks
+==14760== Reachable blocks (those to which a pointer was found) are not shown.
+==14760== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==14760== 
+==14760== For counts of detected and suppressed errors, rerun with: -v
+==14760== ERROR SUMMARY: 15 errors from 8 contexts (suppressed: 0 from 0)
+    */
+

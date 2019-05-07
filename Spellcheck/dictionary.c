@@ -257,20 +257,23 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    /*for(int i=0; i<=hash_table_size; i++)
+    for(int i=0; i<=hash_table_size; i++)
     {
-        if(HT_Ptr->words[i]!=NULL)
+        node* Ptr = HT_Ptr->words[i];
+
+        int depth_of_LL_counter = 0;
+
+        while(Ptr->next != NULL)
         {
-            node* Ptr = HT_Ptr->words[i];
+            Ptr = Ptr->next;
 
-            while(Ptr->next != NULL)
-            {
-                Ptr = Ptr->next
-            }
-
-            free(HT_Ptr->words[i]);
+            depth_of_LL_counter;
         }
-    }*/
+
+        Ptr = &Ptr;
+
+        free(HT_Ptr->words[i]);
+    }
 
     return true;
 }

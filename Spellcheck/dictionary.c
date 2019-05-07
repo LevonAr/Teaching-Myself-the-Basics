@@ -263,18 +263,22 @@ bool unload(void)
 
         int depth_of_LL_counter = 0;
 
-        while(Ptr->next != NULL)
+        if(Ptr->next != NULL)
         {
-            Ptr = Ptr->next;
 
-            depth_of_LL_counter ++;
-        }
+            while(Ptr->next != NULL)
+            {
+                Ptr = Ptr->next;
 
-        for(int i=0; i<depth_of_LL_counter; i++)
-        {
-            Ptr = &Ptr;
+                depth_of_LL_counter ++;
+            }
 
-            free(Ptr->next);
+            for(int j=0; j<depth_of_LL_counter; j++)
+            {
+                Ptr = &Ptr;
+
+                free(Ptr->next);
+            }
         }
 
         free(HT_Ptr->words[i]);

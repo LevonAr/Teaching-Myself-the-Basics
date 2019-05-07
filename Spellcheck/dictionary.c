@@ -543,3 +543,56 @@ TIME IN TOTAL:        4.21
 ==14898== For counts of detected and suppressed errors, rerun with: -v
 ==14898== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
 */
+
+/*
+memcheck after another bug fix
+WORDS MISSPELLED:     955
+WORDS IN DICTIONARY:  143091
+WORDS IN TEXT:        17756
+TIME IN load:         3.70
+TIME IN check:        0.30
+TIME IN size:         0.00
+TIME IN unload:       0.43
+TIME IN TOTAL:        4.43
+
+==15139== 
+==15139== HEAP SUMMARY:
+==15139==     in use at exit: 3,169,339 bytes in 160,852 blocks
+==15139==   total heap usage: 303,942 allocs, 143,090 frees, 5,459,331 bytes allocated
+==15139== 
+==15139== 8 bytes in 1 blocks are definitely lost in loss record 2 of 9
+==15139==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==15139==    by 0x424BCA: trim (dictionary.c:263)
+==15139==    by 0x423E6B: load (dictionary.c:212)
+==15139==    by 0x420982: main (speller.c:40)
+==15139== 
+==15139== 51 (16 direct, 35 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 9
+==15139==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==15139==    by 0x4254E3: makeLink (dictionary.c:357)
+==15139==    by 0x424D27: addLink (dictionary.c:370)
+==15139==    by 0x423963: load (dictionary.c:185)
+==15139==    by 0x420982: main (speller.c:40)
+==15139== 
+==15139== 94,327 bytes in 17,756 blocks are definitely lost in loss record 7 of 9
+==15139==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==15139==    by 0x42235E: check (dictionary.c:50)
+==15139==    by 0x421353: main (speller.c:112)
+==15139== 
+==15139== 1,439,201 bytes in 143,088 blocks are definitely lost in loss record 8 of 9
+==15139==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==15139==    by 0x424BCA: trim (dictionary.c:263)
+==15139==    by 0x423620: load (dictionary.c:167)
+==15139==    by 0x420982: main (speller.c:40)
+==15139== 
+==15139== LEAK SUMMARY:
+==15139==    definitely lost: 1,533,552 bytes in 160,846 blocks
+==15139==    indirectly lost: 35 bytes in 3 blocks
+==15139==      possibly lost: 0 bytes in 0 blocks
+==15139==    still reachable: 1,635,752 bytes in 3 blocks
+==15139==         suppressed: 0 bytes in 0 blocks
+==15139== Reachable blocks (those to which a pointer was found) are not shown.
+==15139== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==15139== 
+==15139== For counts of detected and suppressed errors, rerun with: -v
+==15139== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
+*/

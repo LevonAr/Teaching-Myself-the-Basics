@@ -260,7 +260,7 @@ bool unload(void)
 
             while(Ptr->next != NULL)
             {
-                Ptr = Ptr->next
+                Ptr = Ptr->next;
                     
                 free(HT_Ptr->words[i]);
             }

@@ -257,14 +257,15 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
+    node* Ptr = makeLink();
+
     for(int i=0; i<=hash_table_size; i++)
     {
-        node* Ptr = HT_Ptr->words[i];
-
-        int depth_of_LL_counter = 0;
-
-        if(Ptr->next != NULL)
+        if(HT_Ptr->words[i])
         {
+            Ptr = HT_Ptr->words[i];
+
+            int depth_of_LL_counter = 0;
 
             while(Ptr->next != NULL)
             {
@@ -273,15 +274,16 @@ bool unload(void)
                 depth_of_LL_counter ++;
             }
 
+            Ptr = HT_Ptr->words[i];
+
             for(int j=0; j<depth_of_LL_counter; j++)
             {
-                Ptr = &Ptr;
+                Ptr = Ptr->next;
 
-                free(Ptr->next);
+                free(&Ptr);
             }
+            free(HT_Ptr->words[i]);
         }
-
-        free(HT_Ptr->words[i]);
     }
 
     return true;

@@ -263,7 +263,7 @@ bool unload(void)
                 Ptr = Ptr->next
             }
             
-            free(HT_Ptr->words[i]);
+     
         }
     }
 

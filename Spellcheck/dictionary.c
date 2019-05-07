@@ -21,6 +21,16 @@ TIME IN TOTAL:        0.13
 #include <string.h>
 
 
+#include <stdbool.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <sys/resource.h>
+#include <sys/time.h>
+#include "dictionary.h"
+#include <stdlib.h>
+#include <string.h>
+
+
 typedef struct _node
 {
     char* word;
@@ -30,8 +40,6 @@ typedef struct _node
 
 typedef struct
 {
-    int size;
-
     node **words;
 } Hashtable;
 
@@ -157,8 +165,6 @@ bool load(const char *dictionary)
 
     HT_Ptr = malloc(sizeof(Hashtable));
 
-    HT_Ptr->size = hash_table_size;
-
     HT_Ptr->words = calloc(hash_table_size,sizeof(node*));
 
     fseek(load_file, 0, SEEK_SET);
@@ -249,25 +255,22 @@ unsigned int size(void)
 }
 
 // Unloads dictionary from memory, returning true if successful else false
-// Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    for(int i=0; i<=hash_table_size; i++)
+    /*for(int i=0; i<=hash_table_size; i++)
     {
         if(HT_Ptr->words[i]!=NULL)
-        {   
+        {
             node* Ptr = HT_Ptr->words[i];
 
             while(Ptr->next != NULL)
             {
-                Ptr = Ptr->next;
-                    
-                free(HT_Ptr->words[i]);
+                Ptr = Ptr->next
             }
-            
-     
+
+            free(HT_Ptr->words[i]);
         }
-    }
+    }*/
 
     return true;
 }
@@ -407,6 +410,7 @@ node* addLink(node* link, char* add_word)
 
     return link;
 }
+
 /*
 ==4844== Invalid read of size 8
 ==4844==    at 0x425368: unload (dictionary.c:243)

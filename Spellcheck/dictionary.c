@@ -480,3 +480,66 @@ TIME IN TOTAL:        4.11
 ==4844== For counts of detected and suppressed errors, rerun with: -v
 ==4844== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
 */
+
+/*
+memcheck after new unload function
+
+==14898== Invalid read of size 8
+==14898==    at 0x42522D: unload (dictionary.c:241)
+==14898==    by 0x421554: main (speller.c:152)
+==14898==  Address 0x5ed5678 is 0 bytes after a block of size 1,635,176 alloc'd
+==14898==    at 0x4C2CC70: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14898==    by 0x42340D: load (dictionary.c:145)
+==14898==    by 0x420982: main (speller.c:40)
+==14898== 
+
+WORDS MISSPELLED:     955
+WORDS IN DICTIONARY:  143091
+WORDS IN TEXT:        17756
+TIME IN load:         3.55
+TIME IN check:        0.25
+TIME IN size:         0.00
+TIME IN unload:       0.42
+TIME IN TOTAL:        4.21
+
+==14898== 
+==14898== HEAP SUMMARY:
+==14898==     in use at exit: 3,169,339 bytes in 160,852 blocks
+==14898==   total heap usage: 303,942 allocs, 143,090 frees, 5,459,331 bytes allocated
+==14898== 
+==14898== 8 bytes in 1 blocks are definitely lost in loss record 2 of 9
+==14898==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14898==    by 0x424BCA: trim (dictionary.c:263)
+==14898==    by 0x423E6B: load (dictionary.c:212)
+==14898==    by 0x420982: main (speller.c:40)
+==14898== 
+==14898== 51 (16 direct, 35 indirect) bytes in 1 blocks are definitely lost in loss record 5 of 9
+==14898==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14898==    by 0x425493: makeLink (dictionary.c:357)
+==14898==    by 0x424D27: addLink (dictionary.c:370)
+==14898==    by 0x423963: load (dictionary.c:185)
+==14898==    by 0x420982: main (speller.c:40)
+==14898== 
+==14898== 94,327 bytes in 17,756 blocks are definitely lost in loss record 7 of 9
+==14898==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14898==    by 0x42235E: check (dictionary.c:50)
+==14898==    by 0x421353: main (speller.c:112)
+==14898== 
+==14898== 1,439,201 bytes in 143,088 blocks are definitely lost in loss record 8 of 9
+==14898==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14898==    by 0x424BCA: trim (dictionary.c:263)
+==14898==    by 0x423620: load (dictionary.c:167)
+==14898==    by 0x420982: main (speller.c:40)
+==14898== 
+==14898== LEAK SUMMARY:
+==14898==    definitely lost: 1,533,552 bytes in 160,846 blocks
+==14898==    indirectly lost: 35 bytes in 3 blocks
+==14898==      possibly lost: 0 bytes in 0 blocks
+==14898==    still reachable: 1,635,752 bytes in 3 blocks
+==14898==         suppressed: 0 bytes in 0 blocks
+==14898== Reachable blocks (those to which a pointer was found) are not shown.
+==14898== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==14898== 
+==14898== For counts of detected and suppressed errors, rerun with: -v
+==14898== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
+*/

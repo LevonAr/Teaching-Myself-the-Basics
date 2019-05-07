@@ -260,7 +260,7 @@ bool unload(void)
 {
     node* Ptr;
 
-    for(int i=0; i<=hash_table_size; i++)
+    for(int i=0; i<=hash_table_size-1; i++)
     {
         if(HT_Ptr->words[i])
         {

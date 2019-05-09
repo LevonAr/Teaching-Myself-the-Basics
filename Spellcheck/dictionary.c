@@ -259,21 +259,23 @@ unsigned int size(void)
 bool unload(void)
 {
     node* Ptr;
-
-    for(node* Ptr = HT_Ptr->words[check_index]; Ptr->next != NULL; Ptr = Ptr->next)
-    {
-        temp = Ptr;
-        
-        node* temp;
-
-                Ptr = Ptr->next;
-
-                free(temp->word);
-
-                free(temp);
-    }
     
+    if(HT_Ptr->words[i]!=NULL)
+        {
 
+            for(node* Ptr = HT_Ptr->words[check_index]; Ptr->next != NULL; Ptr = Ptr->next)
+            {
+                temp = Ptr;
+
+                node* temp;
+
+                        Ptr = Ptr->next;
+
+                        free(temp->word);
+
+                        free(temp);
+            }
+        }
     return true;
 }
 

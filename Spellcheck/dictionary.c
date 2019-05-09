@@ -602,3 +602,29 @@ TIME IN TOTAL:        4.43
 ==15139== For counts of detected and suppressed errors, rerun with: -v
 ==15139== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
 */
+
+/*
+==13870== 
+==13870== HEAP SUMMARY:
+==13870==     in use at exit: 619 bytes in 5 blocks
+==13870==   total heap usage: 303,942 allocs, 303,937 frees, 5,459,331 bytes allocated
+==13870== 
+==13870== 51 (16 direct, 35 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 4
+==13870==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13870==    by 0x425663: makeLink (dictionary.c:357)
+==13870==    by 0x424D37: addLink (dictionary.c:370)
+==13870==    by 0x423973: load (dictionary.c:179)
+==13870==    by 0x420982: main (speller.c:40)
+==13870== 
+==13870== LEAK SUMMARY:
+==13870==    definitely lost: 16 bytes in 1 blocks
+==13870==    indirectly lost: 35 bytes in 3 blocks
+==13870==      possibly lost: 0 bytes in 0 blocks
+==13870==    still reachable: 568 bytes in 1 blocks
+==13870==         suppressed: 0 bytes in 0 blocks
+==13870== Reachable blocks (those to which a pointer was found) are not shown.
+==13870== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==13870== 
+==13870== For counts of detected and suppressed errors, rerun with: -v
+==13870== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+*/

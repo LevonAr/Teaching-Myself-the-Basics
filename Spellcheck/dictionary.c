@@ -259,7 +259,7 @@ unsigned int size(void)
 bool unload(void)
 {
     node* Ptr;
-    
+
     for(int i=0; i<=hash_table_size-1; i++)
     {
         if(HT_Ptr->words[i]!=NULL)
@@ -280,7 +280,11 @@ bool unload(void)
             }
         }
     }
-    
+
+    free(HT_Ptr->words);
+
+    free(HT_Ptr);
+
     return true;
 }
 

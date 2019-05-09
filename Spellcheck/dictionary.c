@@ -262,8 +262,6 @@ bool unload(void)
 
     for(int i=0; i<=hash_table_size-1; i++)
     {
-        if(HT_Ptr->words[i])
-        {
             Ptr = HT_Ptr->words[i];
 
             while(Ptr!= NULL)
@@ -272,7 +270,6 @@ bool unload(void)
 
                 free(Ptr);
             }
-        }
     }
 
     return true;

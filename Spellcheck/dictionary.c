@@ -266,8 +266,6 @@ bool unload(void)
         {
             Ptr = HT_Ptr->words[i];
 
-            node* temp;
-
             while(Ptr!= NULL)
             {
                 Ptr = Ptr->next;

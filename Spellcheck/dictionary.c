@@ -260,17 +260,19 @@ bool unload(void)
 {
     node* Ptr;
 
-    for(int i=0; i<=hash_table_size-1; i++)
+    for(node* Ptr = HT_Ptr->words[check_index]; Ptr->next != NULL; Ptr = Ptr->next)
     {
-            Ptr = HT_Ptr->words[i];
+        temp = Ptr;
+        
+        node* temp;
 
-            while(Ptr!= NULL)
-            {
                 Ptr = Ptr->next;
 
-                free(Ptr);
-            }
+                free(temp->word);
+
+                free(temp);
     }
+    
 
     return true;
 }

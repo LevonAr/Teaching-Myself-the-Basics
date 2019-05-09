@@ -270,11 +270,9 @@ bool unload(void)
 
             while(Ptr!= NULL)
             {
-                temp = Ptr;
-
                 Ptr = Ptr->next;
 
-                free(temp);
+                free(Ptr);
             }
         }
     }

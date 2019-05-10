@@ -92,17 +92,6 @@ bool check(const char *word)
 
             return check_bucket;
         }
-
-        /*if(strcmp(HT_Ptr->words[check_index]->word, lowercase_word)==0)
-        {
-            return true;
-        }
-
-        else
-        {
-            return false;
-        }*/
-
     }
 
     else

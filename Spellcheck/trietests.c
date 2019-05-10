@@ -279,15 +279,7 @@ bool unload(void)
 
     
     //XXXXX  HERE  XXXXXX
-    
-    /*free(base_root);
-
-    base_root = NULL;
-
-    if(base_root)
-    {
-        return false;
-    }*/
+  
 
 // Valgrind output with leak report
 

@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
+append( struct node **q, int num);
 struct node{
     int data;
     struct node *link;

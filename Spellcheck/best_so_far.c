@@ -128,9 +128,7 @@ bool load(const char *dictionary)
     int *hash_table_size_Ptr = &hash_table_size;
 
     *hash_table_size_Ptr = prime (dict_size * 1.4286);
-
-    //HT_Ptr->size = hash_table_size;
-
+    
     HT_Ptr = malloc(sizeof(Hashtable));
 
     HT_Ptr->words = calloc(hash_table_size,sizeof(node));

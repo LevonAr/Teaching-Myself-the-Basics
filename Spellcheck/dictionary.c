@@ -1,3 +1,6 @@
+// Finalized Hash Table (fastest)
+
+
 /*Times
 
 WORDS MISSPELLED:     955

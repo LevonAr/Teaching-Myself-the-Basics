@@ -5,3 +5,4 @@ for i in range((height-1),0,-1):
     j = i-1
     k = height+1-j
     print(' '*j,'#'*k)
+print('#'*(height+1))

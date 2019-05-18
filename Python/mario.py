@@ -4,5 +4,12 @@ try :
         height = int(input("Height:"))
 except ValueError:
     print ("Error: type an integer")
+    
+for i in range((height-1),0,-1):
+        j = i-1
+        k = height-j
+        print(' '*j,'#'*k)
+    print('#'*(height+1))
+
 
 

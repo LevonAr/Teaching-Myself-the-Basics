@@ -4,7 +4,7 @@ try :
         height = int(input("Height:"))
 except ValueError:
     print ("Error: type an integer")
-    
+    exit()
 else:
     for i in range((height-1),0,-1):
         j = i-1

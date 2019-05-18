@@ -7,7 +7,5 @@ if isinstance(height, int):
         k = height-j
         print(' '*j,'#'*k)
     print('#'*(height+1))
-else:
-    exit()
 
 

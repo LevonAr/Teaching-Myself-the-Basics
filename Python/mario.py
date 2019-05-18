@@ -5,6 +5,7 @@ try :
 except ValueError:
     print ("Error: type an integer")
     
+else:
 for i in range((height-1),0,-1):
         j = i-1
         k = height-j

@@ -20,5 +20,12 @@ nickel_rem = dime_rem%5
 
 pennies = nickel_rem
 
-return quarters+dimes+nickels+pennies
+total = quarters+dimes+nickels+pennies
+
+return total
+
+
+
+
+
 

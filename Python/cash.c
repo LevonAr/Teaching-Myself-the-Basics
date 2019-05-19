@@ -1,10 +1,14 @@
 change = float(input("change owed:"))
 
-slice_change = change//1
+slice_change = int(change)
 
 difference = change-slice_change
 
+print (difference)
+
 whole_num_change = difference*100
+
+print(whole_num_change)
 
 quarters = whole_num_change//25
 
@@ -18,9 +22,9 @@ nickels = dime_rem//5
 
 nickel_rem = dime_rem%5
 
-pennies = nickel_rem
+pennies = nickel_rem//1
 
-total = quarters+dimes+nickels+pennies
+total = int(quarters+dimes+nickels+pennies)
 
 print (total)
 

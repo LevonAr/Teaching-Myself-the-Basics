@@ -1,14 +1,13 @@
 while True:
     try:
         change = float(input("change owed:"))
-        break
+        if change>0:
+            break
+        else:
+            pass
 
     except ValueError:
         pass
-
-while change<0:
-    change = float(input("change owed:"))
-
 
 
 change = float(input("change owed:"))

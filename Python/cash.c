@@ -1,3 +1,16 @@
+while True:
+    try:
+        change = float(input("change owed:"))
+        break
+
+    except ValueError:
+        pass
+
+while change<0:
+    change = float(input("change owed:"))
+
+
+
 change = float(input("change owed:"))
 
 print(change)
@@ -51,6 +64,11 @@ print(pennies)
 total = int(dollar_change+quarters+dimes+nickels+pennies)
 
 print (total)
+
+
+
+
+
 
 
 

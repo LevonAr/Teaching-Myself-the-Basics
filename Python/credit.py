@@ -7,6 +7,7 @@ num_of_digits = pre_num_of_digits-2
 lst = []
 
 for i in range(num_of_digits,-1,-2):
-    lst.append(i)
-
-print(lst)
+    j = str(int(credit[i])*2)
+    if len(j)==2:
+        asdasd
+    lst.append(j)

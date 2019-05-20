@@ -1,4 +1,11 @@
-credit = input("credit card number:")
+while True:
+    try:
+        credit = int(input("credit card number:"))
+    except ValueError:
+        pass
+    else:
+        break
+credit = str(credit)
 
 pre_num_of_digits = len(credit)
 
@@ -47,9 +54,9 @@ slice_first_2_digits = slice(0,2)
 slice_first_digit = slice(0,1)
 
 if check%10==0:
-    if pre_num_of_digits==15 & credit[slice_first_2_digits]=='34' or '37':
+    if pre_num_of_digits==15 and credit[slice_first_2_digits]=='34' or '37':
         print("AMEX")
-    elif pre_num_of_digits==13 & credit[slice_first_digit]=='4':
+    elif pre_num_of_digits==13 and credit[slice_first_digit]=='4':
         print("VISA")
     elif pre_num_of_digits==16:
         if credit[slice_first_2_digits]=='51'or'52'or'53'or'54'or'55':
@@ -60,6 +67,14 @@ if check%10==0:
             print("INVALID")
     else:
         print("INVALID")
-        
+
 else:
     print("INVALID")
+
+
+
+
+
+
+
+

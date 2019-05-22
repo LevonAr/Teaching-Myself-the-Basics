@@ -13,7 +13,16 @@ polished_K = K%26
 ciphertext = ""
 
 for i in plaintext:
-    j = chr(ord(i) + polished_K)
+    if i.isupper():
+        j = chr(ord(i) + polished_K)
+        if j > 90:
+            j = j-26
+    elif i.islower():
+        j = chr(ord(i) + polished_K)
+        if j > 122:
+            j = j -26
+    else:
+        j = i
 
     ciphertext = ciphertext + j
 

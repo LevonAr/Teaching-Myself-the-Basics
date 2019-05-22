@@ -18,4 +18,10 @@ for i in plaintext:
 def bad_append(new_item, a_list=[]):
     a_list.append(new_item)
     return a_list
+    
+def good_append(new_item, a_list=None):
+    if a_list is None:
+        a_list = []
+    a_list.append(new_item)
+    return a_list
 

@@ -12,4 +12,10 @@ polished_K = K%26
         
 for i in plaintext:
     ciphertext[i] = plaintext[i]
+    
+#proper form practice
+        
+def bad_append(new_item, a_list=[]):
+    a_list.append(new_item)
+    return a_list
 

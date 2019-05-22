@@ -14,13 +14,15 @@ ciphertext = ""
 
 for i in plaintext:
     if i.isupper():
-        j = chr(ord(i) + polished_K)
+        j = ord(i) + polished_K
         if j > 90:
             j = j-26
+        chr(j)
     elif i.islower():
-        j = chr(ord(i) + polished_K)
+        j = ord(i) + polished_K
         if j > 122:
             j = j -26
+        chr(j)
     else:
         j = i
 

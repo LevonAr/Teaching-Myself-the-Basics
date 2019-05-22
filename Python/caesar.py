@@ -17,12 +17,12 @@ for i in plaintext:
         j = ord(i) + polished_K
         if j > 90:
             j = j-26
-        chr(j)
+        j = chr(j)
     elif i.islower():
         j = ord(i) + polished_K
         if j > 122:
             j = j -26
-        chr(j)
+        j = chr(j)
     else:
         j = i
 

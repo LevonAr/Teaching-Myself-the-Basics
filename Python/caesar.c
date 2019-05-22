@@ -9,4 +9,7 @@ K = int(sys.argv[1])
 plaintext = input("plaintext:")
 
 polished_K = K%26
+        
+for i in plaintext:
+    print (plaintext[i])
 

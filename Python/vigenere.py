@@ -36,8 +36,12 @@ for i in plaintext:
         if j > 122:
             j = j -26
         j = chr(j)
+    elif i.isspace():
+        j = i
     else:
         j = i
         next(new_toy)
+    ciphertext = ciphertext + j
 
-ciphertext = ciphertext + j
+
+print(f"ciphertext: {ciphertext}")

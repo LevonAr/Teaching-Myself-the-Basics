@@ -11,7 +11,11 @@ key_list = []
 for i in key:
     if i.isupper():
         a = ord(i)-65
+        key_list.append(a)
     elif i.islower():
         a = ord(i)-97
+        key_list.append(a)
     else:
+        print("error: use only alphabetical letters as your key")
         sys.exit(1)
+

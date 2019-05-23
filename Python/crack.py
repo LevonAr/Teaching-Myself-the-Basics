@@ -8,3 +8,5 @@ if len(sys.argv)!=2:
 hash = sys.argv[1]
 
 salt = hash[0:2]
+
+crypt.crypt(hash, salt)

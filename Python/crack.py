@@ -1,4 +1,5 @@
 import crypt
+import itertools
 import sys
 
 if len(sys.argv)!=2:
@@ -9,4 +10,8 @@ hash = sys.argv[1]
 
 salt = hash[0:2]
 
-crypt.crypt(hash, salt)
+for i in itertools.chain(range(65,90), range(97,122)):
+    test_key = chr(i)
+    test_hash = crypt.crypt(test_key, salt)
+    if test_hash == hash:
+        

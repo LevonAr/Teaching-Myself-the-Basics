@@ -49,3 +49,13 @@ for i in itertools.chain(range(64,91), range(97,123)):
                             if test_hash == _hash:
                                 print(four_char_pw)
                                 sys.exit(0)
+                                
+                                
+#Cut down times ALOT with new method YAYAYAYAYAY
+# PASSWORD    TIMES:  crack.py       VS        crack.c
+#  YES                 <1 s                      19 s
+#  NO                  <1 s                      11 s
+#  TF                  <1 s                      14 s
+#  CA                  <1 s                      3 s 
+#  nope                35 s                      33 s
+#  ROFL                16 s                      14 s

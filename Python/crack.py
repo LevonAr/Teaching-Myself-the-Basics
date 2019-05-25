@@ -13,7 +13,7 @@ salt = _hash[0:2]
 for i in itertools.chain(range(64,91), range(97,123)):
     first_char = chr(i)
     if first_char == '@':
-        first_char == ''
+        first_char = ''
     one_char_pw = first_char
     print(one_char_pw)
     test_hash = crypt.crypt(one_char_pw, salt)
@@ -24,7 +24,7 @@ for i in itertools.chain(range(64,91), range(97,123)):
         for j in itertools.chain(range(64,91), range(97,123)):
             second_char = chr(j)
             if second_char == '@':
-                second_char == ''
+                second_char = ''
             two_char_pw = first_char + second_char
             print(two_char_pw)
             test_hash = crypt.crypt(two_char_pw, salt)

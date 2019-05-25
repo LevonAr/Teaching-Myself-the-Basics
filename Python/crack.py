@@ -41,31 +41,7 @@ for i in itertools.chain(range(64,91), range(97,123)):
             print(three_char_pw)
             chech_hash = crypt.crypt(three_char_pw, salt)
         
-     
     
-    
-    
-    
-    
-    
-    
-    
-    
-                
-                        
-            
-            
-    elif one_char_hash == _hash:
-        print(first_char)
-        sys.exit(0)
-    else:
-        for j in itertools.chain(range(64,91), range(97,123)):
-            second_char = chr(j)
-            two_char_pw = first_char + second_char
-            print(two_char_pw)
-            two_char_hash = crypt.crypt(one_char_pw, salt)
-            if
-
 
 
 

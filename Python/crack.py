@@ -15,10 +15,9 @@ for i in itertools.chain(range(64,91), range(97,123)):
     if first_char == '@':
         first_char = ''
     one_char_pw = first_char
-    print(one_char_pw)
     test_hash = crypt.crypt(one_char_pw, salt)
     if test_hash == _hash:
-        print ("YAY")
+        print (one_char_pw)
         sys.exit(0)
     else:
         for j in itertools.chain(range(64,91), range(97,123)):
@@ -26,18 +25,27 @@ for i in itertools.chain(range(64,91), range(97,123)):
             if second_char == '@':
                 second_char = ''
             two_char_pw = first_char + second_char
-            print(two_char_pw)
             test_hash = crypt.crypt(two_char_pw, salt)
             if test_hash == _hash:
-                print ("YAY")
+                print (two_char_pw)
                 sys.exit(0)
             else:
                 for k in itertools.chain(range(64,91), range(97,123)):
-                   third_char = chr(k)
-                if third_char == '@':
-                   three_char_pw = first_char + second_char + third_char
-                   print(three_char_pw)
-                   test_hash = crypt.crypt(two_char_pw, salt)
-                   if test_hash == _hash:
-                       print("YAY")
-                       sys.exit(0)
+                    third_char = chr(k)
+                    if third_char == '@':
+                        third_char = ''
+                    three_char_pw = first_char + second_char + third_char
+                    test_hash = crypt.crypt(three_char_pw, salt)
+                    if test_hash == _hash:
+                        print(three_char_pw)
+                        sys.exit(0)
+                    else:
+                        for k in itertools.chain(range(64,91), range(97,123)):
+                            fourth_char = chr(k)
+                            if fourth_char == '@':
+                                fourth_char = ''
+                            four_char_pw = first_char + second_char + third_char + fourth_char
+                            test_hash = crypt.crypt(four_char_pw, salt)
+                            if test_hash == _hash:
+                                print(four_char_pw)
+                                sys.exit(0)

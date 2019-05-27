@@ -1,11 +1,13 @@
 Cut down times ALOT with new method YAYAYAYAYAY
-PASSWORD    TIMES:  crack.py       VS        crack.c
-  YES                 <1 s                      19 s
-  NO                  <1 s                      11 s
-  TF                  <1 s                      14 s
-  CA                  <1 s                      3 s 
-  nope                35 s                      33 s
-  ROFL                16 s                      14 s
+
+| PASSWORDS | TIMES: | crack.c      | VS | crack.py     |
+|-----------|--------|--------------|----|--------------|
+| YES       |        | 19 seconds   |    | <.1 second   |
+| NO        |        | 11 seconds   |    | <.1 second   |
+| TF        |        | 14 seconds   |    | <.1 second   |
+| CA        |        | 3 seconds    |    | <.1 second   |
+| nope      |        | 33.3 seconds |    | 35.7 seconds |
+| ROFL      |        | 14.2 seconds |    | 16.4 seconds |
 
 
  These times show reinforce what I was attempting to do by tweaking my original crack.c

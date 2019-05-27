@@ -17,4 +17,3 @@ else:
         k = height-j
         print(' '*j,'#'*k)
     print('#'*(height+1))
-

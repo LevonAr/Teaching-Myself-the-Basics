@@ -8,3 +8,13 @@ from helpers import lines, sentences, substrings
 
 
 def main():
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("--lines", action="store_true", help="compare lines")
+    group.add_argument("--sentences", action="store_true", help="compare sentences")
+    group.add_argument("--substrings", metavar="N", type=positive,
+                       help="compare substrings of length N")
+    parser.add_argument("FILE1", help="file to compare")
+    parser.add_argument("FILE2", help="file to compare")
+    args = vars(parser.parse_args())

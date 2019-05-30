@@ -49,4 +49,6 @@ def positive(string):
     if value <= 0:
         raise argparse.ArgumentTypeError("invalid length")
     return value
+if __name__ == "__main__":
+    main()
                 

@@ -7,3 +7,6 @@ from helpers import lines, sentences, substrings
 
 # Web app
 app = Flask(__name__)
+
+@app.after_request
+def after_request(response):

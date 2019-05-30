@@ -39,3 +39,8 @@ def main():
         matches = sentences(file1, file2)
     elif args["substrings"]:
         matches = substrings(file1, file2, args["substrings"])
+                        
+    # Output matches, sorted from longest to shortest, with line endings escaped
+    for match in sorted(matches, key=len, reverse=True):
+        print(match.replace("\n", "\\n").replace("\r", "\\r"))
+                

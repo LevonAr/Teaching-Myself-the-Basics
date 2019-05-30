@@ -43,4 +43,10 @@ def main():
     # Output matches, sorted from longest to shortest, with line endings escaped
     for match in sorted(matches, key=len, reverse=True):
         print(match.replace("\n", "\\n").replace("\r", "\\r"))
+def positive(string):
+    """Convert string to a positive integer."""
+    value = int(string)
+    if value <= 0:
+        raise argparse.ArgumentTypeError("invalid length")
+    return value
                 

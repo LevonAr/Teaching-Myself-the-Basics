@@ -10,3 +10,5 @@ app = Flask(__name__)
 
 @app.after_request
 def after_request(response):
+    """Disable caching"""
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"

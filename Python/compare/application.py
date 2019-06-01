@@ -19,3 +19,5 @@ def after_request(response):
 
 @app.route("/")
 def index():
+    """Handle requests for / via GET (and POST)"""
+    return render_template("index.html")

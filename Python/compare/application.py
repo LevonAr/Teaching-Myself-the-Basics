@@ -34,3 +34,4 @@ def compare():
         file1 = request.files["file1"].read().decode("utf-8")
         file2 = request.files["file2"].read().decode("utf-8")
     except Exception:
+        abort(400, "invalid file")

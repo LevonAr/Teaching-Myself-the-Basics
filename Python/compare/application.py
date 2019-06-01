@@ -25,3 +25,8 @@ def index():
 
 @app.route("/compare", methods=["POST"])
 def compare():
+    """Handle requests for /compare via POST"""
+
+    # Read files
+    if not request.files["file1"] or not request.files["file2"]:
+        abort(400, "missing file")

@@ -76,3 +76,6 @@ def highlight(s, regexes):
     # Combine intervals to get highlighted areas
     highlights = []
     for interval in intervals:
+        if not highlights:
+            highlights.append(interval)
+            continue

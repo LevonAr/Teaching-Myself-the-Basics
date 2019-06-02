@@ -70,4 +70,5 @@ def highlight(s, regexes):
             continue
         matches = re.finditer(regex, s, re.MULTILINE)
         for match in matches:
-
+            intervals.append((match.start(), match.end()))
+    intervals.sort(key=lambda x: x[0])

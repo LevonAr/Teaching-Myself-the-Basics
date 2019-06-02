@@ -66,3 +66,5 @@ def highlight(s, regexes):
     # Get intervals for which strings match
     intervals = []
     for regex in regexes:    
+        if not regex:
+            continue

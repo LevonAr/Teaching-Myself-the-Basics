@@ -79,3 +79,4 @@ def highlight(s, regexes):
         if not highlights:
             highlights.append(interval)
             continue
+        last = highlights[-1]

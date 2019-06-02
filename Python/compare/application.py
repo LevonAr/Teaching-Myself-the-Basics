@@ -40,4 +40,8 @@ def compare():
     #compare files
     if not request.form.get("algorithm"):
         abort(400, "missing algorithm")
-        
+    elif request.form.get("algorithm") == "lines":
+        regexes = [f"^{re.escape(match)}$" for match in lines(file1, file2)]
+    elif request.form.get("algorithm") == "sentences":
+        regexes = [re.escape(match) for match in sentences(file1, file2)]
+    elif request.form.get("algorithm") == "substrings":        

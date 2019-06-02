@@ -68,3 +68,6 @@ def highlight(s, regexes):
     for regex in regexes:    
         if not regex:
             continue
+        matches = re.finditer(regex, s, re.MULTILINE)
+        for match in matches:
+

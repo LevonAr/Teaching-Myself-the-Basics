@@ -59,3 +59,6 @@ def compare():
     
     # Output comparison
     return render_template("compare.html", file1=highlights1, file2=highlights2)
+
+def highlight(s, regexes):
+    """Highlight all instances of regexes in s."""

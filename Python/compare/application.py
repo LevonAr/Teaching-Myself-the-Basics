@@ -72,3 +72,4 @@ def highlight(s, regexes):
         for match in matches:
             intervals.append((match.start(), match.end()))
     intervals.sort(key=lambda x: x[0])
+    # Combine intervals to get highlighted areas

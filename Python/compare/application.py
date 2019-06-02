@@ -56,3 +56,6 @@ def compare():
     # Highlight files
     highlights1 = highlight(file1, regexes)
     highlights2 = highlight(file2, regexes)
+    
+    # Output comparison
+    return render_template("compare.html", file1=highlights1, file2=highlights2)

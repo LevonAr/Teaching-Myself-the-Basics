@@ -53,3 +53,6 @@ def compare():
             file1, file2, int(request.form.get("length")))]
     else:
         abort(400, "invalid algorithm")
+    # Highlight files
+    highlights1 = highlight(file1, regexes)
+    highlights2 = highlight(file2, regexes)

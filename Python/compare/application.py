@@ -51,3 +51,5 @@ def compare():
             abort(400, "invalid length")
         regexes = [re.escape(match) for match in substrings(
             file1, file2, int(request.form.get("length")))]
+    else:
+        abort(400, "invalid algorithm")

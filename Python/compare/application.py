@@ -35,3 +35,9 @@ def compare():
         file2 = request.files["file2"].read().decode("utf-8")
     except Exception:
         abort(400, "invalid file")
+    
+    
+    #compare files
+    if not request.form.get("algorithm"):
+        abort(400, "missing algorithm")
+        

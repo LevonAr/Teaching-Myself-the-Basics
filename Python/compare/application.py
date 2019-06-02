@@ -62,3 +62,7 @@ def compare():
 
 def highlight(s, regexes):
     """Highlight all instances of regexes in s."""
+    
+    # Get intervals for which strings match
+    intervals = []
+    for regex in regexes:    

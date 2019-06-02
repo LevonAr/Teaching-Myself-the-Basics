@@ -80,3 +80,7 @@ def highlight(s, regexes):
             highlights.append(interval)
             continue
         last = highlights[-1]
+        # If intervals overlap, then merge them 
+        if interval[0] <= last[1]:
+            new_interval = (last[0], interval[1])
+            highlights[-1] = new_interval

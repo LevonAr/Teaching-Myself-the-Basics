@@ -45,3 +45,9 @@ def compare():
     elif request.form.get("algorithm") == "sentences":
         regexes = [re.escape(match) for match in sentences(file1, file2)]
     elif request.form.get("algorithm") == "substrings":        
+        if not request.form.get("length"):
+            abort(400, "missing length")
+        elif not int(request.form.get("length")) > 0:
+            abort(400, "invalid length")
+        regexes = [re.escape(match) for match in substrings(
+            file1, file2, int(request.form.get("length")))]

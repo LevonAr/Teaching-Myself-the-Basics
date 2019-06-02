@@ -84,3 +84,6 @@ def highlight(s, regexes):
         if interval[0] <= last[1]:
             new_interval = (last[0], interval[1])
             highlights[-1] = new_interval
+        # Else, start a new highlight
+        else:
+            highlights.append(interval)

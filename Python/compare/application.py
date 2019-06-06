@@ -94,3 +94,7 @@ def highlight(s, regexes):
     # If no highlights at all, then keep nothing highlighted
     if not highlights:
         regions = [(0, len(s), False)]
+        
+    # If first region is not highlighted, designate it as such
+    elif highlights[0][0] != 0:
+        regions = [(0, highlights[0][0], False)]

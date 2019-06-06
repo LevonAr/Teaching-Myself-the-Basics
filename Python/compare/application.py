@@ -87,3 +87,6 @@ def highlight(s, regexes):
         # Else, start a new highlight
         else:
             highlights.append(interval)
+    
+    # Maintain list of regions: each is a start index, end index, highlight
+    regions = []            

@@ -106,3 +106,7 @@ def highlight(s, regexes):
             if start != prev_end:
                 regions.append((prev_end, start, False))
         regions.append((start, end, True))
+
+    # Add final unhighlighted region if necessary
+    if regions[-1][1] != len(s):
+        regions.append((regions[-1][1], len(s), False))

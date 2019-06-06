@@ -98,3 +98,6 @@ def highlight(s, regexes):
     # If first region is not highlighted, designate it as such
     elif highlights[0][0] != 0:
         regions = [(0, highlights[0][0], False)]
+
+    # Loop through all highlights and add regions
+    for start, end in highlights:

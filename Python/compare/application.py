@@ -113,3 +113,5 @@ def highlight(s, regexes):
 
     # Combine regions into final result
     result = ""
+    for start, end, highlighted in regions:
+        escaped = escape(s[start:end])

@@ -115,3 +115,7 @@ def highlight(s, regexes):
     result = ""
     for start, end, highlighted in regions:
         escaped = escape(s[start:end])
+        if highlighted:
+            result += f"<span>{escaped}</span>"
+        else:
+            result += escaped

@@ -101,3 +101,8 @@ def highlight(s, regexes):
 
     # Loop through all highlights and add regions
     for start, end in highlights:
+        if start != 0:
+            prev_end = regions[-1][1]
+            if start != prev_end:
+                regions.append((prev_end, start, False))
+        regions.append((start, end, True))

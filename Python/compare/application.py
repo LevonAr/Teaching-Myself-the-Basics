@@ -110,3 +110,6 @@ def highlight(s, regexes):
     # Add final unhighlighted region if necessary
     if regions[-1][1] != len(s):
         regions.append((regions[-1][1], len(s), False))
+
+    # Combine regions into final result
+    result = ""

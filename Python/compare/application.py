@@ -90,3 +90,7 @@ def highlight(s, regexes):
     
     # Maintain list of regions: each is a start index, end index, highlight
     regions = []            
+    
+    # If no highlights at all, then keep nothing highlighted
+    if not highlights:
+        regions = [(0, len(s), False)]

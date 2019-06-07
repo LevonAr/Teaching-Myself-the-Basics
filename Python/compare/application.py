@@ -126,4 +126,6 @@ def highlight(s, regexes):
 def errorhandler(error):
     """Handle errors"""
     return render_template("error.html", error=error), error.code
+
 # https://github.com/pallets/flask/pull/2314
+for code in default_exceptions:

@@ -129,4 +129,4 @@ def errorhandler(error):
 
 # https://github.com/pallets/flask/pull/2314
 for code in default_exceptions:
-    app
+    app.errorhandler(code)

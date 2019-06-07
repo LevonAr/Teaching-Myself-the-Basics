@@ -120,3 +120,6 @@ def highlight(s, regexes):
         else:
             result += escaped
     return result            
+
+
+@app.errorhandler(HTTPException)

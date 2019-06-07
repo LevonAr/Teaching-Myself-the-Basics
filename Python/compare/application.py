@@ -124,3 +124,4 @@ def highlight(s, regexes):
 
 @app.errorhandler(HTTPException)
 def errorhandler(error):
+    """Handle errors"""

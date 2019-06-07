@@ -119,3 +119,4 @@ def highlight(s, regexes):
             result += f"<span>{escaped}</span>"
         else:
             result += escaped
+    return result            

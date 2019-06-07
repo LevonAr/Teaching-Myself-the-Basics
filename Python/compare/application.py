@@ -125,3 +125,4 @@ def highlight(s, regexes):
 @app.errorhandler(HTTPException)
 def errorhandler(error):
     """Handle errors"""
+    return render_template("error.html", error=error), error.code

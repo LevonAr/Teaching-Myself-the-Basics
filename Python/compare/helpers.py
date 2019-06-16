@@ -4,3 +4,4 @@ def lines(a, b):
     lines_list_B = str.splitlines(b)
 
     if len(lines_list_A) > len(lines_list_B):
+        list_len = len(lines_list_B)

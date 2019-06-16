@@ -5,3 +5,5 @@ def lines(a, b):
 
     if len(lines_list_A) > len(lines_list_B):
         list_len = len(lines_list_B)
+                
+    elif len(lines_list_B) > len(lines_list_A):        

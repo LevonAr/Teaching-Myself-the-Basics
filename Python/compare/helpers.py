@@ -2,3 +2,5 @@ def lines(a, b):
     lines_list_A = str.splitlines(a)
 
     lines_list_B = str.splitlines(b)
+
+    if len(lines_list_A) > len(lines_list_B):

@@ -7,3 +7,4 @@ def lines(a, b):
         list_len = len(lines_list_B)
                 
     elif len(lines_list_B) > len(lines_list_A):        
+        list_len = len(lines_list_A)

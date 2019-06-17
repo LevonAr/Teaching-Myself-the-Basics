@@ -11,3 +11,6 @@ def lines(a, b):
         list_len = len(lines_list_A)
         
     line_matches_list = []
+
+    for i in range(len(lines_list_A)):
+        if lines_list_A[i] == lines_list_B[i]:        

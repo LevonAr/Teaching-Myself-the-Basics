@@ -21,3 +21,5 @@ def lines(a, b):
 def sentences(a, b):
     
     sentences_A = sent_tokenize(a)
+
+    sentences_B = sent_tokenize(b)

@@ -23,3 +23,6 @@ def sentences(a, b):
     sentences_A = sent_tokenize(a)
 
     sentences_B = sent_tokenize(b)
+
+    # first (not the final) form of sentence_matches_list
+    sentence_matches_list_1 = []    

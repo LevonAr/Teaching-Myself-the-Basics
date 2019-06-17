@@ -15,5 +15,6 @@ def lines(a, b):
     for i in range(len(lines_list_A)):
         if lines_list_A[i] == lines_list_B[i]:        
             line_matches_list.append(lines_list_A[i])
+            
     return line_matches_list
             

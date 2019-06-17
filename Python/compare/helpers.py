@@ -17,4 +17,7 @@ def lines(a, b):
             line_matches_list.append(lines_list_A[i])
             
     return line_matches_list
-            
+
+def sentences(a, b):
+    
+    sentences_A = sent_tokenize(a)

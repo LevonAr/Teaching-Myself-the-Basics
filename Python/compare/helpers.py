@@ -8,3 +8,4 @@ def lines(a, b):
     elif len(lines_list_B) > len(lines_list_A):        
         list_len = len(lines_list_A)
     elif len(lines_list_A) == len(lines_list_B):
+        list_len = len(lines_list_A)

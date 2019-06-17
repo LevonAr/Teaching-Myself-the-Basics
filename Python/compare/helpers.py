@@ -9,3 +9,5 @@ def lines(a, b):
         list_len = len(lines_list_A)
     elif len(lines_list_A) == len(lines_list_B):
         list_len = len(lines_list_A)
+        
+    line_matches_list = []

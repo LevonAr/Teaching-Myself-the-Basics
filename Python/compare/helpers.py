@@ -25,4 +25,10 @@ def sentences(a, b):
     sentences_B = sent_tokenize(b)
 
     # first (not the final) form of sentence_matches_list
-    sentence_matches_list_1 = []    
+    sentence_matches_list_1 = []
+    
+    #compare
+    for i in sentences_A:
+        for j in sentences_B:
+            if i==j:
+                sentence_matches_list_1.append(i)

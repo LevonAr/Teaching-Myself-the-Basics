@@ -45,3 +45,6 @@ def substrings(a, b, n):
 
     # set a mark for when "a" bottoms out and cant be split into a full substring with all 'n' amount of letters
     bottom_A = len(a) - n + 1
+
+    # first(not final) form of variable 'substrings_list_A'
+    substrings_list_A_1 = []

@@ -50,3 +50,4 @@ def substrings(a, b, n):
     substrings_list_A_1 = []
     
     # append all substrings to new list
+    for i in range(0,bottom_A):

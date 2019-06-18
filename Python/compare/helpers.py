@@ -48,3 +48,5 @@ def substrings(a, b, n):
 
     # first(not final) form of variable 'substrings_list_A'
     substrings_list_A_1 = []
+    
+    # append all substrings to new list

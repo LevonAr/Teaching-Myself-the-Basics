@@ -38,3 +38,5 @@ def sentences(a, b):
     sentence_matches_list = set(sentence_matches_list_1)
     
     return sentence_matches_list
+
+def substrings(a, b, n):

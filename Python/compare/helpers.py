@@ -40,3 +40,8 @@ def sentences(a, b):
     return sentence_matches_list
 
 def substrings(a, b, n):
+
+    #A
+
+    # set a mark for when "a" bottoms out and cant be split into a full substring with all 'n' amount of letters
+    bottom_A = len(a) - n + 1

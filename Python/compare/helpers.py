@@ -52,3 +52,4 @@ def substrings(a, b, n):
     # append all substrings to new list
     for i in range(0,bottom_A):
         new_substring = a[i:i+n]
+        substrings_list_A_1.append(new_substring)

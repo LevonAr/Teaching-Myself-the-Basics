@@ -32,3 +32,7 @@ def sentences(a, b):
         for j in sentences_B:
             if i==j:
                 sentence_matches_list_1.append(i)
+    
+    # final form of sentence_matches_list
+    # I'm just cutting out duplicates
+    sentence_matches_list = set(sentence_matches_list_1)

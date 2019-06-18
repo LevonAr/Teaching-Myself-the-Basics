@@ -36,3 +36,5 @@ def sentences(a, b):
     # final form of sentence_matches_list
     # I'm just cutting out duplicates
     sentence_matches_list = set(sentence_matches_list_1)
+    
+    return sentence_matches_list

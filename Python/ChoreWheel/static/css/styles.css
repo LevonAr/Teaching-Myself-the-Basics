@@ -8,3 +8,8 @@ div.container-fluid
 {
     padding-top: 56px;
 }
+
+div.container-fluid, div.row, div.col, div.jumbotron
+{
+    height: 100%;
+}

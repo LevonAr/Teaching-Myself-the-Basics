@@ -3,3 +3,8 @@ html, body
     height: 100%;
     overflow: hidden;
 }
+
+div.container-fluid
+{
+    padding-top: 56px;
+}

@@ -32,3 +32,8 @@ pre
     padding: 15px;
     white-space: pre-wrap;
 }
+
+span
+{
+    background-color: #ff0;
+}

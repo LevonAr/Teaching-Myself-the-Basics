@@ -19,3 +19,8 @@ div.col
     padding-left: 0;
     padding-right: 0;
 }
+
+form
+{
+    padding: 15px;
+}

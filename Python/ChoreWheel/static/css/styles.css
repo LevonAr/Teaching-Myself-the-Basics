@@ -13,3 +13,9 @@ div.container-fluid, div.row, div.col, div.jumbotron
 {
     height: 100%;
 }
+
+div.col
+{
+    padding-left: 0;
+    padding-right: 0;
+}

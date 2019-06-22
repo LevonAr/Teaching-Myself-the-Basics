@@ -9,6 +9,12 @@ nav
     align-content: center
 }
 
+div.container-fluid
+{
+    padding-top: 56px;
+}
+
+
 
 
 {

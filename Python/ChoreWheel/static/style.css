@@ -14,6 +14,13 @@ div.container-fluid
     padding-top: 56px;
 }
 
+div.col
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
 
 
 

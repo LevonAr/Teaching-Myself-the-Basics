@@ -4,10 +4,6 @@ html, body
     overflow: hidden;
 }
 
-nav
-{
-    justify-content: center;
-}
 
 div.container-fluid
 {

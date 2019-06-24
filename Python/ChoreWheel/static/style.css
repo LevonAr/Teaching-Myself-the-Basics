@@ -21,14 +21,6 @@ form
     padding: 15px;
 }
 
-pre
-{
-    height: 100%;
-    overflow: auto;
-    padding: 15px;
-    white-space: pre-wrap;
-}
-
 
 {
     background-color: #ff0;

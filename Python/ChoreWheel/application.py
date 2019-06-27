@@ -10,7 +10,8 @@ def dated_url_for(endpoint, **values):
     if endpoint == 'static':
         filename = values.get('filename', None)
         if filename:
-            file_path = os.path.join(app.root_path,
+            file_path = os.path.join(app.root_path,endpoint, filename)
+
 
 @app.route("/")
 def index():

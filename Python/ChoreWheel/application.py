@@ -9,6 +9,7 @@ def override_url_for():
 def dated_url_for(endpoint, **values):
     if endpoint == 'static':
         filename = values.get('filename', None)
+        if filename:
 
 @app.route("/")
 def index():

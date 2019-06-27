@@ -1,27 +1,4 @@
-/* fill viewport, hide scroll bar */
-html, body
+.goodfriend
 {
-    overflow: hidden;
-}
-
-
-div.container
-{
-    padding-top: 56px;
-}
-
-div.col
-{
-    padding-left: 20;
-    padding-right: 20;
-}
-
-form
-{
-    padding: 15px;
-}
-
-
-{
-    background-color: #ff0;
+    color: crimson;
 }

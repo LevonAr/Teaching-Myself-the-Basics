@@ -11,4 +11,4 @@ def index():
 
     people_of_mansion_looped = cycle(people_of_mansion)
 
-    return render_template("index.html", peeps = people_of_mansion, n=n)
+    return render_template("index.html", peeps = people_of_mansion_looped, n=n)

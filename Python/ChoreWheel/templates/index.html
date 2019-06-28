@@ -42,10 +42,9 @@
                 </tr>
                 <tr class="dumbo goodfriend gorl ">
                     <td>In 2 days</td>
-                    <td>AJ</td>
-                    <td>AJ</td>
-                    <td>AJ</td>
-                    <td>AJ</td>
+                    {% for i in range(0,4) %}
+                        <td>{{ peeps[i] }}</td>
+                    {% endfor %}
                 </tr>
 
             </tbody>

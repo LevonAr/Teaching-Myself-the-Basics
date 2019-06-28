@@ -28,11 +28,11 @@
             </thead>
             <tbody>
                 <tr class="dumbo surfer goodfriend smelly">
-                    <td>Today</td>
-                    <td>{{AJ}}</td>
-                    <td>{{AJ}}</td>
-                    <td>{{AJ}}</td>
-                    <td>{{AJ}}</td>
+                    <ul>
+                    {% for item in peeps %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                    </ul>
                 </tr>
                 <tr class="dumbo surfer goodfriend Anna">
                     <td>Tomorrow</td>

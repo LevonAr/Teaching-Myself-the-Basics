@@ -7,3 +7,15 @@
 #
 #for char in rev_str(ls):
 #     print(char)
+
+my_list = [1, 3, 6, 10]
+
+s=(x**2 for x in my_list)
+
+print(next(s))
+print(next(s))
+print(next(s))
+print(next(s))
+print(next(s))
+print(next(s))
+print(next(s))

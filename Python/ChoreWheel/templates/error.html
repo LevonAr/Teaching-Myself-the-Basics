@@ -1,37 +1,54 @@
-<body>
-        <table border="1">
-            <thead>
-                <tr>
-                    <td>Chore</td>
-                    <td>Fridge</td>
-                    <td>Living Room</td>
-                    <td>Trash</td>
-                    <td>Bathroom</td>
-                </tr>
-            </thead>
-            <tbody>
+html lang="en">
+    <head>
 
-                <tr class="dumbo surfer goodfriend smelly">
-                    <td> Today </td>
-                    {% for i in range((0+n)%12,(4+n)%12) %}
-                        <td>peeps{{loop.index}}</td>
-                    {% endfor %}
-                </tr>
+        <!-- Required meta tags -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-                <tr class="dumbo surfer goodfriend Anna">
-                    <td>Tomorrow</td>
-                    {% for i in range((4+n)%12,(8+n)%12) %}
-                        <td>{{ peeps[i] }}</td>
-                    {% endfor %}
-                </tr>
-                <tr class="dumbo goodfriend gorl ">
-                    <td>In 2 days</td>
-                    {% for i in range((8+n%12),(12+n%12)) %}
-                        <td>{{ peeps[i] }}</td>
-                    {% endfor %}
-                </tr>
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"/>
 
-            </tbody>
-        </table>
-    </body>
+        <link rel="stylesheet" href="/static/css/reset.css?q=1280549780" type="text/css" media="screen" charset="utf-8" />
+        
+        <link href="/static/styles.css" rel="stylesheet"/>
+
+        <title>ChoreWheel</title>
+
+    </head>
+        <body>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <td>Chore</td>
+                            <td>Fridge</td>
+                            <td>Living Room</td>
+                            <td>Trash</td>
+                            <td>Bathroom</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr class="dumbo surfer goodfriend smelly">
+                            <td> Today </td>
+                            {% for i in range((0+n)%12,(4+n)%12) %}
+                                <td>peeps{{loop.index}}</td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr class="dumbo surfer goodfriend Anna">
+                            <td>Tomorrow</td>
+                            {% for i in range((4+n)%12,(8+n)%12) %}
+                                <td>{{ peeps[i] }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr class="dumbo goodfriend gorl ">
+                            <td>In 2 days</td>
+                            {% for i in range((8+n%12),(12+n%12)) %}
+                                <td>{{ peeps[i] }}</td>
+                            {% endfor %}
+                        </tr>
+
+                    </tbody>
+                </table>
+            </body>
 </html>

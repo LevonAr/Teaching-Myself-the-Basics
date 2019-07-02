@@ -1,22 +1,36 @@
-<html>
-<div class="container-fluid">
-            <div class="row">
+<body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Chore</td>
+                    <td>Fridge</td>
+                    <td>Living Room</td>
+                    <td>Trash</td>
+                    <td>Bathroom</td>
+                </tr>
+            </thead>
+            <tbody>
 
-                <div class="col-6">
-                    <form action="/compare" enctype="multipart/form-data" method="post">
-input type = "radio" name = "algorithm" value = "substrings">Substrings<br><br>
-
-                        <input type = "number" name = "length"><br><br>
-
-                    <input type="submit" value="Submit">
-                    </form>
-                            
-                </div>
-                        <tr class="dumbo surfer goodfriend smelly">
+                <tr class="dumbo surfer goodfriend smelly">
                     <td> Today </td>
-                    {% for i in range(0,10) %}
-                        <td>{{loop.index}}</td>
+                    {% for i in range((0+n)%12,(4+n)%12) %}
+                        <td>peeps{{loop.index}}</td>
                     {% endfor %}
                 </tr>
-                                
-                                </html>
+
+                <tr class="dumbo surfer goodfriend Anna">
+                    <td>Tomorrow</td>
+                    {% for i in range((4+n)%12,(8+n)%12) %}
+                        <td>{{ peeps[i] }}</td>
+                    {% endfor %}
+                </tr>
+                <tr class="dumbo goodfriend gorl ">
+                    <td>In 2 days</td>
+                    {% for i in range((8+n%12),(12+n%12)) %}
+                        <td>{{ peeps[i] }}</td>
+                    {% endfor %}
+                </tr>
+
+            </tbody>
+        </table>
+    </body>

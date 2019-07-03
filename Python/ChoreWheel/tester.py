@@ -15,3 +15,14 @@ for i in key:
     else:
         print("error: use only alphabetical letters as your key")
         sys.exit(1)
+        
+
+new_toy = itertools.cycle(key_list)
+
+
+
+
+print (next(new_toy))
+print (next(new_toy))
+print (next(new_toy))
+

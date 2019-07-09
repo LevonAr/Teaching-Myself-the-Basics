@@ -33,6 +33,12 @@
                         <td>peeps{{loop.index}}</td>
                     {% endfor %}
                 </tr>
+                <tr class="dumbo surfer goodfriend Anna">
+                    <td>Tomorrow</td>
+                    {% for i in range((4+n)%12,(8+n)%12) %}
+                        <td>{{ peeps[i] }}</td>
+                    {% endfor %}
+                </tr>
 
         
     </body>

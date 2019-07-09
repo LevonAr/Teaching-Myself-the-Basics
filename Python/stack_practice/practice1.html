@@ -27,12 +27,22 @@
                 </tr>
             </thead>
             <tbody>
+
+                    {% set row_class = cycler('odd', 'even') %}
+                        <ul class="browser">
+                    {% for folder in peeps %}
+                      <li class="folder {{ row_class.next() }}">{{ folder|e }}</li>
+                    {% endfor %}
+                    {% for filename in files %}
+                      <li class="file {{ row_class.next() }}">{{ filename|e }}</li>
+                    {% endfor %}
+                    </ul>
+
                 <tr class="dumbo surfer goodfriend smelly">
                     <td> Today </td>
-                    {% for i in range((0+n)%12,(4+n)%12) %}
-                        <td>peeps{{loop.index}}</td>
-                    {% endfor %}
+                     
                 </tr>
+
                 <tr class="dumbo surfer goodfriend Anna">
                     <td>Tomorrow</td>
                     {% for i in range((4+n)%12,(8+n)%12) %}
@@ -45,6 +55,8 @@
                         <td>{{ peeps[i] }}</td>
                     {% endfor %}
                 </tr>
-        
+
+            </tbody>
+        </table>
     </body>
 </html>

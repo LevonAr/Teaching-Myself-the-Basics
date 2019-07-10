@@ -25,27 +25,24 @@
                     <td>in 2 Days</td>
                 </tr>
             </thead>
-            <tr class="dumbo surfer goodfriend smelly">
-
-                        <td>Fridge</td>
-                        {% for i in range(3) %}
-                            <td>{{fridge[i]}}</td>
-                        {% endfor %}
-                             
-                    </tr>
                 <tr class="dumbo surfer goodfriend Anna">
-                    <td>Tomorrow</td>
-                    {% for i in range((4+n)%12,(8+n)%12) %}
-                        <td>{{ peeps[i] }}</td>
-                    {% endfor %}
+                    <td>Trash</td>
+                    {% for i in range(3) %}
+                        <td>{{trash[i]}}</td>
+                    {% endfor %}                            
                 </tr>
-                <tr class="dumbo goodfriend gorl ">
-                    <td>In 2 days</td>
-                    {% for i in range((8+n%12),(12+n%12)) %}
-                        <td>{{ peeps[i] }}</td>
-                    {% endfor %}
+                <tr class="dumbo surfer goodfriend Anna">                    
+                    <td>Trash</td>
+                    {% for i in range(3) %}
+                        <td>{{trash[i]}}</td>
+                    {% endfor %}                    
+                </tr>                
+                <tr class="dumbo goodfriend gorl ">                    
+                    <td>Trash</td>
+                    {% for i in range(3) %}
+                        <td>{{trash[i]}}</td>
+                    {% endfor %}                
                 </tr>
-
             </tbody>
         </table>
     </body>

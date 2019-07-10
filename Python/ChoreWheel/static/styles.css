@@ -19,3 +19,9 @@
     justify-content: space-around;
     flex: 1;
 }
+  
+.column-item
+{
+    background-color: blue;
+    height: 100%;
+}

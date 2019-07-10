@@ -41,52 +41,34 @@
             </div>
             <div class="row">  
                 <div class = "column">
-                    <div class = "column-item">Chore</div>
+                    <div class = "column-item">Trash</div>
                 </div>
+                {% for i in range(3) %}
+                    <div class = "column">
+                        <div class = "column-item">{{trash[i]}}</div>
+                    </div>
+                {% endfor %}        
+            </div>
+            <div class="row">  
                 <div class = "column">
-                    <div class = "column-item">Today</div>
+                    <div class = "column-item">Living Room</div>
                 </div>
+                {% for i in range(3) %}
+                    <div class = "column">
+                        <div class = "column-item">{{living_room[i]}}</div>
+                    </div>
+                {% endfor %}        
+            </div>
+            <div class="row">  
                 <div class = "column">
-                    <div class = "column-item">Tomorrow</div>
+                    <div class = "column-item">Bathroom</div>
                 </div>
-                <div class = "column">
-                    <div class = "column-item">In 2 Days</div>
-                </div>                
-            </div>            
-            <!--
-            <div class="row">                               
-                <div class="chore column">
-                    <div>Fridge</div>
-                    {% for i in range(3) %}
-                        <div>{{fridge[i]}}</div>
-                    {% endfor %}                             
-                </div>
-            </div>
-            <div class="row">       
-                <div class="chore column">
-                    <div>Trash</div>
-                    {% for i in range(3) %}
-                        <div>{{trash[i]}}</div>
-                    {% endfor %}                            
-                </div>
-            </div>
-            <div class="row">     
-                <div class="chore column">
-                    <div>Living Room</div>
-                    {% for i in range(3) %}
-                        <div>{{living_room[i]}}</div>
-                    {% endfor %}                
-                </div>
-            </div>
-            <div class="row">
-                <div class="chore column">
-                    <div>Bathroom</div>
-                    {% for i in range(3) %}
-                        <div>{{bathroom[i]}}</div>
-                    {% endfor %}
-                </div>
-            </div>
-        -->                  
+                {% for i in range(3) %}
+                    <div class = "column">
+                        <div class = "column-item">{{bathroom[i]}}</div>
+                    </div>
+                {% endfor %}        
+            </div>                  
         </div>    
     </body>
 </html>

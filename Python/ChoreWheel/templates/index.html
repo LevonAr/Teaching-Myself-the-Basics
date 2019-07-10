@@ -7,8 +7,6 @@
 
         <!-- Bootstrap CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"/>
-
-        <link rel="stylesheet" href="/static/css/reset.css?q=1280549780" type="text/css" media="screen" charset="utf-8" />
         
         <link href="/static/styles.css" rel="stylesheet"/>
 
@@ -16,41 +14,79 @@
 
     </head>
     <body>
-        <table border="1">
-            <thead>
-                <tr>
-                    <td>Chore</td>
-                    <td>Today</td>
-                    <td>Tomorrow</td>
-                    <td>in 2 Days</td>
-                </tr>
-            </thead>
-            <tbody>                
-                <tr class="dumbo surfer goodfriend smelly">
-                    <td>Fridge</td>
+        <div class="container">
+            <div class="row">  
+                <div class = "column">
+                    <div class = "column-item">Chore</div>
+                </div>
+                <div class = "column">
+                    <div class = "column-item">Today</div>
+                </div>
+                <div class = "column">
+                    <div class = "column-item">Tomorrow</div>
+                </div>
+                <div class = "column">
+                    <div class = "column-item">In 2 Days</div>
+                </div>                
+            </div>
+            <div class="row">  
+                <div class = "column">
+                    <div class = "column-item">Fridge</div>
+                </div>
+                {% for i in range(3) %}
+                    <div class = "column">
+                        <div class = "column-item">{{fridge[i]}}</div>
+                    </div>
+                {% endfor %}        
+            </div>
+            <div class="row">  
+                <div class = "column">
+                    <div class = "column-item">Chore</div>
+                </div>
+                <div class = "column">
+                    <div class = "column-item">Today</div>
+                </div>
+                <div class = "column">
+                    <div class = "column-item">Tomorrow</div>
+                </div>
+                <div class = "column">
+                    <div class = "column-item">In 2 Days</div>
+                </div>                
+            </div>            
+            <!--
+            <div class="row">                               
+                <div class="chore column">
+                    <div>Fridge</div>
                     {% for i in range(3) %}
-                        <td>{{fridge[i]}}</td>
+                        <div>{{fridge[i]}}</div>
                     {% endfor %}                             
-                </tr>        
-                <tr class="dumbo surfer goodfriend Anna">
-                    <td>Trash</td>
+                </div>
+            </div>
+            <div class="row">       
+                <div class="chore column">
+                    <div>Trash</div>
                     {% for i in range(3) %}
-                        <td>{{trash[i]}}</td>
+                        <div>{{trash[i]}}</div>
                     {% endfor %}                            
-                </tr>
-                <tr class="dumbo goodfriend gorl ">
-                    <td>Living Room</td>
+                </div>
+            </div>
+            <div class="row">     
+                <div class="chore column">
+                    <div>Living Room</div>
                     {% for i in range(3) %}
-                        <td>{{living_room[i]}}</td>
+                        <div>{{living_room[i]}}</div>
                     {% endfor %}                
-                </tr>
-                <tr class="dumbo goodfriend gorl ">
-                    <td>Bathroom</td>
+                </div>
+            </div>
+            <div class="row">
+                <div class="chore column">
+                    <div>Bathroom</div>
                     {% for i in range(3) %}
-                        <td>{{bathroom[i]}}</td>
-                    {% endfor %}                
-                </tr>
-            </tbody>
-        </table>
+                        <div>{{bathroom[i]}}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        -->                  
+        </div>    
     </body>
 </html>

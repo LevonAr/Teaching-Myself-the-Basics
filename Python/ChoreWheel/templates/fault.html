@@ -1,13 +1,60 @@
-{% extends "layout.html" %}
+<html lang="en">
+    <head>
 
-{% block body %}
-<!-- lefthand column -->
-    <div class="col-6">
-        <pre>error 1</pre>
-    </div>
-<!-- righthand column -->
-    <div class="col-6">
-        <pre>error 2</pre>
-    </div>
-{% endblock %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"/>
+        
+        <link href="/static/styles.css" rel="stylesheet"/>
+
+        <title>ChoreWheel</title>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">  
+                
+                    <div class = "column">Chore</div>
+                    <div class = "column">Today</div>
+                    <div class = "column">Tomorrow</div>
+                    <div class = "column">in 2 Days</div>
+                
+            </div>    
+            <div class="row">                               
+                <div class="chore column">
+                    <div>Fridge</div>
+                    {% for i in range(3) %}
+                        <div>{{fridge[i]}}</div>
+                    {% endfor %}                             
+                </div>
+            </div>
+            <div class="row">       
+                <div class="chore column">
+                    <div>Trash</div>
+                    {% for i in range(3) %}
+                        <div>{{trash[i]}}</div>
+                    {% endfor %}                            
+                </div>
+            </div>
+            <div class="row">     
+                <div class="chore column">
+                    <div>Living Room</div>
+                    {% for i in range(3) %}
+                        <div>{{living_room[i]}}</div>
+                    {% endfor %}                
+                </div>
+            </div>
+            <div class="row">
+                <div class="chore column">
+                    <div>Bathroom</div>
+                    {% for i in range(3) %}
+                        <div>{{bathroom[i]}}</div>
+                    {% endfor %}
+                </div>
+            </div>                  
+        </div>    
+    </body>
+</html>

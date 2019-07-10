@@ -1,14 +1,6 @@
-.goodfriend
+.container
 {
-    background-color: fuchsia;
-}
-
-td.smelly
-{
-    background-color: darkolivegreen;
-}
-
-.surfer
-{
-    background-color: blue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

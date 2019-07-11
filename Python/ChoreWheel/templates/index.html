@@ -17,55 +17,79 @@
         <div class="container">
             <div class="row">  
                 <div class = "column">
-                    <div class = "column-item">Chore</div>
+                    <div class = "column-item">
+                        <span class = "item"></span>
+                    </div>
                 </div>
                 <div class = "column">
-                    <div class = "column-item">Today</div>
+                    <div class = "fridge column-item ">
+                        <span class = "item"> Today </span>
+                    </div>
                 </div>
                 <div class = "column">
-                    <div class = "column-item">Tomorrow</div>
+                    <div class = "column-item">
+                        <span class = "item"> Tomorrow </span>
+                    </div>
                 </div>
                 <div class = "column">
-                    <div class = "column-item">In 2 Days</div>
+                    <div class = "fridge column-item">
+                        <span class = "item"> In 2 Days </span>
+                    </div>
                 </div>                
             </div>
             <div class="row">  
                 <div class = "column">
-                    <div class = "column-item">Fridge</div>
+                    <div class = "column-item">
+                        <span class = "item"> Fridge </span>
+                    </div>
                 </div>
                 {% for i in range(3) %}
                     <div class = "column">
-                        <div class = "column-item">{{fridge[i]}}</div>
+                        <div class = "column-item">
+                            <span class = "item"> {{fridge[i]}} </span>
+                        </div>
                     </div>
                 {% endfor %}        
             </div>
             <div class="row">  
                 <div class = "column">
-                    <div class = "column-item">Trash</div>
+                    <div class = "column-item">
+                        <span class = "item"> Trash </span>
+                    </div>
                 </div>
                 {% for i in range(3) %}
                     <div class = "column">
-                        <div class = "column-item">{{trash[i]}}</div>
+                        <div class = "column-item">
+                                <span class = "item"> {{trash[i]}} </span>
+                        </div>
                     </div>
                 {% endfor %}        
             </div>
             <div class="row">  
                 <div class = "column">
-                    <div class = "column-item">Living Room</div>
+                    <div class = "column-item">
+                        <span class = "item"> Living Room </span>
+                    </div>
                 </div>
                 {% for i in range(3) %}
                     <div class = "column">
-                        <div class = "column-item">{{living_room[i]}}</div>
+                        <div class = "column-item">
+                            <span class = "item"> {{living_room[i]}} </span>
+                        </div>
                     </div>
                 {% endfor %}        
             </div>
             <div class="row">  
                 <div class = "column">
-                    <div class = "column-item">Bathroom</div>
+                    <div class = "column-item">
+                        <span class = "item"> Bathroom </span>
+                    </div>
                 </div>
                 {% for i in range(3) %}
                     <div class = "column">
-                        <div class = "column-item">{{bathroom[i]}}</div>
+                        <div class = "column-item">
+                            <span class = "item"> {{bathroom[i]}} </span>
+                        </div>
                     </div>
                 {% endfor %}        
             </div>                  

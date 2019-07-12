@@ -51,8 +51,7 @@ body
     vertical-align: middle;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.5em;
-    color: blanchedalmond;
-    opacity: .4;
+    color: white;
     transition: all 1s;
 }
 
@@ -63,11 +62,21 @@ body
 
 .head
 {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
     font-size: 2em;
     border-bottom: 4px solid;
     border-right: 4px solid;
     border-image-source: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
     border-image-slice: 1;
+    transition: border-right 1s;
+}
+
+.head:hover
+{
+    border-bottom: 4px solid;
 }
 
 .side
@@ -79,17 +88,25 @@ body
     border-image-slice: 1;
 }
 
-.immediacy-0
+.immediacy-0:hover
 {
-    
+    transform: scale(2.5);    
 }
 
-.immediacy-1
+.immediacy-1:hover
 {
-    
+    transform: scale(1.5);    
 }
 
-.immediacy-2
+.immediacy-2:hover
 {
+    transform: scale(.5);
+}
 
+.ChoreWheel
+{
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url("background2.png");
+    font-size: 3em;
+    background-size: cover;     
 }

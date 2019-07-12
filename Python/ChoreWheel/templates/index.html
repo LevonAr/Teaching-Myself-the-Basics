@@ -79,87 +79,6 @@
                     </div>
                 {% endfor %}        
             </div>
-<html lang="en">
-    <head>
-
-        <!-- Required meta tags -->
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
-        <!-- Bootstrap CSS -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"/>
-        
-        <link href="/static/styles.css" rel="stylesheet"/>
-
-        <title>ChoreWheel</title>
-
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">  
-                <div class = "column">
-                    <div class = "column-item">
-                        <span class = "ChoreWheel">ChoreWheel</span>
-                    </div>
-                </div>
-                <div class = "column">
-                    <div class = "column-item">
-                        <span class = "head"> Today </span>
-                    </div>
-                </div>
-                <div class = "column">
-                    <div class = "column-item">
-                        <span class = "head"> Tomorrow </span>
-                    </div>
-                </div>
-                <div class = "column">
-                    <div class = "column-item">
-                        <span class = "head"> In 2 Days </span>
-                    </div>
-                </div>                
-            </div>
-            <div class="row">  
-                <div class = "column">
-                    <div class = "column-item">
-                        <span class = "side item"> Fridge </span>
-                    </div>
-                </div>
-                {% for i in range(3) %}
-                    <div class = "column">
-                        <div class = "column-item">
-                            <span class = "immediacy-{{i}} item"> {{fridge[i]}} </span>
-                        </div>
-                    </div>
-                {% endfor %}        
-            </div>
-            <div class="row">  
-                <div class = "column">
-                    <div class = "column-item">
-                        <span class = "side item"> Trash </span>
-                    </div>
-                </div>
-                {% for i in range(3) %}
-                    <div class = "column">
-                        <div class = "column-item">
-                                <span class = "immediacy-{{i}} item"> {{trash[i]}} </span>
-                        </div>
-                    </div>
-                {% endfor %}        
-            </div>
-            <div class="row">  
-                <div class = "column">
-                    <div class = "column-item">
-                        <span class = "side item"> Living Room </span>
-                    </div>
-                </div>
-                {% for i in range(3) %}
-                    <div class = "column">
-                        <div class = "column-item">
-                            <span class = "immediacy-{{i}} item"> {{living_room[i]}} </span>
-                        </div>
-                    </div>
-                {% endfor %}        
-            </div>
             <div class="row">  
                 <div class = "column">
                     <div class = "column-item">
@@ -177,5 +96,3 @@
         </div>    
     </body>
 </html>
-
-            

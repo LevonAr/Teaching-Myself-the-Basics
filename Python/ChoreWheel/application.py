@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 from itertools import cycle
+from apscheduler.scheduler import Scheduler
+
 
 app = Flask(__name__)
 
@@ -7,9 +9,12 @@ app = Flask(__name__)
 def index():
     people_of_mansion = ["Ried", "Salvador", "Mo", "Madison", "Vaughn", "Mario", "Kat", "Mejan", "Liv", "Gabe", "Frosty","Drake"]
 
-    n=2
+    n=0
 
     people_of_mansion_looped = cycle(people_of_mansion)
+
+    def rotate(n):
+        n=n+1
 
     def skip_days(days):
         for i in range(days):

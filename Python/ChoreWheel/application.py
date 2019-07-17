@@ -14,7 +14,7 @@ def index():
     people_of_mansion_looped = cycle(people_of_mansion)
 
     def rotate(n):
-        n=n+1
+        n=5
 
     def skip_days(days):
         for i in range(days):

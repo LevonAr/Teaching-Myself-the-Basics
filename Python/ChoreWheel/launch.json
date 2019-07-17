@@ -14,5 +14,10 @@
                         "FLASK_ENV": "development",
                         "FLASK_DEBUG": "0"
                     },
-                    
+                    "args": [
+                        "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "jinja": true
         

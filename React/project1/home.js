@@ -37,3 +37,7 @@ export default function HomeScreen() {
             style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
             <MonoText>screens/HomeScreen.js</MonoText>
           </View>
+          <Text style={styles.getStartedText}>
+            Changeyour app will automatically reload.
+          </Text>
+        </View>

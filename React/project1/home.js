@@ -33,3 +33,7 @@ export default function HomeScreen() {
           <DevelopmentModeNotice />
 
           <Text style={styles.getStartedText}>Get started by opening</Text>
+          <View
+            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+            <MonoText>screens/HomeScreen.js</MonoText>
+          </View>

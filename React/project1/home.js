@@ -28,3 +28,8 @@ export default function HomeScreen() {
             style={styles.welcomeImage}
           />
         </View>
+
+        <View style={styles.getStartedContainer}>
+          <DevelopmentModeNotice />
+
+          <Text style={styles.getStartedText}>Get started by opening</Text>

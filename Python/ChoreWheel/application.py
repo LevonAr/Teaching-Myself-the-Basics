@@ -28,7 +28,7 @@ def index():
     for i in range(3):
         trash.append(next(people_of_mansion_looped))
 
-    for i in range(3):
+    for i in range(4):
         living_room.append(next(people_of_mansion_looped))
 
     for i in range(3):

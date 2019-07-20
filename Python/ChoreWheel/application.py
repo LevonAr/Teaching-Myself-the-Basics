@@ -18,8 +18,6 @@ def index():
             next(people_of_mansion_looped)
 
     skip_days(n)
-
-    fridge = []
     trash = []
     living_room = []
     bathroom = [] 

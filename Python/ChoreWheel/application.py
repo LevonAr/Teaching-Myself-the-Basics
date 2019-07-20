@@ -25,7 +25,7 @@ def index():
     for i in range(3):
         fridge.append(next(people_of_mansion_looped))
 
-    for i in range(3):
+    for i in range(7):
         trash.append(next(people_of_mansion_looped))
 
     for i in range(4):

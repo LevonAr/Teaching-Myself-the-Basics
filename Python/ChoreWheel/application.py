@@ -39,4 +39,3 @@ def index():
               
     
     return render_template("index.html", fridge = fridge, trash = trash, living_room = living_room, bathroom = bathroom,)
-

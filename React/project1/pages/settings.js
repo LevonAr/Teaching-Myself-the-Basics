@@ -7,3 +7,8 @@ export default function SettingsScreen() {
    * we just wanted to give you a quick view of your config.
    */
 }
+
+SettingsScreen.navigationOptions = {
+  title: 'app.json',
+};
+

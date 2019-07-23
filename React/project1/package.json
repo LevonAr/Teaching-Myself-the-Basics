@@ -8,3 +8,6 @@
     "eject": "expo eject",
     "test": "jest --watchAll"
   },
+  
+  "jest": {
+    "preset": "jest-expo"

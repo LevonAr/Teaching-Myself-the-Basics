@@ -9,3 +9,6 @@
       "requires": {
         "@babel/highlight": "^7.0.0"
       }
+    },
+    "@babel/core": {
+      "version": "7.5.5",

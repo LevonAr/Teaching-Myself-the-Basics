@@ -30,3 +30,6 @@
         "semver": "^5.4.1",
         "source-map": "^0.5.0"
       }
+    },
+    "@babel/generator": {
+      "version": "7.5.5",

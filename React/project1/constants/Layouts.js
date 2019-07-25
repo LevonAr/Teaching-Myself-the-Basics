@@ -7,3 +7,5 @@ export default {
     width,
     height,
   },
+  isSmallDevice: width < 375,
+};

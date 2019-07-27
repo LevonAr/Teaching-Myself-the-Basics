@@ -7,3 +7,6 @@ from flask.exthook import ExtDeprecationWarning
 from warnings import simplefilter
 simplefilter("ignore", ExtDeprecationWarning)
 from flask_autoindex import AutoIndex
+
+app = Flask(__name__)
+AutoIndex(app, browse_root=os.path.curdir)

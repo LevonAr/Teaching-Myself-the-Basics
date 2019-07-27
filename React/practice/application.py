@@ -24,3 +24,7 @@ def quote():
         "price": float(row[4]),
         "symbol": symbol.upper()
     })
+
+@app.route("/register")
+def register():
+    return "You're registered! (Well, not really.)"

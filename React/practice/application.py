@@ -19,3 +19,8 @@ def quote():
     datareader = csv.reader(webpage.read().decode("utf-8").splitlines())
     next(datareader)
     row = next(datareader)
+    return jsonify({
+    	"name": symbol.upper(),
+        "price": float(row[4]),
+        "symbol": symbol.upper()
+    })

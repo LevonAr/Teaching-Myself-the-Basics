@@ -13,3 +13,9 @@ AutoIndex(app, browse_root=os.path.curdir)
 
 @app.route("/quote")
 def quote():
+    symbol = request.args.get("symbol")
+    url = f"https://www.alphavantage.co/query?apikey=NAJXWIA8D6VN6A3K&datatype=csv&function=TIME_SERIES_INTRADAY&interval=1min&symbol={symbol}"
+    webpage = urllib.request.urlopen(url)
+    datareader = csv.reader(webpage.read().decode("utf-8").splitlines())
+    next(datareader)
+    row = next(datareader)

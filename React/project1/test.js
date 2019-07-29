@@ -21,3 +21,5 @@ describe('App', () => {
     const tree = renderer.create(<App />).toJSON();
       expect(tree).toMatchSnapshot();
   });
+  
+  it(`renders the root without loading screen`, () => {

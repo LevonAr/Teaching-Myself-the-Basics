@@ -18,3 +18,6 @@ describe('App', () => {
   });  
   
   it(`renders the loading screen`, () => {
+    const tree = renderer.create(<App />).toJSON();
+      expect(tree).toMatchSnapshot();
+  });

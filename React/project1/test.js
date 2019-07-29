@@ -16,3 +16,5 @@ describe('App', () => {
   beforeEach(() => {
     NavigationTestUtils.resetInternalState();
   });  
+  
+  it(`renders the loading screen`, () => {

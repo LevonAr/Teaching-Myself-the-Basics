@@ -12,3 +12,7 @@ jest.mock('../navigation/AppNavigator', () => 'AppNavigator');
 
 describe('App', () => {
   jest.useFakeTimers();
+
+  beforeEach(() => {
+    NavigationTestUtils.resetInternalState();
+  });  

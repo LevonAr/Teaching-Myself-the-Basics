@@ -6,11 +6,14 @@
     </head>
     <body>
         <script>
-        
-            navigator.geolocation.getCurrentPosition(function(position) {
-                document.write(position.coords.latitude + ", " + position.coords.longitude);
-            });
 
+        function test(pos)
+        {
+            window.alert(pos.coords.longitude);
+        }
+
+
+        navigator.geolocation.getCurrentPosition(test);
         </script>
     </body>
 </html>

@@ -3,6 +3,9 @@ function doHomework(subject, callback) {
   alert(`Starting my ${subject} homework.`);
 }
 
-doHomework('math', function() {
+function cb()
+{
   alert('Finished my homework');
-});
+}
+
+doHomework('math', cb);

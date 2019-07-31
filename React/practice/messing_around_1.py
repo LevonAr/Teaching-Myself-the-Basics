@@ -20,5 +20,7 @@ class execute():
         print(a.get_value() == b.get_value)
         print(a.get_value() == b.get_value())
         print(a.get_value == b.get_value)
+if __name__ == '__main__':
 
+    execute = execute();
 

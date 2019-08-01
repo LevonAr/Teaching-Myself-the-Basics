@@ -1,4 +1,4 @@
-# Order_Search
+# BEHIND THE SCENES
 
 I designed Order_Search to be able to take a collection of integers, sort them in ascending order, then identify whether a certain value was among this particular set of numbers. I decided to use a comparison-based sorting algorithm called merge sort to arrange this group of numbers in order. I then choose to use a search algorithm called binary search to look for the value.
 My main goal with writing this program was to deepen my understanding of recursion. I used recursion while writing the code for my binary search and merge sort, both of which are set in the file utility.c

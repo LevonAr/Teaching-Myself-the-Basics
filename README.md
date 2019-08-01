@@ -6,6 +6,6 @@ I initially uploaded everything in this repo so I could have access to all my co
 
 Most of the code in this folder is actually executable, so I think I'm going to tackle the documentation in two sections. One titled "HOW TO RUN PROGRAM" which gives the reader directions on how to execute the programs, and one titled "BEHIND THE SCENES" that will break down the logic behind the code. 
 
-This repo is still about documenting my path as an autodidact, but it has morphed to include languages other than C, including Python and Javascript.
+Go to [Order_Search](https://github.com/LevonAr/Teaching-Myself-the-Basics/tree/master/Order_Search) first, since it has the nicest documentation as of today.
 
 

@@ -1,0 +1,1 @@
+Resizes a BMP image

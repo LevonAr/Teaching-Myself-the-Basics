@@ -1,10 +1,4 @@
-class objectTest():
-
-    def get_value(self):
-
-        return self.value
-        
-        
+     
 class execute():
 
     def __init__(self):

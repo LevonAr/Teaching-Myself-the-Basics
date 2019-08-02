@@ -1,9 +1,5 @@
 class objectTest():
 
-    def __init__(self,a):
-
-        self.value = a
-
     def get_value(self):
 
         return self.value

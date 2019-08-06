@@ -212,4 +212,26 @@ bool load(const char *dictionary)
     node* last_word_node = addLink(last_word_in, last__word);
 
     HT_Ptr->words[hash_index] = last_word_node;
-        
+
+    return true;
+}
+
+// Returns number of words in dictionary if loaded else 0 if not yet loaded
+unsigned int size(void)
+{
+    return dict_size;
+}
+
+// Unloads dictionary from memory, returning true if successful else false
+bool unload(void)
+{
+    for(int i=0; i<=hash_table_size; i++)
+    {
+        if(HT_Ptr->words[i])
+        {
+            free(HT_Ptr->words[i]);
+        }
+    }
+
+    return true;
+}    

@@ -235,3 +235,29 @@ bool unload(void)
 
     return true;
 }    
+
+char* trim(char word[], int len)
+{
+    char* storage = malloc(sizeof(char)*(len+1));
+
+    for(int i=0; i<=len; i++)
+    {
+        storage[i] = word[i];
+
+    }
+
+    return storage;
+}
+
+
+// hash function by Peter J. Weinberger
+unsigned int PJWHash(const char* str, unsigned int length)
+{
+   const unsigned int BitsInUnsignedInt = (unsigned int)(sizeof(unsigned int) * 8);
+   const unsigned int ThreeQuarters     = (unsigned int)((BitsInUnsignedInt  * 3) / 4);
+   const unsigned int OneEighth         = (unsigned int)(BitsInUnsignedInt / 8);
+   const unsigned int HighBits          =
+                      (unsigned int)(0xFFFFFFFF) << (BitsInUnsignedInt - OneEighth);
+   unsigned int hash = 0;
+   unsigned int test = 0;
+   unsigned int i    = 0;

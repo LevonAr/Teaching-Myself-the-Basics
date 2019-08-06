@@ -83,3 +83,57 @@ bool check(const char *word)
                     *LLP = linked_list_counter + 1;
                     break;
                 }
+            }
+
+            return check_bucket;
+    }
+
+    else
+    {
+        return false;
+    }
+}
+
+// Loads dictionary into memory, returning true if successful else false
+bool load(const char *dictionary)
+{
+    FILE *load_file = fopen(dictionary, "r");
+
+    if(!load_file)
+    {
+        printf("%s", "could not open dictionary");
+
+        return 1;
+    }
+
+    //lets figure out the fastes way to store each word in the least of memory
+
+    // make it more accessible  ?maybe a trie? for check later on so our times are good
+
+    int new_line_counter = 1;
+
+    for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
+    {
+        if( c== '\n')
+        {
+            new_line_counter++;
+        }
+
+    }
+
+    int *dict_size_Ptr = &dict_size;
+
+    *dict_size_Ptr = new_line_counter;
+
+    // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
+    int *hash_table_size_Ptr = &hash_table_size;
+
+    *hash_table_size_Ptr = prime (dict_size * 1.4286);
+
+    HT_Ptr = malloc(sizeof(Hashtable));
+
+    HT_Ptr->size = hash_table_size;
+
+    HT_Ptr->words = calloc(hash_table_size,sizeof(node*));
+
+    fseek(load_file, 0, SEEK_SET);

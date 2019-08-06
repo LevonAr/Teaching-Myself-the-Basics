@@ -261,3 +261,39 @@ unsigned int PJWHash(const char* str, unsigned int length)
    unsigned int hash = 0;
    unsigned int test = 0;
    unsigned int i    = 0;
+
+   for (i = 0; i < length; ++str, ++i)
+   {
+      hash = (hash << OneEighth) + (*str);
+
+      if ((test = hash & HighBits) != 0)
+      {
+         hash = (( hash ^ (test >> ThreeQuarters)) & (~HighBits));
+      }
+   }
+
+   return hash;
+}
+
+int prime(int ht_size)
+{
+
+
+    int i;
+    int j;
+    int numbers[ht_size];
+
+    /*fill the array with natural numbers*/
+    for (i=0;i<ht_size;i++)
+    {
+        numbers[i]=i+2;
+    }
+
+    int prime_counter = ht_size;
+
+    /*sieve the non-primes*/
+    for (i=0; i<ht_size; i++)
+    {
+        if (numbers[i]!=-1)
+        {
+            for (j=2*numbers[i]-2; j<ht_size; j+=numbers[i])    

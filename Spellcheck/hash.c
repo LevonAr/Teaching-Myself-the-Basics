@@ -137,3 +137,14 @@ bool load(const char *dictionary)
     HT_Ptr->words = calloc(hash_table_size,sizeof(node*));
 
     fseek(load_file, 0, SEEK_SET);
+    
+    int index = 0;
+
+    char dict_word[LENGTH + 1];
+
+    int last_word_counter = 0;
+
+    //last word index
+    int lw_index = 0;
+
+    char last_word[LENGTH + 1];

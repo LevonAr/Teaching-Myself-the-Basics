@@ -149,7 +149,7 @@ bool load(const char *dictionary)
 
     char last_word[LENGTH + 1];
 
-        for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
+    for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
     {
 
         if( c== '\n')

@@ -148,3 +148,37 @@ bool load(const char *dictionary)
     int lw_index = 0;
 
     char last_word[LENGTH + 1];
+
+        for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
+    {
+
+        if( c== '\n')
+        {
+            dict_word[index]= '\0';
+
+            char* new_word = trim(dict_word, index);
+
+            int pre_hash_index = PJWHash(new_word, index);
+
+            int hash_index = pre_hash_index % hash_table_size;
+
+            node* temp = NULL;
+
+            if(!HT_Ptr->words[hash_index])
+            {
+                temp = NULL;
+            }
+
+            else
+            {
+                temp = HT_Ptr->words[hash_index];
+            }
+
+            node* word_node = addLink(temp, new_word);
+
+            HT_Ptr->words[hash_index] = word_node;
+
+            index = 0;
+
+            last_word_counter ++;
+        }

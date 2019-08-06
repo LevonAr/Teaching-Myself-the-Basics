@@ -182,3 +182,34 @@ bool load(const char *dictionary)
 
             last_word_counter ++;
         }
+
+        else if(last_word_counter == dict_size -1)
+        {
+            last_word[lw_index] = c;
+
+            lw_index++;
+        }
+
+        else
+        {
+            dict_word[index]= c;
+
+            index++;
+        }
+
+    }
+
+    last_word[lw_index] = '\0';
+
+    char* last__word = trim(last_word, lw_index-1);
+
+    int pre_hash_index = PJWHash(last__word, lw_index-1);
+
+    int hash_index = pre_hash_index % hash_table_size;
+
+    node* last_word_in = NULL;
+
+    node* last_word_node = addLink(last_word_in, last__word);
+
+    HT_Ptr->words[hash_index] = last_word_node;
+        

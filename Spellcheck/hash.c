@@ -364,3 +364,5 @@ node* addLink(node* link, char* add_word)
 
         ptr->next = temp;
     }
+    return link;
+}

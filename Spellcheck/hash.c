@@ -295,9 +295,8 @@ int prime(int ht_size)
     for (i=0; i<ht_size; i++)
     {
         if (numbers[i]!=-1)
-        {
-            for (j=2*numbers[i]-2; j<ht_size; j+=numbers[i])    
-                {
+            for (j=2*numbers[i]-2; j<ht_size; j+=numbers[i])
+            {
                 numbers[j]=-1;
             }
         }
@@ -317,3 +316,8 @@ int prime(int ht_size)
     for (i=0; i<ht_size&&j<prime_counter; i++)
     {
        if (numbers[i]!=-1)
+       {
+          primes[j++] = numbers[i];
+       }
+
+    }

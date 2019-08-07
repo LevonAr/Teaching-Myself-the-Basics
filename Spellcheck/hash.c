@@ -297,3 +297,23 @@ int prime(int ht_size)
         if (numbers[i]!=-1)
         {
             for (j=2*numbers[i]-2; j<ht_size; j+=numbers[i])    
+                {
+                numbers[j]=-1;
+            }
+        }
+
+        else
+        {
+           prime_counter = prime_counter -1;
+        }
+    }
+
+    int primes[prime_counter];
+
+    /*transfer the primes to their own array*/
+
+    j = 0;
+
+    for (i=0; i<ht_size&&j<prime_counter; i++)
+    {
+       if (numbers[i]!=-1)

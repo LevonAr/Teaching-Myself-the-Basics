@@ -175,3 +175,67 @@ bool load(const char *dictionary)
         }
 
     }
+    
+    dict_size = new_line_counter;
+
+    fseek(load_file, 0, SEEK_SET);
+
+    int index = 0;
+
+    char dict_word[LENGTH + 1];
+
+    int last_word_counter = 0;
+
+    //last word index
+    int lw_index = 0;
+
+    char last_word[LENGTH + 1];
+
+    for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
+    {
+
+        if( c== '\n')
+        {
+            dict_word[index]= '\0';
+
+            char* new_word = trim(dict_word, index);
+
+            add_entry(&base_root, new_word);
+
+            index = 0;
+
+            last_word_counter ++;
+        }
+
+        else if(last_word_counter == dict_size -1)
+        {
+            last_word[lw_index] = c;
+
+            lw_index++;
+        }
+
+        else
+        {
+            dict_word[index]= c;
+
+            index++;
+        }
+
+    }
+
+    last_word[lw_index] = '\0';
+
+    char* last__word = trim(last_word, lw_index-1);
+
+    add_entry(&base_root, last__word);
+
+    int k;
+
+    for(k=0; k<alphabet; k++)
+    {
+        if(base_root.nodes[k]!=NULL)
+        return true;
+    }
+
+    return false;
+}    

@@ -149,3 +149,29 @@ bool check(const char *word)
         return false;
     }
 }
+
+bool load(const char *dictionary)
+{
+    FILE *load_file = fopen(dictionary, "r");
+
+    if(!load_file)
+    {
+        printf("%s", "could not open dictionary");
+
+        return false;
+    }
+
+    trie* base_root_Ptr = &base_root;
+
+    base_root_Ptr = init_node();
+
+    int new_line_counter = 1;
+
+    for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
+    {
+        if( c== '\n')
+        {
+            new_line_counter++;
+        }
+
+    }

@@ -343,4 +343,25 @@ node* addLink(node* link, char* add_word)
     temp = makeLink();
 
     temp->word = add_word;
+    if (link == NULL)
+    {
+        temp->next = NULL;
+
+        link = temp;
+
+    }
+
+    else
+    {
+        ptr = link;
+
+        while(ptr->next != NULL)
+        {
+            ptr = ptr->next;
+        }
+
+        ptr->next = temp;
+    }
+    return link;
+}
     

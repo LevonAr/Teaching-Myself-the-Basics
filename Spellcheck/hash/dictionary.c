@@ -44,3 +44,29 @@ int prime(int ht_size);
 node* makeLink(void);
 
 node* addLink(node* link, char* add_word);
+
+// Returns true if word is in dictionary else false
+bool check(const char *word)
+{
+    //turn all words into lowercase because directions specify check to be case insensitive and all words in dictionary are required to be lowercase
+    char* lowercase_word = malloc((strlen(word)+1)*sizeof(char)) ;
+
+    int i;
+
+    for(i=0; i<strlen(word); i++)
+    {
+        lowercase_word[i] = tolower(word[i]);
+    }
+
+    lowercase_word[i]= '\0';
+
+    int pre_check_index = PJWHash(lowercase_word,strlen(word));
+
+    int check_index = pre_check_index % hash_table_size;
+
+    if(HT_Ptr->words[check_index])
+    {
+        if(strcmp(HT_Ptr->words[check_index]->word, lowercase_word)==0)
+        {
+            return true;
+        }

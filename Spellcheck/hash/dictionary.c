@@ -70,3 +70,41 @@ bool check(const char *word)
         {
             return true;
         }
+        bool check_bucket = false;
+
+
+        for(node* Ptr = HT_Ptr->words[check_index]; Ptr->next != NULL; Ptr = Ptr->next)
+            {
+                if(strcmp(Ptr->next->word, lowercase_word)==0)
+                {
+                    check_bucket = true;
+                    int* LLP = &linked_list_counter;
+                    *LLP = linked_list_counter + 1;
+                    break;
+                }
+            }
+
+            return check_bucket;
+    }
+
+    else
+    {
+        return false;
+    }
+}
+
+// Loads dictionary into memory, returning true if successful else false
+bool load(const char *dictionary)
+{
+    FILE *load_file = fopen(dictionary, "r");
+
+    if(!load_file)
+    {
+        printf("%s", "could not open dictionary");
+
+        return 1;
+    }
+
+    //lets figure out the fastes way to store each word in the least of memory
+
+    // make it more accessible  ?maybe a trie? for check later on so our times are good

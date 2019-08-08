@@ -1,3 +1,3 @@
 Resizes a BMP image
 
-usage: 
+usage: rescale <ratio> <input_file> <output_file>

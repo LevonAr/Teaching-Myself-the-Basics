@@ -197,3 +197,150 @@ bool load(const char *dictionary)
         }
 
     }    
+
+    last_word[lw_index] = '\0';
+
+    char* last__word = trim(last_word, lw_index-1);
+
+    int pre_hash_index = PJWHash(last__word, lw_index-1);
+
+    int hash_index = pre_hash_index % hash_table_size;
+
+    node* last_word_in = NULL;
+
+    node* last_word_node = addLink(last_word_in, last__word);
+
+    HT_Ptr->words[hash_index] = last_word_node;
+
+    return true;
+}
+
+// Returns number of words in dictionary if loaded else 0 if not yet loaded
+unsigned int size(void)
+{
+    return dict_size;
+}
+
+// Unloads dictionary from memory, returning true if successful else false
+bool unload(void)
+{
+    for(int i=0; i<=hash_table_size; i++)
+    {
+        if(HT_Ptr->words[i])
+        {
+            free(HT_Ptr->words[i]);
+        }
+    }
+
+    return true;
+}    
+
+char* trim(char word[], int len)
+{
+    char* storage = malloc(sizeof(char)*(len+1));
+
+    for(int i=0; i<=len; i++)
+    {
+        storage[i] = word[i];
+
+    }
+
+    return storage;
+}
+
+
+// hash function by Peter J. Weinberger
+unsigned int PJWHash(const char* str, unsigned int length)
+{
+   const unsigned int BitsInUnsignedInt = (unsigned int)(sizeof(unsigned int) * 8);
+   const unsigned int ThreeQuarters     = (unsigned int)((BitsInUnsignedInt  * 3) / 4);
+   const unsigned int OneEighth         = (unsigned int)(BitsInUnsignedInt / 8);
+   const unsigned int HighBits          =
+                      (unsigned int)(0xFFFFFFFF) << (BitsInUnsignedInt - OneEighth);
+   unsigned int hash = 0;
+   unsigned int test = 0;
+   unsigned int i    = 0;
+
+   for (i = 0; i < length; ++str, ++i)
+   {
+      hash = (hash << OneEighth) + (*str);
+
+      if ((test = hash & HighBits) != 0)
+      {
+         hash = (( hash ^ (test >> ThreeQuarters)) & (~HighBits));
+      }
+   }
+
+   return hash;
+}
+
+int prime(int ht_size)
+{
+
+
+    int i;
+    int j;
+    int numbers[ht_size];
+
+    /*fill the array with natural numbers*/
+    for (i=0;i<ht_size;i++)
+    {
+        numbers[i]=i+2;
+    }
+
+    int prime_counter = ht_size;
+
+    /*sieve the non-primes*/
+    for (i=0; i<ht_size; i++)
+    {
+        if (numbers[i]!=-1)
+            for (j=2*numbers[i]-2; j<ht_size; j+=numbers[i])
+            {
+                numbers[j]=-1;
+            }
+        }
+
+        else
+        {
+           prime_counter = prime_counter -1;
+        }
+    }
+
+    int primes[prime_counter];
+
+    /*transfer the primes to their own array*/
+
+    j = 0;
+
+    for (i=0; i<ht_size&&j<prime_counter; i++)
+    {
+       if (numbers[i]!=-1)
+       {
+          primes[j++] = numbers[i];
+       }
+
+    }
+    return primes[prime_counter-1];
+}
+
+node* makeLink(void)
+{
+    node* temp;
+
+    temp = malloc(sizeof(node));
+
+    temp->next = NULL;
+
+    return temp;
+}
+
+node* addLink(node* link, char* add_word)
+{
+    node* temp = NULL;
+
+    node* ptr = NULL;
+
+    temp = makeLink();
+
+    temp->word = add_word;
+    

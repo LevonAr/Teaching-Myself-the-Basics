@@ -108,3 +108,92 @@ bool load(const char *dictionary)
     //lets figure out the fastes way to store each word in the least of memory
 
     // make it more accessible  ?maybe a trie? for check later on so our times are good
+    
+    int new_line_counter = 1;
+
+    for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
+    {
+        if( c== '\n')
+        {
+            new_line_counter++;
+        }
+
+    }
+
+    int *dict_size_Ptr = &dict_size;
+
+    *dict_size_Ptr = new_line_counter;
+
+    // according to the LOAD FACTOR the amount of 'buckets' that are should only be around 70% of the size of the hash table, hence i multiply be inverse of .7
+    int *hash_table_size_Ptr = &hash_table_size;
+
+    *hash_table_size_Ptr = prime (dict_size * 1.4286);
+
+    HT_Ptr = malloc(sizeof(Hashtable));
+
+    HT_Ptr->size = hash_table_size;
+
+    HT_Ptr->words = calloc(hash_table_size,sizeof(node*));
+
+    fseek(load_file, 0, SEEK_SET);
+    
+    int index = 0;
+
+    char dict_word[LENGTH + 1];
+
+    int last_word_counter = 0;
+
+    //last word index
+    int lw_index = 0;
+
+    char last_word[LENGTH + 1];
+
+    for (int c = fgetc(load_file); c != EOF; c = fgetc(load_file))
+    {
+
+        if( c== '\n')
+        {
+            dict_word[index]= '\0';
+
+            char* new_word = trim(dict_word, index);
+
+            int pre_hash_index = PJWHash(new_word, index);
+
+            int hash_index = pre_hash_index % hash_table_size;
+
+            node* temp = NULL;
+
+            if(!HT_Ptr->words[hash_index])
+            {
+                temp = NULL;
+            }
+
+            else
+            {
+                temp = HT_Ptr->words[hash_index];
+            }
+
+            node* word_node = addLink(temp, new_word);
+
+            HT_Ptr->words[hash_index] = word_node;
+
+            index = 0;
+
+            last_word_counter ++;
+        }
+
+        else if(last_word_counter == dict_size -1)
+        {
+            last_word[lw_index] = c;
+
+            lw_index++;
+        }
+
+        else
+        {
+            dict_word[index]= c;
+
+            index++;
+        }
+
+    }    

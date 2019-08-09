@@ -16,7 +16,17 @@ For PC:
 ```
 gcc -v
 ```
-If gcc is installed then it should display a host of information starting with the sentence “Using built-in specs”.
+If gcc is installed then it should display a host of information starting with the sentence “Using built-in specs”.44
+
+2. If you don't have gcc and are determined to run this in your Command Prompt, go to this link and follow the instructions to install gcc. However, the easier route would be to just use VScode.
+
+For Mac:
+
+```
+...
+```
+
+
 
 
 

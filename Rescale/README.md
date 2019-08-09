@@ -33,7 +33,7 @@ For Mac:
 For PC:
 
 ```
-gcc -o <rescale> <rescale.c
+gcc -o rescale rescale.c
 ```
 
 2. Run code by entering the following into the Command Prompt, where <ratio> is a number ( which can be a decimal ) that represent the size we want to increase/decrease the image by (eg. 2 doubles the image, .5 halves it):

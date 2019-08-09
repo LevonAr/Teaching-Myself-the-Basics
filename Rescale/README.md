@@ -1,6 +1,8 @@
+# Resize
+
 Resizes a BMP image
 
-#How To Run
+## Getting Started
 
 This program is written in C, so you must compile it before you can run it.
 

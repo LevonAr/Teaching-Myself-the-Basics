@@ -29,7 +29,7 @@ For Mac:
 
 
 
-### Run Program
+## Run Program
 
 
 usage: rescale <ratio> <input_file> <output_file>

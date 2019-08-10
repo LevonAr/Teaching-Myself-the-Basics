@@ -35,7 +35,7 @@ If gcc is installed then it should display a host of information starting with t
 
 Follow the installation instructions to [here](https://www.mkyong.com/mac/how-to-install-gcc-compiler-on-mac-os-x/ "Install GCC") to install GCC on your terminal.
 
-### Compile program 
+## Compile program 
 
 First we must compile the program by doing the following:
 
@@ -55,7 +55,7 @@ gcc -o rescale rescale.c
 
 #### Using Mac Terminal
 
-### Run Program
+## Run Program
 
 Run code by entering the following, where "ratio" is a number ( which can be a decimal ) that represent the size we want to increase/decrease the image by (eg. 2 doubles the image, .5 halves it):
 

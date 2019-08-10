@@ -6,11 +6,13 @@ Rescales a BMP image.
 
 ### Prerequisites 
 
+#### Get Compiler
+
 This program is written in C, so you must compile it before you can run it.
 
 In order to do this, you need a compiler. If you don't have one or don't know if you do, complete the following steps to install GCC:
 
-#### For PC:
+#### For PC
 
 ##### Using Visual Studio Code (Recommended):
 
@@ -31,14 +33,11 @@ If gcc is installed then it should display a host of information starting with t
 
 #### For Mac:
 
-```
-...
-```
-
+Follow the installation instructions to [here](https://www.mkyong.com/mac/how-to-install-gcc-compiler-on-mac-os-x/ "Install GCC") to install GCC on your terminal.
 
 ### Compile program 
 
-1. First we must compile the program by doing the following:
+First we must compile the program by doing the following:
 
 #### For PC:
 
@@ -54,9 +53,11 @@ make rescale
 gcc -o rescale rescale.c
 ```
 
+#### Using Mac Terminal
+
 ### Run Program
 
-Run code by entering the following, where <ratio> is a number ( which can be a decimal ) that represent the size we want to increase/decrease the image by (eg. 2 doubles the image, .5 halves it):
+Run code by entering the following, where "ratio" is a number ( which can be a decimal ) that represent the size we want to increase/decrease the image by (eg. 2 doubles the image, .5 halves it):
 
 #### For PC (both VScode and CMD prompt):
 

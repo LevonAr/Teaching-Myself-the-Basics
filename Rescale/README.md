@@ -54,6 +54,9 @@ gcc -o rescale rescale.c
 ```
 
 #### Using Mac Terminal
+```
+gcc -o rescale rescale.c
+```
 
 ## Run Program
 

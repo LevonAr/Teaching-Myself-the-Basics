@@ -33,6 +33,15 @@ If gcc is installed then it should display a host of information starting with t
 
 Follow the installation instructions to [here](https://www.mkyong.com/mac/how-to-install-gcc-compiler-on-mac-os-x/ "Install GCC") to install GCC on your terminal.
 
+## Compile program
+```
+...coming soon 
+```
+
+## Run Program
+```
+...coming soon
+```
 
 
 

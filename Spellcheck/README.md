@@ -6,5 +6,8 @@ I programmed this twice, once using hashtables as a way to store the words and o
 This folder is really sloppy right now, I will clean it up soon.
 
 ## Getting Started
+```
+...
+```
 
 

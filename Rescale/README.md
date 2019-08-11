@@ -73,3 +73,5 @@ rescale <ratio> <input_file> <output_file>
 ```
 ./rescale <ratio> <input_file> <output_file>
 ```
+
+# Behind The Scenes

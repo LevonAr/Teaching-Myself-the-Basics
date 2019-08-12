@@ -31,7 +31,7 @@ If gcc is installed then it should display a host of information starting with t
 
 #### For Mac:
 
-Follow the installation instructions to [here](https://www.mkyong.com/mac/how-to-install-gcc-compiler-on-mac-os-x/ "Install GCC") to install GCC on your terminal.
+Follow the installation instructions [here](https://www.mkyong.com/mac/how-to-install-gcc-compiler-on-mac-os-x/ "Install GCC") to install GCC on your terminal.
 
 ## Compile program
 ```

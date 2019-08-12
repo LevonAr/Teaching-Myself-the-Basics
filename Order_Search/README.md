@@ -14,7 +14,7 @@ In order to do this, you need a compiler. If you don't have one or don't know if
 
 ##### Using Visual Studio Code (Recommended):
 
-1. Open the '/Rescale' folder.
+1. Open the '/Order_Search' folder.
 
 2. Install the C/C++ extension so we can compile the program.
 

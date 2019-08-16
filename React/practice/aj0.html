@@ -3,7 +3,7 @@
     <head>
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
         <script>
-         function quote()
+            function quote()
             {
                 $.getJSON("/quote", {symbol: $("#symbol").val()}, function(data) {
                     alert(data.price);

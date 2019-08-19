@@ -4,3 +4,5 @@ const classNames = {
   TODO_TEXT: 'todo-text',
   TODO_DELETE: 'todo-delete',
 }
+
+const list = document.getElementById('todo-list')

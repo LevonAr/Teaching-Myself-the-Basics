@@ -6,3 +6,4 @@ const classNames = {
 }
 
 const list = document.getElementById('todo-list')
+const itemCountSpan = document.getElementById('item-count')

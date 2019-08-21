@@ -1,1 +1,2 @@
-let f = function ()
+let f = function () {
+   this.a = 1;

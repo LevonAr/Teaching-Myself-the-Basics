@@ -4,3 +4,5 @@ var o = {
     return this.a + 1;
   }
 };
+
+let f = function ()

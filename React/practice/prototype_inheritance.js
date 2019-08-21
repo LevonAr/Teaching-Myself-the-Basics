@@ -4,4 +4,4 @@ let f = function ()
    this.b = 2;
 }
 
-let o = new f()
+let o = new f(); // {a: 1, b: 2}

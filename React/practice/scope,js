@@ -1,1 +1,4 @@
-
+// "var" is lexically scoped, meaning it exists from time of declaration to end of func
+if (true) {
+  var lexicallyScoped = 'This exists until the end of the function'
+}

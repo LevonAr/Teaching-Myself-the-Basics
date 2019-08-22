@@ -10,3 +10,6 @@ if (true) {
   let blockScoped = 'This exists until the next }'
   const alsoBlockScoped = 'As does this'
 }
+
+// this variable doesn't exist
+console.log(typeof blockScoped)

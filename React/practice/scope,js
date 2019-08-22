@@ -13,3 +13,5 @@ if (true) {
 
 // this variable doesn't exist
 console.log(typeof blockScoped)
+
+thisIsAlsoAVariable = "hello"

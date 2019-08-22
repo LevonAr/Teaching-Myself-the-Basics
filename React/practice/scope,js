@@ -17,3 +17,5 @@ console.log(typeof blockScoped)
 thisIsAlsoAVariable = "hello"
 
 const thisIsAConst = 50
+
+// thisIsAConst++ // error!

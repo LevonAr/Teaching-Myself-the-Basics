@@ -2,3 +2,5 @@
 if (true) {
   var lexicallyScoped = 'This exists until the end of the function'
 }
+
+console.log(lexicallyScoped)

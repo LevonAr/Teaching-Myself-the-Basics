@@ -17,3 +17,8 @@ ul {
 .center {
   align-self: center;
 }
+
+.flow-right {
+  display: flex;
+  justify-content: space-around;
+}

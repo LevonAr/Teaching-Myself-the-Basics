@@ -22,3 +22,9 @@ ul {
   display: flex;
   justify-content: space-around;
 }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  

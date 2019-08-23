@@ -27,4 +27,8 @@ ul {
   max-width: 800px;
   margin: 0 auto;
   padding: 10px;
-  
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 100vh;
+}  

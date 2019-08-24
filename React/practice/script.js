@@ -14,6 +14,7 @@ function newTodo() {
   
   let input = document.createElement('input');
   input.setAttribute('type', 'text');  
+  case.appendChild(input);  
 }
   
   

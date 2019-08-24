@@ -10,5 +10,5 @@ const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
 function newTodo() {
-  alert('New TODO button clicked!')
+  let case = document.createElement('div');
 }

@@ -11,4 +11,8 @@ const uncheckedCountSpan = document.getElementById('unchecked-count')
 
 function newTodo() {
   let case = document.createElement('div');
+  
+  let input = document.createElement('input');
 }
+  
+  

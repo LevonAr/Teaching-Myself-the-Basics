@@ -13,6 +13,7 @@ function newTodo() {
   let case = document.createElement('div');
   
   let input = document.createElement('input');
+  input.setAttribute('type', 'text');  
 }
   
   

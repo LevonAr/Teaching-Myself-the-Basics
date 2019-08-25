@@ -5,3 +5,6 @@ const sayHello = (function () {
   }
   return sayHello
 })()
+
+const counter = (function() {
+  let count = 0

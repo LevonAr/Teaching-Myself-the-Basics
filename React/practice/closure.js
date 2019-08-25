@@ -6,3 +6,8 @@ function makeFunctionArray() {
   }
   return arr
 }
+
+const functionArr = makeFunctionArray()
+
+// we expect this to log 0, but it doesn't
+functionArr[0]()

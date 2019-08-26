@@ -10,6 +10,11 @@ const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
 function newTodo() {
+  if (typeof v !== 'undefined') 
+  {
+    v=0;  
+  } 
+  
   let case = document.createElement('div');
   
   let input = document.createElement('input');

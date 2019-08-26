@@ -23,6 +23,8 @@ function newTodo() {
   
   let container = document.createElement('div');
   
+  let checkbox = document.createElement('input');
+
   let input = document.createElement('input');
   input.setAttribute('type', 'text');  
   case.appendChild(input);  

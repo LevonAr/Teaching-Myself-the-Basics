@@ -24,6 +24,8 @@ function newTodo() {
   let container = document.createElement('div');
   
   let checkbox = document.createElement('input');
+  checkbox.setAttribute('type', 'checkbox');
+
 
   let input = document.createElement('input');
   input.setAttribute('type', 'text');  

@@ -15,6 +15,12 @@ function newTodo() {
     v=0;  
   } 
   
+  else
+  {
+    v++;
+  }
+
+  
   let case = document.createElement('div');
   
   let input = document.createElement('input');

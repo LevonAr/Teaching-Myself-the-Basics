@@ -17,7 +17,7 @@ function newTodo() {
   
   else
   {
-    v=0;
+    v=1;
   }
 
   

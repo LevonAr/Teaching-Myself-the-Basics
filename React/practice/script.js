@@ -27,11 +27,10 @@ function newTodo() {
   checkbox.setAttribute('type', 'checkbox');
   container.appendChild(checkbox);
 
-
-
   let input = document.createElement('input');
-  input.setAttribute('type', 'text');  
-  case.appendChild(input);  
+  input.setAttribute('type', 'text');
+  container.appendChild(input);
+
 }
   
   

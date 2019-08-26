@@ -12,12 +12,12 @@ const uncheckedCountSpan = document.getElementById('unchecked-count')
 function newTodo() {
   if (typeof v !== 'undefined') 
   {
-    v=0;  
+    v++;  
   } 
   
   else
   {
-    v++;
+    v=0;
   }
 
   

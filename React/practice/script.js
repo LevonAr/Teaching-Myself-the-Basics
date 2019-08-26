@@ -30,7 +30,8 @@ function newTodo() {
   let input = document.createElement('input');
   input.setAttribute('type', 'text');
   container.appendChild(input);
-
+  
+  list.appendChild(container);
 }
   
   

@@ -9,12 +9,8 @@ const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
-console.log(i);
-
-
-let checkcounter = 0;
-
-function newTodo() {
+function newTodo() 
+{
   if (typeof v !== 'undefined') 
   {
     v++;  
@@ -25,27 +21,36 @@ function newTodo() {
     v=1;
   }
 
-  
+  itemCountSpan.textContent= v;
+
   let container = document.createElement('div');
-  
+
   let checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
   checkbox.setAttribute('class', 'checkGrab');
-  checkbox.setAttribute('onchange', 'countChecks()');
+  checkbox.setAttribute('onchange', 'countChecks()')
   container.appendChild(checkbox);
 
   let input = document.createElement('input');
   input.setAttribute('type', 'text');
   container.appendChild(input);
-  
+
   list.appendChild(container);
+
 }
 
 function countChecks()
 {
   checkObject = document.getElementsByClassName('checkGrab');
+  
+  checkCounter = 0;
 
-  console.log(checkObject[0]);
+  for(i in checkObject)
+  {
+    if (checkObject[i].checked == true)
+    {
+      checkCounter++;
+    } 
+  }
+
 }
-  
-  

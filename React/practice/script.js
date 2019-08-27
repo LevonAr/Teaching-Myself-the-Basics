@@ -21,6 +21,8 @@ function newTodo()
     v=1;
   }
 
+  
+
   itemCountSpan.textContent= v;
 
   let container = document.createElement('div');
@@ -28,7 +30,7 @@ function newTodo()
   let checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
   checkbox.setAttribute('class', 'checkGrab');
-  checkbox.setAttribute('onchange', 'countChecks()')
+  checkbox.setAttribute('onchange', 'countUnChecks()')
   container.appendChild(checkbox);
 
   let input = document.createElement('input');
@@ -39,18 +41,19 @@ function newTodo()
 
 }
 
-function countChecks()
+function countUnChecks()
 {
   checkObject = document.getElementsByClassName('checkGrab');
   
-  checkCounter = 0;
+  let unCheckCounter = 0;
 
   for(i in checkObject)
   {
-    if (checkObject[i].checked == true)
+    if (checkObject[i].checked == false)
     {
-      checkCounter++;
+      unCheckCounter++;
     } 
   }
 
+  return unCheckCounter;
 }

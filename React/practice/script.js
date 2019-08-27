@@ -35,6 +35,7 @@ function newTodo() {
   let checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
   checkbox.setAttribute('class', 'checkGrab');
+  checkbox.setAttribute('onchange', 'countChecks()');
   container.appendChild(checkbox);
 
   let input = document.createElement('input');

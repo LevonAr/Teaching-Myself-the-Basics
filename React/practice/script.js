@@ -9,8 +9,6 @@ const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
-const checkObject = document.getElementsByClassName("checkGrab");
-
 var i = document.getElementsByClassName("checkGrab")[0];
 
 console.log(i);

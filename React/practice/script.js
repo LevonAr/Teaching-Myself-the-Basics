@@ -34,6 +34,7 @@ function newTodo() {
   
   let checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
+  checkbox.setAttribute('class', 'checkGrab');
   container.appendChild(checkbox);
 
   let input = document.createElement('input');

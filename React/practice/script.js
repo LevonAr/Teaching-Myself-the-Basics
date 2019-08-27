@@ -44,5 +44,12 @@ function newTodo() {
   
   list.appendChild(container);
 }
+
+function countChecks()
+{
+  checkObject = document.getElementsByClassName('checkGrab');
+
+  console.log(checkObject[0]);
+}
   
   

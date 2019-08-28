@@ -39,6 +39,11 @@ function newTodo()
 
 }
 
+function postUnChecked()
+{
+  uncheckedCountSpan.textContent = countUnChecks();
+}
+
 function countUnChecks()
 {
   checkObject = document.getElementsByClassName('checkGrab');

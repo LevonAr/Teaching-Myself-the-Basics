@@ -19,9 +19,7 @@ function newTodo()
   else
   {
     v=1;
-  }
-
-  
+  }  
 
   itemCountSpan.textContent= v;
 

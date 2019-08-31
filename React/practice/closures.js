@@ -4,3 +4,6 @@ function makeHelloFunction() {
   function sayHello() {
     console.log(message)
   }
+  
+  return sayHello
+}

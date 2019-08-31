@@ -1,1 +1,1 @@
-function makeFunctionArray() {
+function makeHelloFunction() {

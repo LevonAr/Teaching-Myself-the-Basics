@@ -1,13 +1,13 @@
 function makeFunctionArray() {
-  const arr = []
+  const arr = [];
 
   for (var i = 0; i < 5; i++) {
-    arr.push(function () { console.log(i) })
+    arr.push(function () { console.log(i) });
   }
-  return arr
+  return arr;
 }
 
-const functionArr = makeFunctionArray()
+const functionArr = makeFunctionArray();
 
 // we expect this to log 0, but it doesn't
-functionArr[0]()
+functionArr[0]();

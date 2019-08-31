@@ -15,3 +15,6 @@ console.log('typeof message:', typeof message)
 
 // but the function sayHello still references a variable called message
 console.log(sayHello.toString())
+
+// because of the closure, sayHello still has access to the variables within scope
+// when it was declared

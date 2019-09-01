@@ -7,4 +7,4 @@ const sayHello = (function () {
 })()
 
 const counter = (function() {
-  let count = 0
+ 

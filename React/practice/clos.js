@@ -3,5 +3,3 @@ const sayHello = (function () {
   function sayHello() {
     console.log(message)
   }
-  return sayHello
-})(

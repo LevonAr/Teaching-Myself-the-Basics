@@ -4,7 +4,4 @@ const sayHello = (function () {
     console.log(message)
   }
   return sayHello
-})()
-
-const counter = (function() {
- 
+})(

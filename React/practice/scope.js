@@ -33,4 +33,3 @@ thisIsALet = 50
 var thisIsAVar = 50
 thisIsAVar = 51
 var thisIsAVar = 'new value!'
-

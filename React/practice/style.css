@@ -31,8 +31,4 @@ ul {
   flex-direction: column;
   background-color: white;
   height: 100vh;
-}  
-
-.title, .controls, .button {
-  flex: none;
-}
+} 

@@ -2,3 +2,7 @@
 // the global scope with a function called makeHelloFunction like that example
 const sayHello = (function () {
   var message = 'Hello!'
+
+  function sayHello() {
+    console.log(message)
+  }

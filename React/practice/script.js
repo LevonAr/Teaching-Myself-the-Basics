@@ -37,3 +37,8 @@ function newTodo()
 
   list.appendChild(container);
   
+    let totalUnChecked = countUnChecks();
+
+  uncheckedCountSpan.textContent = totalUnChecked;  
+}
+

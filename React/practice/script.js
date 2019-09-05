@@ -42,3 +42,9 @@ function newTodo()
   uncheckedCountSpan.textContent = totalUnChecked;  
 }
 
+function postUnChecked()
+{
+  uncheckedCountSpan.textContent = countUnChecks();
+}
+
+

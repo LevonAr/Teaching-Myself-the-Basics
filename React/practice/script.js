@@ -21,3 +21,19 @@ function newTodo()
     v=1;
   }  
 
+  itemCountSpan.textContent= v;
+
+  let container = document.createElement('div');
+
+  let checkbox = document.createElement('input');
+  checkbox.setAttribute('type', 'checkbox');
+  checkbox.setAttribute('class', 'checkGrab');
+  checkbox.setAttribute('onchange', 'postUnChecked()')
+  container.appendChild(checkbox);
+
+  let input = document.createElement('input');
+  input.setAttribute('type', 'text');
+  container.appendChild(input);
+
+  list.appendChild(container);
+  

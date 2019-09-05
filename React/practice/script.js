@@ -52,3 +52,14 @@ function countUnChecks()
   checkObject = document.getElementsByClassName('checkGrab');
   
   let unCheckCounter = 0;
+  
+    for(i in checkObject)
+  {
+    if (checkObject[i].checked == false)
+    {
+      unCheckCounter++;
+    } 
+  }
+
+  return unCheckCounter;
+}

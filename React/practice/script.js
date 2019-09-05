@@ -37,7 +37,7 @@ function newTodo()
 
   list.appendChild(container);
   
-    let totalUnChecked = countUnChecks();
+  let totalUnChecked = countUnChecks();
 
   uncheckedCountSpan.textContent = totalUnChecked;  
 }
@@ -52,8 +52,8 @@ function countUnChecks()
   checkObject = document.getElementsByClassName('checkGrab');
   
   let unCheckCounter = 0;
-  
-    for(i in checkObject)
+
+  for(i in checkObject)
   {
     if (checkObject[i].checked == false)
     {

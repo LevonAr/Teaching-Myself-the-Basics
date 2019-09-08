@@ -5,6 +5,7 @@ if (true) {
 
 console.log(lexicallyScoped)
 
+
 // "let" and "const" are block scoped
 if (true) {
   let blockScoped = 'This exists until the next }'

@@ -18,6 +18,7 @@ thisIsAlsoAVariable = "hello"
 
 const thisIsAConst = 50
 
+
 // thisIsAConst++ // error!
 
 const constObj = {}

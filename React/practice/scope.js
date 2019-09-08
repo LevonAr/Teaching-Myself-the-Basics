@@ -12,6 +12,7 @@ if (true) {
   const alsoBlockScoped = 'As does this'
 }
 
+
 // this variable doesn't exist
 console.log(typeof blockScoped)
 

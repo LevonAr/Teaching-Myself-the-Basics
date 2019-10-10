@@ -1,1 +1,1 @@
-let uncheckedCount
+let uncheckedCount= 0;

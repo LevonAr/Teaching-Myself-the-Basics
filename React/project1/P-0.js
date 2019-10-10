@@ -4,4 +4,6 @@ const itemCountSpan = document.getElementById('item-count');
 
 const itemCountSpan = document.getElementById('item-count');
 
-function renderCounters
+function renderCounters() {
+  uncheckedCountSpan.innerHTML = uncheckedCount;
+}

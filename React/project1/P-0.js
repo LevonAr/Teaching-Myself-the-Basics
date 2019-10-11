@@ -29,4 +29,7 @@ function addTodo(todo) {
 // Create list item
   const li = document.createElement('li');
 
+// Create checkbox inside list item
+  const input = document.createElement('input');
+  input.setAttribute('type', 'checkbox');
 

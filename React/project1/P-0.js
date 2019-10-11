@@ -32,4 +32,7 @@ function addTodo(todo) {
 // Create checkbox inside list item
   const input = document.createElement('input');
   input.setAttribute('type', 'checkbox');
-
+    if (event.target.checked) {
+      uncheckedCount -= 1;
+      event.target.parentElement.childNodes[1].setAttribute('class', 'isChecked');
+    }

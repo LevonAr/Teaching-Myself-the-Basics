@@ -26,3 +26,7 @@ function renderCounters() {
 function addTodo(todo) {
   itemCount += 1;
 
+// Create list item
+  const li = document.createElement('li');
+
+
